@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import {Routes,Route} from 'react-router-dom'
-import Home from './pages/Home/Home'
-import Header from './component/Header/Header'
+import Home from './pages/PagesClient/Home/Home'
+import Header from './component/Client/Header/Header'
 import LayoutClient from './layout/LayoutClient/LayoutClient'
-import HeaderNoSlider from './component/HeaderNoSlider/HeaderNoSlider'
-import Product from './pages/MenuProduct/MenuProduct'
-import About from './pages/About/About'
+import HeaderNoSlider from './component/Client/HeaderNoSlider/HeaderNoSlider'
+import Product from './pages/PagesClient/MenuProduct/MenuProduct'
+import About from './pages/PagesClient/About/About'
 function App() {
   const [count, setCount] = useState(0)
 

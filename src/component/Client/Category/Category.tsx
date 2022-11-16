@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { ICategory } from '../../interface/category';
+import { ICategory } from '../../../interface/category';
 import axios from 'axios';
 type Props = {}
 

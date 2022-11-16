@@ -1,6 +1,6 @@
 import React from "react";
-import Category from "../../component/Category/Category";
-import Product from "../../component/Product/Product";
+import Category from "../../../component/Client/Category/Category";
+import Product from "../../../component/Client/Product/Product";
 
 type Props = {};
 

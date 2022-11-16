@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { IProduct } from "../../interface/product";
-import { ICategory } from "../../interface/category";
+import { IProduct } from "../../../interface/product";
+import { ICategory } from "../../../interface/category";
 import {Link} from 'react-router-dom'
-import Category from "../../component/Category/Category";
-import Product from "../../component/Product/Product";
+import Category from "../../../component/Client/Category/Category";
+import Product from "../../../component/Client/Product/Product";
 type Props = {};
 
 const Home = (props: Props) => {
