@@ -1,42 +1,49 @@
 import axios from "axios";
 import React from "react";
-import { useForm,SubmitHandler } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { IProduct } from "../../../../interface/product";
 
 type Props = {};
 
 const AddProduct = (props: Props) => {
-    const navigate = useNavigate();
-    const {
-        register,
-        handleSubmit,
-        formState:{
-            errors
-        }
-    } = useForm<IProduct>();
+  const navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IProduct>();
 
-    const onSubmit:SubmitHandler <IProduct> =async (product) => {
-        try {
-            const {data} = await axios.post(`http://localhost:3000/product`,product)
-            console.log("data",data)
-            navigate('/admin/product')
-        } catch (error) {
-            
-        }
-    }
-    return (
+  const onSubmit: SubmitHandler<IProduct> = async (product) => {
+    console.log(product.FileList)
+
+    try {
+      const { data } = await axios.post(
+        `http://localhost:3000/product`,
+        product
+      );
+      console.log("data", data);
+      navigate("/admin/product");
+    } catch (error) {}
+
+
+  };
+  return (
     <div className="container-fluid px-4 addProductInfo">
-        <div className="title_product">
-          <div className="">
-            <h1 className="mt-4">Thêm mới sản phẩm</h1>
-          </div>
-          <div className="addProduct">
-            <Link type="button" to="/admin/addProduct" className="btn btn-success">
-              Thêm mới
-            </Link>
-          </div>
+      <div className="title_product">
+        <div className="">
+          <h1 className="mt-4">Thêm mới sản phẩm</h1>
         </div>
+        <div className="addProduct">
+          <Link
+            type="button"
+            to="/admin/addProduct"
+            className="btn btn-success"
+          >
+            Thêm mới
+          </Link>
+        </div>
+      </div>
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="row">
@@ -47,7 +54,7 @@ const AddProduct = (props: Props) => {
               <input
                 type="text"
                 className="form-control"
-                {...register('productName')}
+                {...register("productName")}
               />
             </div>
             <div className="">
@@ -57,7 +64,7 @@ const AddProduct = (props: Props) => {
                 type="text"
                 className="form-control"
                 id=""
-                {...register('price')}
+                {...register("price")}
               />
             </div>
             <div className="">
@@ -66,7 +73,7 @@ const AddProduct = (props: Props) => {
               <input
                 type="file"
                 className="form-control"
-                {...register('image')}
+                // {...register('FileList')}
               />
             </div>
           </div>
@@ -77,7 +84,7 @@ const AddProduct = (props: Props) => {
               <select
                 className="form-select"
                 aria-label="Default select example"
-                {...register('category')}
+                {...register("category")}
               >
                 <option selected>Open this select menu</option>
                 <option value="1">One</option>
@@ -92,7 +99,7 @@ const AddProduct = (props: Props) => {
               <textarea
                 className="form-control"
                 id="inputProductName"
-                {...register('description')}
+                {...register("description")}
                 cols={10}
                 rows={4}
               />
