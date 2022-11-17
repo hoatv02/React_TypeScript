@@ -131,7 +131,8 @@ a:focus {
   -o-object-fit: cover;
   object-fit: cover;
 }
-
+.img_product{
+}
 .sub_page .hero_area {
   min-height: auto;
 }

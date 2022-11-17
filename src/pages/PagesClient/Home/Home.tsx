@@ -4,7 +4,7 @@ import { IProduct } from "../../../interface/product";
 import { ICategory } from "../../../interface/category";
 import {Link} from 'react-router-dom'
 import Category from "../../../component/Client/Category/Category";
-import Product from "../../../component/Client/Product/Product";
+import ListProduct from "../../../component/Client/ListProduct/ListProduct";
 type Props = {};
 
 const Home = (props: Props) => {
@@ -150,7 +150,7 @@ const Home = (props: Props) => {
             {<Category/>}
           <div className="filters-content">
             <div className="row grid">
-              {<Product/>}
+              {<ListProduct/>}
             </div>
           </div>
           <div className="btn-box">

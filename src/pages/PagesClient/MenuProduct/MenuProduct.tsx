@@ -1,10 +1,10 @@
 import React from "react";
 import Category from "../../../component/Client/Category/Category";
-import Product from "../../../component/Client/Product/Product";
+import ListProduct from "../../../component/Client/ListProduct/ListProduct";
 
 type Props = {};
 
-const Products = (props: Props) => {
+const MenuProducts = (props: Props) => {
   return (
     <div>
       <section className="food_section layout_padding">
@@ -14,7 +14,7 @@ const Products = (props: Props) => {
           </div>
           {<Category />}
           <div className="filters-content">
-                {<Product />}
+            {<ListProduct/>}
           </div>
           <div className="btn-box">
             <a href="">View More</a>
@@ -25,4 +25,4 @@ const Products = (props: Props) => {
   );
 };
 
-export default Products;
+export default MenuProducts;

@@ -3,7 +3,7 @@ import { IProduct } from "../../../interface/product";
 import axios from "axios";
 type Props = {};
 
-const Product = (props: Props) => {
+const ListProduct = (props: Props) => {
   const [data, setData] = useState<IProduct[]>([]);
   useEffect(() => {
     (async () => {
@@ -22,7 +22,7 @@ const Product = (props: Props) => {
             <div className="box">
               <div>
                 <div className="img-box">
-                  <img src={item.image} alt="" />
+                  <img className="img_product" src={item.image} alt="" />
                 </div>
                 <div className="detail-box">
                   <h5>{item.productName}</h5>
@@ -41,4 +41,4 @@ const Product = (props: Props) => {
   );
 };
 
-export default Product;
+export default ListProduct;
