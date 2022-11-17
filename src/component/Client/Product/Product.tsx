@@ -18,7 +18,7 @@ const Product = (props: Props) => {
     <div className="row grid ">
       {data.map((item, index) => {
         return (
-          <div className="col-sm-3 col-lg-3 all pizza" key={index}>
+          <div className="col-sm-6 col-lg-3 all pizza" key={index}>
             <div className="box">
               <div>
                 <div className="img-box">

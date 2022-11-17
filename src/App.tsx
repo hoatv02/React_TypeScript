@@ -6,21 +6,17 @@ import LayoutClient from './layout/LayoutClient/LayoutClient'
 import HeaderNoSlider from './component/Client/HeaderNoSlider/HeaderNoSlider'
 import Product from './pages/PagesClient/MenuProduct/MenuProduct'
 import About from './pages/PagesClient/About/About'
+import Admin from './Routes/RoutesAdmin/Admin'
+import Client from './Routes/RoutesClient/Client'
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <div className="App">
-      <Routes>
-        <Route path='/' element={<LayoutClient/>}>
-            <Route index element={<Home/>}/>
-            <Route path="/product" element={<Product />}/>
-            <Route path="/about" element={<About />}/>
-        </Route>
-        <Route path="*" element={<h1>Not Found</h1>} />
-      </Routes>
-
-    </div>
+    <Routes>
+      <Route  path="/admin/*"element={<Admin/>}/>
+      <Route  path="*"element={<Client />}/>
+      {/* <Route path="*" element={<h1>Not Found</h1>} /> */}
+    </Routes>
+  </div>
   )
 }
 

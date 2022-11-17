@@ -7,9 +7,9 @@ type Props = {}
 const LayoutClient = (props: Props) => {
   return (
     <div>
-        {<Header/>}
-        {<Outlet />}
-        {<Footer/>}
+        <Header/>
+        <Outlet />
+        <Footer/>
     </div>
   )
 }
