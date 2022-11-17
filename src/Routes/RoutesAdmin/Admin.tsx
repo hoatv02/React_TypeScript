@@ -1,6 +1,9 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import LayoutAdmin from '../../layout/LayoutAdmin/LayoutAdmin'
+import Dashboard from '../../pages/PagesAmin/Dashboard/Dashboard'
+import ListCategoryManage from '../../pages/PagesAmin/ListCategoryManage/ListCategoryManage'
+import ListProductManage from '../../pages/PagesAmin/ListProductManage/ListProductManage'
 
 type Props = {}
 
@@ -9,8 +12,9 @@ const Admin = (props: Props) => {
     <>
     <Routes>
       <Route path="/" element={<LayoutAdmin />}>
-        <Route index element={<h1>Admin home</h1>} />
-        <Route path="/a" element={<h1>Product home</h1>} />
+        <Route index element={<Dashboard/>} />
+        <Route path="/product" element={<ListProductManage />} />
+        <Route path="/category" element={<ListCategoryManage />} />
         {/* <Route path="/product" element={<Product />}/> */}
         {/* <Route path="/about" element={<About />}/> */}
         {/* <Route path="*" element={<h1>Not Found</h1>} /> */}
