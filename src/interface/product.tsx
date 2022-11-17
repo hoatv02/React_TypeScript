@@ -5,4 +5,5 @@ export interface IProduct {
     description:string;
     title: string;
     image:string;
+    category: string;
 }

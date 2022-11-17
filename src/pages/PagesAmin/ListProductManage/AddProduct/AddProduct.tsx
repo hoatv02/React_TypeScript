@@ -1,12 +1,13 @@
 import axios from "axios";
 import React from "react";
 import { useForm,SubmitHandler } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IProduct } from "../../../../interface/product";
 
 type Props = {};
 
 const AddProduct = (props: Props) => {
+    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
@@ -15,9 +16,11 @@ const AddProduct = (props: Props) => {
         }
     } = useForm<IProduct>();
 
-    const onSubmit:SubmitHandler <IProduct> =async () => {
+    const onSubmit:SubmitHandler <IProduct> =async (product) => {
         try {
-            const {data} = await axios.post(``)
+            const {data} = await axios.post(`http://localhost:3000/product`,product)
+            console.log("data",data)
+            navigate('/admin/product')
         } catch (error) {
             
         }
@@ -44,7 +47,7 @@ const AddProduct = (props: Props) => {
               <input
                 type="text"
                 className="form-control"
-                id="inputProductName"
+                {...register('productName')}
               />
             </div>
             <div className="">
@@ -53,7 +56,8 @@ const AddProduct = (props: Props) => {
               <input
                 type="text"
                 className="form-control"
-                id="inputProductName"
+                id=""
+                {...register('price')}
               />
             </div>
             <div className="">
@@ -62,7 +66,7 @@ const AddProduct = (props: Props) => {
               <input
                 type="file"
                 className="form-control"
-                id="inputProductName"
+                {...register('image')}
               />
             </div>
           </div>
@@ -73,6 +77,7 @@ const AddProduct = (props: Props) => {
               <select
                 className="form-select"
                 aria-label="Default select example"
+                {...register('category')}
               >
                 <option selected>Open this select menu</option>
                 <option value="1">One</option>
@@ -87,6 +92,7 @@ const AddProduct = (props: Props) => {
               <textarea
                 className="form-control"
                 id="inputProductName"
+                {...register('description')}
                 cols={10}
                 rows={4}
               />
