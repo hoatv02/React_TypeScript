@@ -1026,5 +1026,8 @@ a:focus {
 .footer_section .footer-info p a {
   color: inherit;
 }
+.img_product{
+width: 100%;
+}
 
 /*# sourceMappingURL=style.css.map */

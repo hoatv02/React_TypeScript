@@ -20,7 +20,6 @@ const ListProduct = (props: Props) => {
         return (
           <div className="col-sm-6 col-lg-3 all pizza" key={index}>
             <div className="box">
-              <div>
                 <div className="img-box">
                   <img className="img_product" src={item.image} alt="" />
                 </div>
@@ -30,7 +29,6 @@ const ListProduct = (props: Props) => {
                   <div className="options">
                     <h6>Price : {item.price}</h6>
                     <a href=""></a>
-                  </div>
                 </div>
               </div>
             </div>
