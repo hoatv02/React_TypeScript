@@ -3,7 +3,7 @@ import axios from "axios";
 import { IProduct } from "../../../interface/product";
 import { ICategory } from "../../../interface/category";
 import {Link} from 'react-router-dom'
-import Category from "../../../component/Client/Category/Category";
+import ListCategory from "../../../component/Client/ListCategory/ListCategory";
 import ListProduct from "../../../component/Client/ListProduct/ListProduct";
 type Props = {};
 
@@ -147,7 +147,7 @@ const Home = (props: Props) => {
           <div className="heading_container heading_center">
             <h2>Our Menu</h2>
           </div>
-            {<Category/>}
+            {<ListCategory/>}
           <div className="filters-content">
             <div className="row grid">
               {<ListProduct/>}

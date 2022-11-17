@@ -3,7 +3,7 @@ import { ICategory } from '../../../interface/category';
 import axios from 'axios';
 type Props = {}
 
-const Category = (props: Props) => {
+const ListCategory = (props: Props) => {
     const [category, setCategory] = useState<ICategory[]>([]);
 
     useEffect(() => {
@@ -28,4 +28,4 @@ const Category = (props: Props) => {
   )
 }
 
-export default Category
+export default ListCategory
