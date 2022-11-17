@@ -115,7 +115,10 @@ a:focus {
   left: 0;
   width: 100%;
   background: #222831;
-  height: 100px;
+  height: 116px;
+}
+a{
+  text-decoration: none !important;
 }
 .bg-box {
   position: absolute;

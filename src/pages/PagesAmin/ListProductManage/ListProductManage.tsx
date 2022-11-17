@@ -11,11 +11,11 @@ const ListProductManage = (props: Props) => {
     (async () => {
       try {
         const { data } = await axios.get(`http://localhost:3000/product`);
-        console.log(data.data);
+        // console.log(data.data);
         setProduct(data.data);
       } catch (error) {}
     })();
-  }, []);
+  }, [product]);
 
   const removeItem = async (id?:number)=>{
     try {
@@ -24,6 +24,7 @@ const ListProductManage = (props: Props) => {
       setProduct(product.filter((item)=>
         item._id !== data.id
       )) 
+
     } catch (error) {
       
     }
@@ -55,12 +56,14 @@ const ListProductManage = (props: Props) => {
             <table className="table table-hover">
               <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Position</th>
-                  <th>Office</th>
-                  <th>Age</th>
-                  <th>Start date</th>
-                  <th>Salary</th>
+                  <th>STT</th>
+                  <th>Product Name</th>
+                  <th>Price</th>
+                  <th>Category</th>
+                  <th>Image</th>
+                  <th>Description</th>
+                  <th>Action</th>
+
                 </tr>
               </thead>
               <tbody>
@@ -70,10 +73,11 @@ const ListProductManage = (props: Props) => {
                       <td>{index + 1}</td>
                       <td>{item.productName}</td>
                       <td>{item.price}</td>
+                      <td>{item.price}</td>
                       <td>{item.category}</td>
                       <td>{item.description}</td>
                       <td>
-                        <button>Edit</button>
+                        <Link to={`/admin/editProduct/${item._id}`}>Edit</Link>
                         <button onClick={() =>removeItem(item._id!)}>Delete</button>
                       </td>
                     </tr>

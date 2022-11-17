@@ -1,27 +1,38 @@
 import axios from "axios";
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { IProduct } from "../../../../interface/product";
 
 type Props = {};
 
-const AddProduct = (props: Props) => {
+const EditProduct = (props: Props) => {
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<IProduct>();
 
+  const {id} = useParams();
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data } = await axios.get(`http://localhost:3000/product/`+ id);
+        // console.log(data)
+        reset(data.data);
+      } catch (error) {}
+    })();
+  }, []);
+  
   const onSubmit: SubmitHandler<IProduct> = async (product) => {
-    console.log(product.FileList)
+    // console.log(product.FileList);
     try {
-      const { data } = await axios.post(
-        `http://localhost:3000/product`,
-        product
+      const { data } = await axios.put(
+        `http://localhost:3000/product/${id}`,product
       );
-      console.log("data", data);
       navigate("/admin/product");
     } catch (error) {}
   };
@@ -29,7 +40,7 @@ const AddProduct = (props: Props) => {
     <div className="container-fluid px-4 addProductInfo">
       <div className="title_product">
         <div className="">
-          <h1 className="mt-4">Thêm mới sản phẩm</h1>
+          <h1 className="mt-4">Chỉnh sửa sản phẩm</h1>
         </div>
         <div className="addProduct">
           <Link
@@ -84,9 +95,9 @@ const AddProduct = (props: Props) => {
                 {...register("category")}
               >
                 <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option value="One">One</option>
+                <option value="Two">Two</option>
+                <option value="Three">Three</option>
               </select>
             </div>
 
@@ -103,10 +114,10 @@ const AddProduct = (props: Props) => {
             </div>
           </div>
         </div>
-        <button className="btn btn-success btnAdd">Thêm mới</button>
+        <button className="btn btn-success btnAdd">Chỉnh sửa</button>
       </form>
     </div>
   );
 };
 
-export default AddProduct;
+export default EditProduct;

@@ -4,6 +4,7 @@ import LayoutAdmin from '../../layout/LayoutAdmin/LayoutAdmin'
 import Dashboard from '../../pages/PagesAmin/Dashboard/Dashboard'
 import ListCategoryManage from '../../pages/PagesAmin/ListCategoryManage/ListCategoryManage'
 import AddProduct from '../../pages/PagesAmin/ListProductManage/AddProduct/AddProduct'
+import EditProduct from '../../pages/PagesAmin/ListProductManage/EditProduct/EditProduct'
 import ListProductManage from '../../pages/PagesAmin/ListProductManage/ListProductManage'
 
 type Props = {}
@@ -17,7 +18,7 @@ const Admin = (props: Props) => {
         <Route path="/product" element={<ListProductManage />} />
         <Route path="/category" element={<ListCategoryManage />} />
         <Route path="/addProduct" element={<AddProduct />} />
-
+        <Route path="/editProduct/:id" element={<EditProduct />} />
         {/* <Route path="/product" element={<Product />}/> */}
         {/* <Route path="/about" element={<About />}/> */}
         {/* <Route path="*" element={<h1>Not Found</h1>} /> */}
