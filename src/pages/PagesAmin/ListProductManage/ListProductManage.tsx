@@ -1,9 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 type Props = {};
 
 const ListProductManage = (props: Props) => {
   return (
+
     <main>
       <div className="container-fluid px-4">
         <div className="title_product">
@@ -11,9 +13,9 @@ const ListProductManage = (props: Props) => {
             <h1 className="mt-4">Manage Products</h1>
           </div>
           <div className="addProduct">
-            <button type="button" className="btn btn-success">
+            <Link type="button" to="/admin/addProduct" className="btn btn-success">
               Thêm mới
-            </button>
+            </Link>
           </div>
         </div>
 

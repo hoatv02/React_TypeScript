@@ -75,6 +75,9 @@
     scroll-behavior: smooth;
   }
 }
+.btnAdd{
+  margin-top: 30px;
+}
 .title_product{
   display:inline-flex;
   justify-content:space-between;
