@@ -43,13 +43,13 @@ const EditProduct = (props: Props) => {
           <h1 className="mt-4">Chỉnh sửa sản phẩm</h1>
         </div>
         <div className="addProduct">
-          <Link
+          {/* <Link
             type="button"
             to="/admin/addProduct"
             className="btn btn-success"
           >
             Thêm mới
-          </Link>
+          </Link> */}
         </div>
       </div>
 

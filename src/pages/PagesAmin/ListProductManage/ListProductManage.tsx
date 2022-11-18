@@ -15,20 +15,17 @@ const ListProductManage = (props: Props) => {
         setProduct(data.data);
       } catch (error) {}
     })();
-  }, [product]);
+  }, []);
 
-  const removeItem = async (id?:number)=>{
+  const removeItem = async (id?: number) => {
     try {
-      const {data} = await axios.delete(`http://localhost:3000/product/${id}`)
-      console.log("data",data)
-      setProduct(product.filter((item)=>
-        item._id !== data.id
-      )) 
-
-    } catch (error) {
-      
-    }
-  }
+      const { data } = await axios.delete(
+        `http://localhost:3000/product/${id}`
+      );
+      console.log("data", data);
+      setProduct(product.filter((item) => item._id !== data.id));
+    } catch (error) {}
+  };
   return (
     <main>
       <div className="container-fluid px-4">
@@ -63,7 +60,6 @@ const ListProductManage = (props: Props) => {
                   <th>Image</th>
                   <th>Description</th>
                   <th>Action</th>
-
                 </tr>
               </thead>
               <tbody>
@@ -77,8 +73,15 @@ const ListProductManage = (props: Props) => {
                       <td>{item.category}</td>
                       <td>{item.description}</td>
                       <td>
-                        <Link to={`/admin/editProduct/${item._id}`}>Edit</Link>
-                        <button onClick={() =>removeItem(item._id!)}>Delete</button>
+                        <Link
+                          type="button"
+                          to={`/admin/editProduct/${item._id}`}
+                          className="btn btn-primary"
+                        >Edit</Link>
+                       
+                        <button onClick={() => removeItem(item._id!)} className="btn btn-danger">
+                          Delete
+                        </button>
                       </td>
                     </tr>
                   );

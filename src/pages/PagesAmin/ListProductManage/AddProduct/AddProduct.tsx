@@ -84,9 +84,9 @@ const AddProduct = (props: Props) => {
                 {...register("category")}
               >
                 <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option value="One">One</option>
+                <option value="Two">Two</option>
+                <option value="Three">Three</option>
               </select>
             </div>
 

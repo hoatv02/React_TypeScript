@@ -1,8 +1,21 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { ICategory } from "../../../interface/category";
 
 type Props = {};
 
 const ListCategoryManage = (props: Props) => {
+  const [category, setCategory] = useState<ICategory[]>([]);
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data } = await axios.get(`http://localhost:3000/category`);
+        // console.log(data.data);
+        setCategory(data.data);
+      } catch (error) {}
+    })();
+  }, [category]);
+
   return (
     <div>
       {" "}
@@ -29,30 +42,26 @@ const ListCategoryManage = (props: Props) => {
                   <tr>
                     <th>STT</th>
                     <th>Product Name</th>
-                    <th>Price</th>
-                    <th>Category</th>
-                    <th>Image</th>
-                    <th>Description</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Michael Bruce</td>
-                    <td>Javascript Developer</td>
-                    <td>Singapore</td>
-                    <td>29</td>
-                    <td>2011/06/27</td>
-                    <td>$183,000</td>
-                  </tr>
-                  <tr>
-                    <td>Donna Snider</td>
-                    <td>Customer Support</td>
-                    <td>New York</td>
-                    <td>27</td>
-                    <td>2011/01/25</td>
-                    <td>$112,000</td>
-                  </tr>
+                  {category.map((item, index) => {
+                    return (
+                      <tr key={index}>
+                        <td>{index + 1}</td>
+                        <td>{item.categoryName}</td>
+                        <td>
+                            <button>
+                                Edit
+                            </button>
+                            <button>
+                                Remove
+                            </button>
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
