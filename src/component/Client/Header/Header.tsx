@@ -32,22 +32,22 @@ const Header = (props: Props) => {
                 <ul className="navbar-nav  mx-auto ">
                   <li className="nav-item active">
                     <Link className="nav-link" to="/">
-                      Home <span className="sr-only">(current)</span>
+                      Trang chủ <span className="sr-only">(current)</span>
                     </Link>
                   </li>
                   <li className="nav-item">
                     <Link className="nav-link" to="/product">
-                      Menu
+                      Sản phẩm
                     </Link>
                   </li>
                   <li className="nav-item">
                     <Link className="nav-link" to="/about">
-                      About
+                      Thông tin
                     </Link>
                   </li>
                   <li className="nav-item">
                     <Link className="nav-link" to="/">
-                      Book Table
+                      Đặt bàn
                     </Link>
                   </li>
                 </ul>
@@ -65,7 +65,7 @@ const Header = (props: Props) => {
                     </button>
                   </form>
                   <Link to="" className="order_online">
-                    Order Online
+                    Đặt hàng Online
                   </Link>
                 </div>
               </div>

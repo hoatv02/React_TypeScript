@@ -26,7 +26,9 @@ const ListCategoryManage = (props: Props) => {
         `http://localhost:3000/category/${id}`
       );
       // console.log("data", data);
-      setCategory(category.filter((item) => item._id !== data._id));
+      // setCategory(category.filter((item) => item._id !== data._id));
+      console.log(data);
+      setCategory(category.filter((item) => item._id !== data.category._id));
     } catch (error) {}
   };
   return (
@@ -39,13 +41,13 @@ const ListCategoryManage = (props: Props) => {
               <h1 className="mt-4">Manage Category</h1>
             </div>
             <div className="addProduct">
-            <Link
-              type="button"
-              to="/admin/addCategory"
-              className="btn btn-success"
-            >
-              Thêm mới
-            </Link>
+              <Link
+                type="button"
+                to="/admin/addCategory"
+                className="btn btn-success"
+              >
+                Thêm mới
+              </Link>
             </div>
           </div>
           <div className="card mb-4">
@@ -70,12 +72,18 @@ const ListCategoryManage = (props: Props) => {
                         <td>{index + 1}</td>
                         <td>{item.categoryName}</td>
                         <td>
-                            <Link to={`/admin/editCategory/${item._id}`} className="btn btn-primary">
-                                Edit
-                            </Link>
-                            <button onClick={() => removeItem(item._id!)} className="btn btn-danger">
-                          Delete
-                        </button>
+                          <Link
+                            to={`/admin/editCategory/${item._id}`}
+                            className="btn btn-primary"
+                          >
+                            Edit
+                          </Link>
+                          <button
+                            onClick={() => removeItem(item._id!)}
+                            className="btn btn-danger"
+                          >
+                            Delete
+                          </button>
                         </td>
                       </tr>
                     );

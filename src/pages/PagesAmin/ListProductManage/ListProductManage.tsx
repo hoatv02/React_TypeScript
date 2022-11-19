@@ -23,7 +23,7 @@ const ListProductManage = (props: Props) => {
         `http://localhost:3000/product/${id}`
       );
       console.log("data", data);
-      setProduct(product.filter((item) => item._id !== data.id));
+      setProduct(product.filter((item) => item._id !== id));
     } catch (error) {}
   };
   return (
@@ -69,8 +69,8 @@ const ListProductManage = (props: Props) => {
                       <td>{index + 1}</td>
                       <td>{item.productName}</td>
                       <td>{item.price}</td>
-                      <td>{item.price}</td>
                       <td>{item.category}</td>
+                      <td><img src={item.FileList}/></td>
                       <td>{item.description}</td>
                       <td>
                         <Link

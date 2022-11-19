@@ -70,7 +70,7 @@ const AddProduct = (props: Props) => {
               <input
                 type="file"
                 className="form-control"
-                // {...register('FileList')}
+                {...register('FileList')}
               />
             </div>
           </div>
