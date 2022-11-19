@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { ICategory } from "../../../interface/category";
 
 type Props = {};
@@ -14,8 +15,16 @@ const ListCategoryManage = (props: Props) => {
         setCategory(data.data);
       } catch (error) {}
     })();
-  }, [category]);
-
+  }, []);
+  const removeItem = async (id?: number) => {
+    try {
+      const { data } = await axios.delete(
+        `http://localhost:3000/category/${id}`
+      );
+      console.log("data", data);
+      setCategory(category.filter((item) => item._id !== data._id));
+    } catch (error) {}
+  };
   return (
     <div>
       {" "}
@@ -26,9 +35,13 @@ const ListCategoryManage = (props: Props) => {
               <h1 className="mt-4">Manage Category</h1>
             </div>
             <div className="addProduct">
-              <button type="button" className="btn btn-success">
-                Thêm mới
-              </button>
+            <Link
+              type="button"
+              to="/admin/addCategory"
+              className="btn btn-success"
+            >
+              Thêm mới
+            </Link>
             </div>
           </div>
           <div className="card mb-4">
@@ -47,17 +60,18 @@ const ListCategoryManage = (props: Props) => {
                 </thead>
                 <tbody>
                   {category.map((item, index) => {
+                    console.log(item)
                     return (
                       <tr key={index}>
                         <td>{index + 1}</td>
                         <td>{item.categoryName}</td>
                         <td>
-                            <button>
+                            <Link to={`/admin/editCategory/${item._id}`}>
                                 Edit
-                            </button>
-                            <button>
-                                Remove
-                            </button>
+                            </Link>
+                            <button onClick={() => removeItem(item._id!)} className="btn btn-danger">
+                          Delete
+                        </button>
                         </td>
                       </tr>
                     );

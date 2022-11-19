@@ -22,7 +22,7 @@ const Admin = (props: Props) => {
         <Route path="/addProduct" element={<AddProduct />} />
         <Route path="/editProduct/:id" element={<EditProduct />} />
         <Route path="/addCategory" element={<AddCategory />} />
-        <Route path="/editCategory" element={<EditCategory />} />
+        <Route path="/editCategory/:id" element={<EditCategory />} />
 
         {/* <Route path="/product" element={<Product />}/> */}
         {/* <Route path="/about" element={<About />}/> */}
