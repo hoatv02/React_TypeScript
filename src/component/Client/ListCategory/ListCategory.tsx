@@ -9,9 +9,9 @@ const ListCategory = (props: Props) => {
     useEffect(() => {
         (async () => {
           const { data } = await axios.get(
-            `https://6348bde0a59874146b0fee0c.mockapi.io/categoy`
+            `http://localhost:3000/category`
           );
-          setCategory(data);
+          setCategory(data.data);
         })();
       }, []);
     

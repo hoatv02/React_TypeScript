@@ -15,13 +15,17 @@ const ListCategoryManage = (props: Props) => {
         setCategory(data.data);
       } catch (error) {}
     })();
+
+    // return ()=>{
+    //   category
+    // }
   }, []);
   const removeItem = async (id?: number) => {
     try {
       const { data } = await axios.delete(
         `http://localhost:3000/category/${id}`
       );
-      console.log("data", data);
+      // console.log("data", data);
       setCategory(category.filter((item) => item._id !== data._id));
     } catch (error) {}
   };
@@ -60,13 +64,13 @@ const ListCategoryManage = (props: Props) => {
                 </thead>
                 <tbody>
                   {category.map((item, index) => {
-                    console.log(item)
+                    // console.log(item)
                     return (
                       <tr key={index}>
                         <td>{index + 1}</td>
                         <td>{item.categoryName}</td>
                         <td>
-                            <Link to={`/admin/editCategory/${item._id}`}>
+                            <Link to={`/admin/editCategory/${item._id}`} className="btn btn-primary">
                                 Edit
                             </Link>
                             <button onClick={() => removeItem(item._id!)} className="btn btn-danger">

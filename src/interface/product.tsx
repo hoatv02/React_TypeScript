@@ -6,4 +6,5 @@ export interface IProduct {
     title: string;
     FileList: any;
     category: string;
+    
 }

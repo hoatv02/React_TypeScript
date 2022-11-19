@@ -8,9 +8,9 @@ const ListProduct = (props: Props) => {
   useEffect(() => {
     (async () => {
       const { data } = await axios.get(
-        `https://6348bde0a59874146b0fee0c.mockapi.io/product`
+        `http://localhost:3000/product`
       );
-      setData(data);
+      setData(data.data);
     })();
   }, []);
 
@@ -21,7 +21,7 @@ const ListProduct = (props: Props) => {
           <div className="col-sm-6 col-lg-3 all pizza" key={index}>
             <div className="box">
                 <div className="img-box">
-                  <img className="img_product" src={item.image} alt="" />
+                  <img className="img_product" src={item.FileList} alt="" />
                 </div>
                 <div className="detail-box">
                   <h5>{item.productName}</h5>
