@@ -70,7 +70,7 @@ const ListProductManage = (props: Props) => {
                       <td>{item.productName}</td>
                       <td>{item.price}</td>
                       <td>{item.category}</td>
-                      {/* <td><img src={item.FileList}/></td> */}
+                      <td><img src={item.image} style={{width:"120px"}}/></td>
                       <td></td>
                       <td>{item.description}</td>
                       <td>

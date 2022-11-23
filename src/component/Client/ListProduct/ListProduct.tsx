@@ -14,14 +14,17 @@ const ListProduct = (props: Props) => {
   }, []);
 
   return (
-    <div className="row grid ">
-      {data.map((item, index) => {
-        return (
-          <Link to={`/productDetail/${item._id}`}>
+    <div className="row grid listProduct">
+      {data.map((item, index)  => {
+        if(index <8){
+          return (
+          
             <div className="col-sm-6 col-lg-3 all pizza" key={index}>
               <div className="box">
                 <div className="img-box">
-                  <img className="img_product" src={item.FileList} alt="" />
+                <Link to={`/productDetail/${item._id}`}>
+                  <img className="img_product" src={item.image} style={{borderRadius:"5px"}} alt="" />
+               </Link>
                 </div>
                 <div className="detail-box">
                   <h5>{item.productName}</h5>
@@ -34,8 +37,9 @@ const ListProduct = (props: Props) => {
                 </div>
               </div>
             </div>
-          </Link>
         );
+        }
+        
       })}
     </div>
   );

@@ -6,6 +6,8 @@ import { IProduct } from "../../../../interface/product";
 
 type Props = {};
 const AddProduct = (props: Props) => {
+  const [files,setFiles] = useState<IProduct[]>([])
+  const [image,setImage] = useState()
   const navigate = useNavigate();
   const {
     register,
@@ -65,8 +67,9 @@ const AddProduct = (props: Props) => {
               <label className="col-sm-2 col-form-label">Image</label>
               <br />
               <input
-                type="file"
+                type="text"
                 className="form-control"
+                {...register('image')}
               />
             </div>
           </div>

@@ -4,6 +4,6 @@ export interface IProduct {
     price:number;
     description:string;
     title: string;
-    FileList: File;
+    image: string;
     category: string;
 }

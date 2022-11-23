@@ -149,10 +149,8 @@ const Home = (props: Props) => {
             <h2>Our Menu</h2>
           </div>
             {<ListCategory/>}
-          <div className="filters-content">
-            <div className="row grid">
+          <div className="filters-content listProduct">
               {<ListProduct/>}
-            </div>
           </div>
           <div className="btn-box">
             <ViewMoreProduct/>

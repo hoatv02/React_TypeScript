@@ -6,8 +6,7 @@ const Header = (props: Props) => {
   return (
     <div className="marignbt">
       <div className="hero_area">
-        <div className="bg-boxs">
-        </div>
+        <div className="bg-boxs"></div>
         <header className="header_section">
           <div className="container">
             <nav className="navbar navbar-expand-lg custom_nav-container">
@@ -53,7 +52,7 @@ const Header = (props: Props) => {
                 </ul>
                 <div className="user_option">
                   <Link to="" className="user_link">
-                    <i className="fa fa-user" aria-hidden="true"></i>
+                    {/* <i className="fa fa-user" aria-hidden="true"></i> */}
                   </Link>
                   <Link className="cart_link" to="#"></Link>
                   <form className="form-inline">
@@ -64,15 +63,21 @@ const Header = (props: Props) => {
                       <i className="fa fa-search" aria-hidden="true"></i>
                     </button>
                   </form>
-                  <Link to="" className="order_online">
-                    Đặt hàng Online
+                  <Link to="/login" className="order_online">
+                    Đăng Nhập
                   </Link>
+                  <div
+                    className={` d-flex align-items-center`}
+                  >
+                    <Link to="/register" className="order_online">
+                    Đăng Kí
+                  </Link>
+                  </div>
                 </div>
               </div>
             </nav>
           </div>
         </header>
-      
       </div>
     </div>
   );

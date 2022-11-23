@@ -6,6 +6,9 @@ import Grow from "@mui/material/Grow";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import { Theme } from "@mui/material/styles";
 import { Button, Grid } from "@mui/material";
+import { IProduct } from "../../../interface/product";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 const icon = (
   <Paper sx={{ m: 1 }} elevation={4}>
@@ -29,26 +32,46 @@ export default function ViewMoreProduct() {
     setChecked((prev) => !prev);
   };
 
+  const [data, setData] = React.useState<IProduct[]>([]);
+  React.useEffect(() => {
+    (async () => {
+      const { data } = await axios.get(`http://localhost:8080/product`);
+      setData(data.data);
+    })();
+  }, []);
+
   return (
-    <Box sx={{ height: 180 }}>
+    <div>
       <FormControlLabel
         control={<Switch checked={checked} onChange={handleChange} />}
-        label="..."
+        label="View more"
       />
-      {/* <Grid container spacing={2} columns={16}>
-        <Grid item xs={8}>
-          <Item>xs=8</Item>
-        </Grid>
-        <Grid item xs={8}>
-          <Item>xs=8</Item>
-        </Grid>
-      </Grid> */}
-      <Box sx={{ display: "flex" }}>
-        <Grow in={checked}>{icon}</Grow>
-        <Grow in={checked}>{icon}</Grow>
-        <Grow in={checked}>{icon}</Grow>
-        <Grow in={checked}>{icon}</Grow>
+      <Box
+        sx={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr" ,gridGap:'10px'}}
+        className="viewMore"
+      >
+        {/* <Grow in={checked}>{icon}</Grow> */}
+        {data.map((item, index) => {
+          return <Grow in={checked}>
+             <div className="box">
+                <div className="img-box">
+                <Link to={`/productDetail/${item._id}`}>
+                  <img className="img_product" src={item.image} style={{borderRadius:"5px"}} alt="" />
+               </Link>
+                </div>
+                <div className="detail-box">
+                  <h5>{item.productName}</h5>
+                  {/* <p>{item.description}</p> */}
+                  <p>{item.category}</p>
+                  <div className="options">
+                    <h6>Price : {item.price}</h6>
+                    <a href=""></a>
+                  </div>
+                </div>
+              </div>
+          </Grow>;
+        })}
       </Box>
-    </Box>
+    </div>
   );
 }

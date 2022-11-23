@@ -79,9 +79,9 @@ const EditProduct = (props: Props) => {
               <label className="col-sm-2 col-form-label">Image</label>
               <br />
               <input
-                type="file"
+                type="text"
                 className="form-control"
-                // {...register('FileList')}
+                {...register('image')}
               />
             </div>
           </div>
