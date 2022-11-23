@@ -9,7 +9,7 @@ const ListCategory = (props: Props) => {
     useEffect(() => {
         (async () => {
           const { data } = await axios.get(
-            `http://localhost:3000/category`
+            `http://localhost:8080/category`
           );
           setCategory(data.data);
         })();

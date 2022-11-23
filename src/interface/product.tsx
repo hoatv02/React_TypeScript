@@ -4,7 +4,6 @@ export interface IProduct {
     price:number;
     description:string;
     title: string;
-    FileList: any;
+    FileList: File;
     category: string;
-    
 }

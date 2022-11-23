@@ -8,7 +8,7 @@ const ListProduct = (props: Props) => {
   const [data, setData] = useState<IProduct[]>([]);
   useEffect(() => {
     (async () => {
-      const { data } = await axios.get(`http://localhost:3000/product`);
+      const { data } = await axios.get(`http://localhost:8080/product`);
       setData(data.data);
     })();
   }, []);

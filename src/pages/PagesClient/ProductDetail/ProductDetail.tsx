@@ -11,7 +11,7 @@ const ProductDetail = (props: Props) => {
         (
             async  ()=>{
                 try {
-                    const {data} = await axios.get(`http://localhost:3000/product`)
+                    const {data} = await axios.get(`http://localhost:8080/product`)
                     setProduct(data.data)
                 } catch (error) {
                     

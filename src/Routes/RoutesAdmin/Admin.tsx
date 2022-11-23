@@ -16,14 +16,14 @@ const Admin = (props: Props) => {
     <>
     <Routes>
       <Route path="/" element={<LayoutAdmin />}>
-        <Route index element={<Dashboard/>} />
+        <Route index element={<ListProductManage/>} />
         <Route path="/product" element={<ListProductManage />} />
-        <Route path="/category" element={<ListCategoryManage />} />
         <Route path="/addProduct" element={<AddProduct />} />
         <Route path="/editProduct/:id" element={<EditProduct />} />
+        <Route path="/category" element={<ListCategoryManage />} />
         <Route path="/addCategory" element={<AddCategory />} />
+        
         <Route path="/editCategory/:id" element={<EditCategory />} />
-
         {/* <Route path="/product" element={<Product />}/> */}
         {/* <Route path="/about" element={<About />}/> */}
         {/* <Route path="*" element={<h1>Not Found</h1>} /> */}

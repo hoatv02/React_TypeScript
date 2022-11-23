@@ -10,7 +10,7 @@ const ListProductManage = (props: Props) => {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await axios.get(`http://localhost:3000/product`);
+        const { data } = await axios.get(`http://localhost:8080/product`);
         // console.log(data.data);
         setProduct(data.data);
       } catch (error) {}
@@ -20,9 +20,9 @@ const ListProductManage = (props: Props) => {
   const removeItem = async (id?: number) => {
     try {
       const { data } = await axios.delete(
-        `http://localhost:3000/product/${id}`
+        `http://localhost:8080/product/${id}`
       );
-      console.log("data", data);
+      // console.log("data", data);
       setProduct(product.filter((item) => item._id !== id));
     } catch (error) {}
   };
@@ -70,7 +70,8 @@ const ListProductManage = (props: Props) => {
                       <td>{item.productName}</td>
                       <td>{item.price}</td>
                       <td>{item.category}</td>
-                      <td><img src={item.FileList}/></td>
+                      {/* <td><img src={item.FileList}/></td> */}
+                      <td></td>
                       <td>{item.description}</td>
                       <td>
                         <Link

@@ -20,8 +20,9 @@ const EditCategory = (props: Props) => {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await axios.get(`http://localhost:3000/category/`+ id);
-        reset(data);
+        const { data } = await axios.get(`http://localhost:8080/category/`+ id);
+        console.log(data.category);
+        reset(data.category);
       } catch (error) {}
     })();
   }, []);
@@ -29,7 +30,7 @@ const EditCategory = (props: Props) => {
   const onSubmit: SubmitHandler<ICategory> = async (category) => {
     try {
       const { data } = await axios.put(
-        `http://localhost:3000/category/${id}`,
+        `http://localhost:8080/category/${id}`,
         category
       );
       // console.log("data",data)
@@ -43,7 +44,7 @@ const EditCategory = (props: Props) => {
           <div className="">
             <label className="col-sm-2 col-form-label">Id Category</label>
             <br />
-            <input type="text" className="form-control" disabled />
+            <input type="text" className="form-control" disabled value={id}/>
           </div>
           <div className="">
             <label className="col-sm-2 col-form-label">Category Name</label>

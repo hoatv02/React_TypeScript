@@ -5,6 +5,7 @@ import { ICategory } from "../../../interface/category";
 import {Link} from 'react-router-dom'
 import ListCategory from "../../../component/Client/ListCategory/ListCategory";
 import ListProduct from "../../../component/Client/ListProduct/ListProduct";
+import ViewMoreProduct from "../../../component/Client/ViewMoreProduct/ViewMoreProduct";
 type Props = {};
 
 const Home = (props: Props) => {
@@ -154,7 +155,8 @@ const Home = (props: Props) => {
             </div>
           </div>
           <div className="btn-box">
-            <a href="">View More</a>
+            <ViewMoreProduct/>
+            {/* <a href="">View More</a> */}
           </div>
         </div>
       </section>

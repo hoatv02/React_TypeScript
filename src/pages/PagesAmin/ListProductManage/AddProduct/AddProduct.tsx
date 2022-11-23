@@ -1,11 +1,10 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { IProduct } from "../../../../interface/product";
 
 type Props = {};
-
 const AddProduct = (props: Props) => {
   const navigate = useNavigate();
   const {
@@ -13,12 +12,10 @@ const AddProduct = (props: Props) => {
     handleSubmit,
     formState: { errors },
   } = useForm<IProduct>();
-
   const onSubmit: SubmitHandler<IProduct> = async (product) => {
-    console.log(product.FileList)
     try {
       const { data } = await axios.post(
-        `http://localhost:3000/product`,
+        `http://localhost:8080/product`,
         product
       );
       console.log("data", data);
@@ -70,7 +67,6 @@ const AddProduct = (props: Props) => {
               <input
                 type="file"
                 className="form-control"
-                {...register('FileList')}
               />
             </div>
           </div>
@@ -103,7 +99,7 @@ const AddProduct = (props: Props) => {
             </div>
           </div>
         </div>
-        <button className="btn btn-success btnAdd">Thêm mới</button>
+        <button className="btn btn-success btnAdd" >Thêm mới</button>
       </form>
     </div>
   );

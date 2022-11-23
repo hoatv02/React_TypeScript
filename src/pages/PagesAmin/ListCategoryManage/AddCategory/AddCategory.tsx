@@ -7,6 +7,7 @@ import { ICategory } from '../../../../interface/category'
 type Props = {}
 
 const AddCategory = (props: Props) => {
+  // console.log("list",['jaja','âijssj'])
   const navigate = useNavigate()
     const {
         register,
@@ -16,7 +17,7 @@ const AddCategory = (props: Props) => {
 
     const onSubmit : SubmitHandler<ICategory> =async (category) => {
       try {
-        const {data} = await axios.post(`http://localhost:3000/category`,category)
+        const {data} = await axios.post(`http://localhost:8080/category`,category)
         console.log("data",data)
         navigate('/admin/category')
       } catch (error) {
@@ -52,6 +53,7 @@ const AddCategory = (props: Props) => {
          
         </div>
         <button className="btn btn-success btnAdd">Thêm mới</button>
+        
       </form>
   )
 }
