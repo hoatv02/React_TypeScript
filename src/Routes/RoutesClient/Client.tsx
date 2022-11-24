@@ -18,9 +18,7 @@ const Client = (props: Props) => {
         <Route index element={<Home />} />
         <Route path="/product" element={<MenuProducts />} />
         <Route path="/about" element={<About />} />
-
-        <Route path="/productDetail/:id" element={<ProductDetail />} />
-
+        <Route path="/product/:id" element={<ProductDetail />} />
       </Route>
       <Route path="*" element={<h1>Not Found</h1>} />
       <Route path="/login" element={<Login />} />

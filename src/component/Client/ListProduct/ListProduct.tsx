@@ -22,7 +22,7 @@ const ListProduct = (props: Props) => {
             <div className="col-sm-6 col-lg-3 all pizza" key={index}>
               <div className="box">
                 <div className="img-box">
-                <Link to={`/productDetail/${item._id}`}>
+                <Link to={`/product/${item._id}`}>
                   <img className="img_product" src={item.image} style={{borderRadius:"5px"}} alt="" />
                </Link>
                 </div>
