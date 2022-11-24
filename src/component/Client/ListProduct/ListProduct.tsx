@@ -6,6 +6,10 @@ type Props = {};
 
 const ListProduct = (props: Props) => {
   const [data, setData] = useState<IProduct[]>([]);
+  const [addToCart,setAddToCart] = useState<IProduct[]>([])
+  const handlerAddCart = (item:IProduct)=>{
+    setAddToCart([...addToCart,item])
+  }
   useEffect(() => {
     (async () => {
       const { data } = await axios.get(`http://localhost:8080/product`);
@@ -18,7 +22,6 @@ const ListProduct = (props: Props) => {
       {data.map((item, index)  => {
         if(index <8){
           return (
-          
             <div className="col-sm-6 col-lg-3 all pizza" key={index}>
               <div className="box">
                 <div className="img-box">
@@ -28,11 +31,10 @@ const ListProduct = (props: Props) => {
                 </div>
                 <div className="detail-box">
                   <h5>{item.productName}</h5>
-                  {/* <p>{item.description}</p> */}
                   <p>{item.category}</p>
                   <div className="options">
                     <h6>Price : {item.price}</h6>
-                    <a href=""></a>
+                    <button onClick={()=>handlerAddCart(item)}>Cart</button>
                   </div>
                 </div>
               </div>

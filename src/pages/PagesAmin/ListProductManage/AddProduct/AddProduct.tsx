@@ -6,14 +6,17 @@ import { IProduct } from "../../../../interface/product";
 
 type Props = {};
 const AddProduct = (props: Props) => {
-  const [files,setFiles] = useState<IProduct[]>([])
-  const [image,setImage] = useState()
+  const [files, setFiles] = useState<IProduct[]>([]);
+  const [image, setImage] = useState();
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<IProduct>();
+  const handleImageChange = function (e: React.ChangeEvent<HTMLInputElement>) {
+    const fileList = e.target.files;
+  };
   const onSubmit: SubmitHandler<IProduct> = async (product) => {
     try {
       const { data } = await axios.post(
@@ -67,9 +70,12 @@ const AddProduct = (props: Props) => {
               <label className="col-sm-2 col-form-label">Image</label>
               <br />
               <input
-                type="text"
-                className="form-control"
-                {...register('image')}
+                accept="image/*"
+                id="photo"
+                name="photo"
+                type="file"
+                multiple={false}
+                onChange={handleImageChange}
               />
             </div>
           </div>
@@ -83,9 +89,9 @@ const AddProduct = (props: Props) => {
                 {...register("category")}
               >
                 <option selected>Open this select menu</option>
-                <option value="One">One</option>
-                <option value="Two">Two</option>
-                <option value="Three">Three</option>
+                <option value="Pizza">Pizza</option>
+                <option value="Bugger">Bugger</option>
+                <option value="Meats">Meats</option>
               </select>
             </div>
 
@@ -102,7 +108,7 @@ const AddProduct = (props: Props) => {
             </div>
           </div>
         </div>
-        <button className="btn btn-success btnAdd" >Thêm mới</button>
+        <button className="btn btn-success btnAdd">Thêm mới</button>
       </form>
     </div>
   );

@@ -1,6 +1,7 @@
 import React from "react";
 import ListCategory from "../../../component/Client/ListCategory/ListCategory";
 import ListProduct from "../../../component/Client/ListProduct/ListProduct";
+import ViewMoreProduct from "../../../component/Client/ViewMoreProduct/ViewMoreProduct";
 
 type Props = {};
 
@@ -17,7 +18,8 @@ const MenuProducts = (props: Props) => {
             {<ListProduct/>}
           </div>
           <div className="btn-box">
-            <a href="">View More</a>
+          <ViewMoreProduct/>
+
           </div>
         </div>
       </section>

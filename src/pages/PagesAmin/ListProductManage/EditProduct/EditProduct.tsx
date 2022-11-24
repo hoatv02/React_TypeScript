@@ -95,9 +95,9 @@ const EditProduct = (props: Props) => {
                 {...register("category")}
               >
                 <option selected>Open this select menu</option>
-                <option value="One">One</option>
-                <option value="Two">Two</option>
-                <option value="Three">Three</option>
+                <option value="Pizza">Pizza</option>
+                <option value="Bugger">Bugger</option>
+                <option value="Meats">Meats</option>
               </select>
             </div>
 

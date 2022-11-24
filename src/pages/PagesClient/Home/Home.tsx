@@ -153,7 +153,6 @@ const Home = (props: Props) => {
               {<ListProduct/>}
           </div>
           <div className="btn-box">
-            <ViewMoreProduct/>
             {/* <a href="">View More</a> */}
           </div>
         </div>

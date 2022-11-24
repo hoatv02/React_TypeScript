@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Profile from "../Profile/Profile";
 type Props = {};
 
 const Header = (props: Props) => {
@@ -73,6 +74,7 @@ const Header = (props: Props) => {
                     Đăng Kí
                   </Link>
                   </div>
+                  <Profile/>
                 </div>
               </div>
             </nav>
