@@ -56,6 +56,14 @@ const Header = (props: Props) => {
                     {/* <i className="fa fa-user" aria-hidden="true"></i> */}
                   </Link>
                   <Link className="cart_link" to="#"></Link>
+                  <a
+                    style={{ color: "#fff", cursor: "pointer" }}
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasRight"
+                    aria-controls="offcanvasRight"
+                  >
+                    Cart
+                  </a>
                   <form className="form-inline">
                     <button
                       className="btn  my-2 my-sm-0 nav_search-btn"
@@ -67,19 +75,42 @@ const Header = (props: Props) => {
                   <Link to="/login" className="order_online">
                     Đăng Nhập
                   </Link>
-                  <div
-                    className={` d-flex align-items-center`}
-                  >
+                  <div className={` d-flex align-items-center`}>
                     <Link to="/register" className="order_online">
-                    Đăng Kí
-                  </Link>
+                      Đăng Kí
+                    </Link>
                   </div>
-                  <Profile/>
+                  <Profile />
                 </div>
               </div>
             </nav>
           </div>
         </header>
+        <div
+          className="offcanvas offcanvas-end"
+          id="offcanvasRight"
+          aria-labelledby="offcanvasRightLabel"
+        >
+          <div
+            className="offcanvas-header"
+            style={{
+              backgroundColor: "#ffbe33",
+              fontSize: "8px",
+              height: "80px",
+            }}
+          >
+            <h5 className="offcanvas-title" id="offcanvasRightLabel">
+              My Cart
+            </h5>
+            <button
+              type="button"
+              className="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div className="offcanvas-body"></div>
+        </div>
       </div>
     </div>
   );

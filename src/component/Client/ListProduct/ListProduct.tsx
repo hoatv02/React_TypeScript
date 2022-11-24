@@ -6,9 +6,15 @@ type Props = {};
 
 const ListProduct = (props: Props) => {
   const [data, setData] = useState<IProduct[]>([]);
+
+
   const [addToCart,setAddToCart] = useState<IProduct[]>([])
   const handlerAddCart = (item:IProduct)=>{
+    // const product = data.find((items)=> items._id === item._id)
+    // console.log(addToCart.push(item))
+    console.log(
     setAddToCart([...addToCart,item])
+    )
   }
   useEffect(() => {
     (async () => {

@@ -7,6 +7,7 @@ import Login from '../../pages/PagesClient/Login/Login'
 import Register from '../../pages/PagesClient/Register/Register'
 import MenuProducts from '../../pages/PagesClient/MenuProduct/MenuProduct'
 import ProductDetail from '../../pages/PagesClient/ProductDetail/ProductDetail'
+import MyCart from '../../component/Client/MyCart/MyCart'
 
 type Props = {}
 
@@ -18,6 +19,8 @@ const Client = (props: Props) => {
         <Route index element={<Home />} />
         <Route path="/product" element={<MenuProducts />} />
         <Route path="/about" element={<About />} />
+        <Route path="/mycart" element={<MyCart />} />
+
         <Route path="/product/:id" element={<ProductDetail />} />
       </Route>
       <Route path="*" element={<h1>Not Found</h1>} />
