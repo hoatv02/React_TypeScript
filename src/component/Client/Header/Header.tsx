@@ -4,6 +4,9 @@ import Profile from "../Profile/Profile";
 type Props = {};
 
 const Header = (props: Props) => {
+  const cartStrorage = localStorage.getItem("addToCart")
+    ? JSON.parse(localStorage.getItem("addToCart"))
+    : [];
   return (
     <div className="marignbt">
       <div className="hero_area">
@@ -109,7 +112,10 @@ const Header = (props: Props) => {
               aria-label="Close"
             ></button>
           </div>
-          <div className="offcanvas-body"></div>
+          <div className="offcanvas-body">
+            
+
+          </div>
         </div>
       </div>
     </div>

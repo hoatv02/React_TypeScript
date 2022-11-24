@@ -6,16 +6,20 @@ type Props = {};
 
 const ListProduct = (props: Props) => {
   const [data, setData] = useState<IProduct[]>([]);
-
-
-  const [addToCart,setAddToCart] = useState<IProduct[]>([])
-  const handlerAddCart = (item:IProduct)=>{
-    // const product = data.find((items)=> items._id === item._id)
-    // console.log(addToCart.push(item))
-    console.log(
-    setAddToCart([...addToCart,item])
-    )
+  const [addToCart,setAddToCart] = useState(()=>{
+   const getCart:any = localStorage.getItem("addToCart")
+   ? JSON.parse(localStorage.getItem("addToCart"))
+   : [];
+  //  localStorage.parse(JSON.stringify(getCart));
+   return getCart 
+  })
+  // console.log(addToCart)
+// console.log(JSON.parse(localStorage.getItem("addToCart")))
+  const handlerAddCart = (item:any)=>{
+    setAddToCart((prev)=>[...prev,item])
+    localStorage.setItem('addToCart', JSON.stringify(addToCart))
   }
+
   useEffect(() => {
     (async () => {
       const { data } = await axios.get(`http://localhost:8080/product`);
@@ -26,7 +30,7 @@ const ListProduct = (props: Props) => {
   return (
     <div className="row grid listProduct">
       {data.map((item, index)  => {
-        if(index <8){
+        if(index < 7){
           return (
             <div className="col-sm-6 col-lg-3 all pizza" key={index}>
               <div className="box">
