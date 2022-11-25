@@ -6,17 +6,17 @@ import { IProduct } from "../../../../interface/product";
 
 type Props = {};
 const AddProduct = (props: Props) => {
-  const [files, setFiles] = useState<IProduct[]>([]);
-  const [image, setImage] = useState();
+  // const [files, setFiles] = useState<IProduct[]>([]);
+  // const [image, setImage] = useState();
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<IProduct>();
-  const handleImageChange = function (e: React.ChangeEvent<HTMLInputElement>) {
-    const fileList = e.target.files;
-  };
+  // const handleImageChange = function (e: React.ChangeEvent<HTMLInputElement>) {
+  //   const fileList = e.target.files;
+  // };
   const onSubmit: SubmitHandler<IProduct> = async (product) => {
     try {
       const { data } = await axios.post(
@@ -67,15 +67,31 @@ const AddProduct = (props: Props) => {
               />
             </div>
             <div className="">
-              <label className="col-sm-2 col-form-label">Image</label>
+              <label className="col-sm-2 col-form-label">Quantity</label>
               <br />
               <input
+                type="text"
+                className="form-control"
+                id=""
+                {...register("quantity")}
+              />
+            </div>
+            <div className="">
+              <label className="col-sm-2 col-form-label">Image</label>
+              <br />
+              {/* <input
                 accept="image/*"
                 id="photo"
                 name="photo"
                 type="file"
                 multiple={false}
-                onChange={handleImageChange}
+                // onChange={handleImageChange}
+              /> */}
+               <input
+                type="text"
+                className="form-control"
+                id=""
+                {...register("image")}
               />
             </div>
           </div>

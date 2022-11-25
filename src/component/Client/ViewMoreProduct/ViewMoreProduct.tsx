@@ -30,8 +30,8 @@ export default function ViewMoreProduct() {
       >
         {/* <Grow in={checked}>{icon}</Grow> */}
         {data.map((item, index) => {
-          return <Grow in={checked}>
-             <div className="box" key={index}>
+          return <Grow in={checked} key={index}>
+             <div className="box" >
                 <div className="img-box">
                 <Link to={`/productDetail/${item._id}`} >
                   <img className="img_product" src={item.image} style={{borderRadius:"5px"}} alt="" />

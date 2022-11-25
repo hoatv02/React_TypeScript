@@ -57,6 +57,8 @@ const ListProductManage = (props: Props) => {
                   <th>Product Name</th>
                   <th>Price</th>
                   <th>Category</th>
+                  <th>Quantity</th>
+
                   <th>Image</th>
                   <th>Description</th>
                   <th>Action</th>
@@ -70,6 +72,8 @@ const ListProductManage = (props: Props) => {
                       <td>{item.productName}</td>
                       <td>{item.price}</td>
                       <td>{item.category}</td>
+                      <td>{item.quantity}</td>
+
                       <td><img src={item.image} style={{width:"80px",height:"80px"}}/></td>
                       <td>{item.description}</td>
                       <td>

@@ -76,6 +76,16 @@ const EditProduct = (props: Props) => {
               />
             </div>
             <div className="">
+              <label className="col-sm-2 col-form-label">Quantity</label>
+              <br />
+              <input
+                type="text"
+                className="form-control"
+                id=""
+                {...register("quantity")}
+              />
+            </div>
+            <div className="">
               <label className="col-sm-2 col-form-label">Image</label>
               <br />
               <input

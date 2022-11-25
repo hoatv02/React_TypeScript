@@ -684,7 +684,12 @@ a{
   border: none;
   margin-top: 15px;
 }
-
+.headerCart {
+  color:#ffffff !important;
+}
+.headerCart :hover{
+  color:#ffffff !important;
+}
 .about_section .detail-box a:hover {
   background-color: #e69c00;
 }

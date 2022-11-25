@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { IProduct } from "../../../interface/product";
 import Profile from "../Profile/Profile";
 type Props = {};
 
 const Header = (props: Props) => {
-  const cartStrorage = localStorage.getItem("addToCart")
-    ? JSON.parse(localStorage.getItem("addToCart"))
-    : [];
+ 
   return (
     <div className="marignbt">
       <div className="hero_area">
@@ -58,15 +57,10 @@ const Header = (props: Props) => {
                   <Link to="" className="user_link">
                     {/* <i className="fa fa-user" aria-hidden="true"></i> */}
                   </Link>
-                  <Link className="cart_link" to="#"></Link>
-                  <a
-                    style={{ color: "#fff", cursor: "pointer" }}
-                    data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasRight"
-                    aria-controls="offcanvasRight"
+                  <Link to="/mycart" className="headerCart"
                   >
                     Cart
-                  </a>
+                  </Link>
                   <form className="form-inline">
                     <button
                       className="btn  my-2 my-sm-0 nav_search-btn"
@@ -89,34 +83,7 @@ const Header = (props: Props) => {
             </nav>
           </div>
         </header>
-        <div
-          className="offcanvas offcanvas-end"
-          id="offcanvasRight"
-          aria-labelledby="offcanvasRightLabel"
-        >
-          <div
-            className="offcanvas-header"
-            style={{
-              backgroundColor: "#ffbe33",
-              fontSize: "8px",
-              height: "80px",
-            }}
-          >
-            <h5 className="offcanvas-title" id="offcanvasRightLabel">
-              My Cart
-            </h5>
-            <button
-              type="button"
-              className="btn-close"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div className="offcanvas-body">
-            
-
-          </div>
-        </div>
+      
       </div>
     </div>
   );

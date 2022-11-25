@@ -6,4 +6,5 @@ export interface IProduct {
     title: string;
     image: string;
     category: string;
+    quantity:number;
 }
