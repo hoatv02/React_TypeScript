@@ -3,19 +3,14 @@ import { IProduct } from "../../../interface/product";
 type Props = {};
 
 const MyCart = (props: Props) => {
+  const [addToCart, setAddToCart] =useState()
   const cartStrorage = localStorage.getItem("addToCart")
     ? JSON.parse(localStorage.getItem("addToCart"))
     : [];
-
-    useEffect(() => {
-
-    },[])
     const handleDelete = (id:string) => {
-      console.log(id)
-      const filterCart = cartStrorage.filter((item)=> item._id !== id) 
-      console.log(filterCart)
+      const filterCart = cartStrorage.filter((item:IProduct)=> item._id !== id) 
       localStorage.setItem('addToCart',JSON.stringify(filterCart))
-      
+      setAddToCart(filterCart)
     }
   return (
     <div className="myCart">
