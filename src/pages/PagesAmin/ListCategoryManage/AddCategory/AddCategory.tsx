@@ -17,7 +17,7 @@ const AddCategory = (props: Props) => {
 
     const onSubmit : SubmitHandler<ICategory> =async (category) => {
       try {
-        const {data} = await axios.post(`http://localhost:8080/category`,category)
+        const {data} = await axios.post(`http://localhost:3001/category`,category)
         console.log("data",data)
         navigate('/admin/category')
       } catch (error) {

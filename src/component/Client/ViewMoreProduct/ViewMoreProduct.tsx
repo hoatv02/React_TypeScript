@@ -16,7 +16,7 @@ export default function ViewMoreProduct() {
   const [data, setData] = React.useState<IProduct[]>([]);
   React.useEffect(() => {
     (async () => {
-      const { data } = await axios.get(`http://localhost:8080/product`);
+      const { data } = await axios.get(`http://localhost:3001/product`);
       setData(data.data);
     })();
   }, []);

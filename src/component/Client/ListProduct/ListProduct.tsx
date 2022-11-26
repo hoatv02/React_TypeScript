@@ -16,9 +16,10 @@ const ListProduct = (props: Props) => {
     setAddToCart((prev) => [...prev, item]);
     localStorage.setItem("addToCart", JSON.stringify(addToCart));
   };
+
   useEffect(() => {
     (async () => {
-      const { data } = await axios.get(`http://localhost:8080/product`);
+      const { data } = await axios.get(`http://localhost:3001/product`);
       setData(data.data);
     })();
   }, []);

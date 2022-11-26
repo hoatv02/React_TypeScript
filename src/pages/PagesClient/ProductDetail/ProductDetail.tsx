@@ -12,7 +12,7 @@ const ProductDetail = (props: Props) => {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await axios.get(`http://localhost:8080/product/${id}`);
+        const { data } = await axios.get(`http://localhost:3001/product/${id}`);
         setProduct(data.data);
       } catch (error) {}
     })();

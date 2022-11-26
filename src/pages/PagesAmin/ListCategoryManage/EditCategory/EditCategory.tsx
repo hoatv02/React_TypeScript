@@ -20,7 +20,7 @@ const EditCategory = (props: Props) => {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await axios.get(`http://localhost:8080/category/`+ id);
+        const { data } = await axios.get(`http://localhost:3001/category/`+ id);
         console.log(data.category);
         reset(data.category);
       } catch (error) {}
@@ -30,7 +30,7 @@ const EditCategory = (props: Props) => {
   const onSubmit: SubmitHandler<ICategory> = async (category) => {
     try {
       const { data } = await axios.put(
-        `http://localhost:8080/category/${id}`,
+        `http://localhost:3001/category/${id}`,
         category
       );
       // console.log("data",data)

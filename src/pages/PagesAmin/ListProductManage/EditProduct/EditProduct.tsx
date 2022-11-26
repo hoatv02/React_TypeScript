@@ -20,7 +20,7 @@ const EditProduct = (props: Props) => {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await axios.get(`http://localhost:8080/product/`+ id);
+        const { data } = await axios.get(`http://localhost:3001/product/`+ id);
         // console.log(data)
         reset(data.data);
       } catch (error) {}
@@ -31,7 +31,7 @@ const EditProduct = (props: Props) => {
     // console.log(product.FileList);
     try {
       const { data } = await axios.put(
-        `http://localhost:8080/product/${id}`,product
+        `http://localhost:3001/product/${id}`,product
       );
       navigate("/admin/product");
     } catch (error) {}

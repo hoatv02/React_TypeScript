@@ -6,24 +6,35 @@ import { IProduct } from "../../../../interface/product";
 
 type Props = {};
 const AddProduct = (props: Props) => {
-  // const [files, setFiles] = useState<IProduct[]>([]);
-  // const [image, setImage] = useState();
+  const [files, setFiles] = useState<IProduct[]>([]);
+  const [image, setImage] = useState("");
+
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<IProduct>();
-  // const handleImageChange = function (e: React.ChangeEvent<HTMLInputElement>) {
-  //   const fileList = e.target.files;
-  // };
+
+  const handleImageChange = function (e: React.ChangeEvent<HTMLInputElement>) {
+    setImage(URL.createObjectURL(e.target.files[0]));
+  };
+
   const onSubmit: SubmitHandler<IProduct> = async (product) => {
     try {
+      const formData = new FormData()
+      const fileName = product.image[0].name
+      formData.append('name',fileName)
+      formData.append('image',product.image[0])
+      await axios.post(`http://localhost:3001/uploadFile`,formData)
+      product.image = product.image[0].name
+
       const { data } = await axios.post(
-        `http://localhost:8080/product`,
+        `http://localhost:3001/product`,
         product
       );
-      console.log("data", data);
+      
+      // console.log("data", data);
       navigate("/admin/product");
     } catch (error) {}
   };
@@ -79,20 +90,13 @@ const AddProduct = (props: Props) => {
             <div className="">
               <label className="col-sm-2 col-form-label">Image</label>
               <br />
-              {/* <input
-                accept="image/*"
-                id="photo"
-                name="photo"
+              <input
                 type="file"
                 multiple={false}
-                // onChange={handleImageChange}
-              /> */}
-               <input
-                type="text"
-                className="form-control"
-                id=""
                 {...register("image")}
+                onChange={handleImageChange}
               />
+              {image && <img src={image} width='100' height='100' />}
             </div>
           </div>
           <div className="col-sm-6">

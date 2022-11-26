@@ -10,7 +10,7 @@ const ListCategoryManage = (props: Props) => {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await axios.get(`http://localhost:8080/category`);
+        const { data } = await axios.get(`http://localhost:3001/category`);
         // console.log(data.data);
         setCategory(data.data);
       } catch (error) {}
@@ -23,7 +23,7 @@ const ListCategoryManage = (props: Props) => {
   const removeItem = async (id?: number) => {
     try {
       const { data } = await axios.delete(
-        `http://localhost:8080/category/${id}`
+        `http://localhost:3001/category/${id}`
       );
       // console.log("data", data);
       // setCategory(category.filter((item) => item._id !== data._id));
