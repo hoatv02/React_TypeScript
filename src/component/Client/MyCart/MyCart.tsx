@@ -25,7 +25,7 @@ const MyCart = (props: Props) => {
             <div className="item" key={index}>
               <div>{index + 1}</div>
               <div className="image">
-                <img src={item.image} style={{ width: "100px" }} alt="" />
+                <img src={`http://localhost:3001/image/${item.image}`} style={{ width: "100px",height:"100px" }} alt="" />
               </div>
               <div className="description">
                 <span>{item.productName}</span>

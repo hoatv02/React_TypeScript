@@ -35,7 +35,7 @@ const ListProduct = (props: Props) => {
                   <Link to={`/product/${item._id}`}>
                     <img
                       className="img_product"
-                      src={item.image}
+                      src={`http://localhost:3001/image/${item.image}`}
                       style={{ borderRadius: "5px" }}
                       alt=""
                     />

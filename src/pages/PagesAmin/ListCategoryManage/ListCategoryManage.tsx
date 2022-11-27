@@ -11,29 +11,21 @@ const ListCategoryManage = (props: Props) => {
     (async () => {
       try {
         const { data } = await axios.get(`http://localhost:3001/category`);
-        // console.log(data.data);
         setCategory(data.data);
       } catch (error) {}
     })();
-
-    // return ()=>{
-    //   category
-    // }
   }, []);
   const removeItem = async (id?: number) => {
     try {
       const { data } = await axios.delete(
         `http://localhost:3001/category/${id}`
       );
-      // console.log("data", data);
-      // setCategory(category.filter((item) => item._id !== data._id));
       console.log(data);
       setCategory(category.filter((item) => item._id !== data.category._id));
     } catch (error) {}
   };
   return (
     <div>
-      {" "}
       <main>
         <div className="container-fluid px-4">
           <div className="title_product">

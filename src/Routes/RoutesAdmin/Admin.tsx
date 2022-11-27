@@ -22,12 +22,9 @@ const Admin = (props: Props) => {
         <Route path="/editProduct/:id" element={<EditProduct />} />
         <Route path="/category" element={<ListCategoryManage />} />
         <Route path="/addCategory" element={<AddCategory />} />
-        
         <Route path="/editCategory/:id" element={<EditCategory />} />
-        {/* <Route path="/product" element={<Product />}/> */}
-        {/* <Route path="/about" element={<About />}/> */}
-        {/* <Route path="*" element={<h1>Not Found</h1>} /> */}
       </Route>
+        <Route path="*" element={<h1>Not Found</h1>} />
     </Routes>
   </>
   )

@@ -1,12 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import SearchNavbar from "../../../component/Admin/SearchNavbar/SearchNavbar";
 import { IProduct } from "../../../interface/product";
-
 type Props = {};
 
 const ListProductManage = (props: Props) => {
   const [product, setProduct] = useState<IProduct[]>([]);
+
   useEffect(() => {
     (async () => {
       try {
@@ -34,10 +35,22 @@ const ListProductManage = (props: Props) => {
             <h1 className="mt-4">Manage Products</h1>
           </div>
           <div className="addProduct">
+            <form className="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+              <div className="input-group">
+                <input
+                  className="form-control"
+                  type="text"
+                  placeholder="Search for..."
+                  aria-label="Search for..."
+                  aria-describedby="btnNavbarSearch"
+                />
+              </div>
+              <button className="btn btn-success btnAdd">Search</button>
+            </form>
             <Link
               type="button"
               to="/admin/addProduct"
-              className="btn btn-success"
+              className="btn btn-success btnAdd"
             >
               Thêm mới
             </Link>
@@ -74,16 +87,26 @@ const ListProductManage = (props: Props) => {
                       <td>{item.category}</td>
                       <td>{item.quantity}</td>
 
-                      <td><img src={`http://localhost:3001/image/${item.image}`} style={{width:"80px",height:"80px"}}/></td>
+                      <td>
+                        <img
+                          src={`http://localhost:3001/image/${item.image}`}
+                          style={{ width: "80px", height: "80px" }}
+                        />
+                      </td>
                       <td>{item.description}</td>
                       <td>
                         <Link
                           type="button"
                           to={`/admin/editProduct/${item._id}`}
                           className="btn btn-primary"
-                        >Edit</Link>
-                       
-                        <button onClick={() => removeItem(item._id!)} className="btn btn-danger">
+                        >
+                          Edit
+                        </Link>
+
+                        <button
+                          onClick={() => removeItem(item._id!)}
+                          className="btn btn-danger"
+                        >
                           Delete
                         </button>
                       </td>

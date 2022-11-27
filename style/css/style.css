@@ -911,7 +911,9 @@ a{
   -ms-flex-pack: center;
   justify-content: center;
 }
-
+.btnAdd{
+  margin-top: -10px !important;
+}
 .contact_section .form_container button {
   margin-top: 10px;
   border: none;
