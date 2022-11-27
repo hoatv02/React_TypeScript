@@ -1,3 +1,4 @@
+import { ResetTv } from "@mui/icons-material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -7,6 +8,19 @@ type Props = {};
 
 const ListProductManage = (props: Props) => {
   const [product, setProduct] = useState<IProduct[]>([]);
+  
+  const handleSubmit =async (e:any)=>{
+    e.preventDefault();
+    // console.log(e.target[0].value)
+    try {
+      const valueInput = e.target[0].value
+      const {data} = await axios.get(`http://localhost:3001/search/` + valueInput)
+      setProduct(data.data)
+      
+    } catch (error) {
+    }
+  }
+
 
   useEffect(() => {
     (async () => {
@@ -35,7 +49,7 @@ const ListProductManage = (props: Props) => {
             <h1 className="mt-4">Manage Products</h1>
           </div>
           <div className="addProduct">
-            <form className="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <form className="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0" onSubmit={handleSubmit}>
               <div className="input-group">
                 <input
                   className="form-control"

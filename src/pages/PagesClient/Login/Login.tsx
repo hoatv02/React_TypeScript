@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import '../../../../style/css/login.css'
 type Props = {};
 
 const Login = (props: Props) => {
+ 
   return (
     <div className='bodyLogin'>
       
