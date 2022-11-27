@@ -13,16 +13,16 @@ const NavbarLeft = (props: Props) => {
         <div className="sb-sidenav-menu">
           <div className="nav">
             <div className="sb-sidenav-menu-heading">Core</div>
-            <Link className="nav-link" to="">
+            <Link className="nav-link" to="/admin/">
               <div className="sb-nav-link-icon">
                 <i className="fas fa-tachometer-alt"></i>
               </div>
               Dashboard
             </Link>
             <div className="sb-sidenav-menu-heading">Manage</div>
-            <Link
+              
+            <Link to="/admin/product"><p
               className="nav-link collapsed"
-              to="/admin/product"
               data-bs-toggle="collapse"
               data-bs-target="#collapseLayouts"
               aria-expanded="false"
@@ -32,10 +32,11 @@ const NavbarLeft = (props: Props) => {
                 <i className="fas fa-columns"></i>
               </div>
               Products
-            </Link>
-            <Link
+            </p></Link>
+            
+             
+            <Link  to="/admin/category"> <p
               className="nav-link collapsed"
-              to="/admin/category"
               data-bs-toggle="collapse"
               data-bs-target="#collapsePages"
               aria-expanded="false"
@@ -45,7 +46,8 @@ const NavbarLeft = (props: Props) => {
                 <i className="fas fa-book-open"></i>
               </div>
               Category
-            </Link>
+            </p></Link>
+           
             <Link
               className="nav-link collapsed"
               to="#"

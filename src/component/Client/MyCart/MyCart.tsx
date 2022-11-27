@@ -7,15 +7,12 @@ const MyCart = (props: Props) => {
   const cartStrorage = localStorage.getItem("addToCart")
     ? JSON.parse(localStorage.getItem("addToCart"))
     : [];
-
   
   const handleDelete = (id: string) => {
     const filterCart = cartStrorage.filter((item: IProduct) => item._id !== id);
     localStorage.setItem("addToCart", JSON.stringify(filterCart));
     setAddToCart(filterCart);
   };
-  
-
   return (
     <div className="myCart">
       <div className="shopping-cart">

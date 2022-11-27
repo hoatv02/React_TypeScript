@@ -15,6 +15,7 @@ const ListProduct = (props: Props) => {
   const handlerAddCart = (item: any) => {
     setAddToCart((prev) => [...prev, item]);
     localStorage.setItem("addToCart", JSON.stringify(addToCart));
+    
   };
 
   useEffect(() => {
