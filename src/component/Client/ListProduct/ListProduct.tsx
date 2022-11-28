@@ -15,16 +15,6 @@ const ListProduct = (props: Props) => {
     return getCart;
   });
   console.log(addToCart);
-  //   const notify = () =>toast.success('🦄 Wow so easy!', {
-  //         position: "bottom-right",
-  //         autoClose: false,
-  //         hideProgressBar: true,
-  //         closeOnClick: true,
-  //         pauseOnHover: true,
-  //         draggable: true,
-  //         progress: undefined,
-  //         theme: "dark",
-  //         });
   const handlerAddCart = (item: any) => {
     setAddToCart((prev: any) => {
       const isExist = prev.some((cart: any) => item._id === cart._id);
@@ -63,7 +53,7 @@ const ListProduct = (props: Props) => {
   }, []);
 
   return (
-    <div className="row grid ">
+    <div className="row grid listProduct">
       {data.map((item, index) => {
         if (index < 7) {
           return (

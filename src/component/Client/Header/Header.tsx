@@ -54,13 +54,13 @@ const Header = (props: Props) => {
                   </li>
                 </ul>
                 <div className="user_option">
-                  <Link to="" className="user_link">
-                    {/* <i className="fa fa-user" aria-hidden="true"></i> */}
-                  </Link>
+                 
                   <Link to="/mycart" className="headerCart"
                   >
                     Cart
                   </Link>
+
+                  
                   <form className="form-inline">
                     <button
                       className="btn  my-2 my-sm-0 nav_search-btn"
@@ -77,7 +77,7 @@ const Header = (props: Props) => {
                       Đăng Kí
                     </Link>
                   </div>
-                  <Profile />
+                  {/* <Profile /> */}
                 </div>
               </div>
             </nav>

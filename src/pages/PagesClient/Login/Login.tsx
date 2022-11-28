@@ -1,41 +1,37 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import React, { useEffect , useState} from "react";
+import { Link, useNavigate } from "react-router-dom";
 import '../../../../style/css/login.css'
+import { User } from "../../../interface/user";
 type Props = {};
 
 const Login = (props: Props) => {
- 
+    const [email,setEmail] = useState('')
+    const [password,setPassword] = useState("")
+    const navigate = useNavigate()
+    // console.log(localStorage.getItem('inforUser'))
+    useEffect(() => {
+      if(localStorage.getItem("inforUser")){
+        // navigate('/')
+      }
+    },[])
+    const login =async ()=>{
+      // console.log(email,password)
+      const item = {email,password} 
+      try {
+          const {data} = await axios.post(`http://localhost:3001/signin`,item)
+          localStorage.setItem('inforUser',(email))
+          navigate('/')
+      } catch (error) {
+      }
+    }
+
   return (
     <div className='bodyLogin'>
-      
       <div className="container" id="container">
-
-        {/* <div className="form-container sign-up-container">
-          <form action="#">
-            <h1>Create Account</h1>
-            <div className="social-container">
-              <a href="#" className="social">
-                <i className="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" className="social">
-                <i className="fab fa-google-plus-g"></i>
-              </a>
-              <a href="#" className="social">
-                <i className="fab fa-linkedin-in"></i>
-              </a>
-            </div>
-            <span>or use your email for registration</span>
-            <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <button>Sign Up</button>
-          </form>
-        </div> */}
         <div className="form-container sign-in-container">
       <Link to='/'><h6>Back</h6> </Link>
-
           <form action="#">
-            
             <h1>Sign in</h1>
             <div className="social-container">
               <a href="#" className="social">
@@ -49,10 +45,10 @@ const Login = (props: Props) => {
               </a>
             </div>
             <span>or use your account</span>
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
+            <input type="email" onChange={(e)=> setEmail(e.target.value)} placeholder="Email" />
+            <input type="password" onChange={(e)=> setPassword(e.target.value)} placeholder="Password" />
             <a href="#">Forgot your password?</a>
-            <button>Sign In</button>
+            <button onClick={login}>Sign In</button>
           </form>
         </div>
         <div className="overlay-container">
