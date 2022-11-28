@@ -14,9 +14,9 @@ const MenuProducts = (props: Props) => {
             <h2>Our Menu</h2>
           </div>
           {<ListCategory />}
-          <div className="filters-content">
+          {/* <div className="filters-content"> */}
             {<ListProduct/>}
-          </div>
+          {/* </div> */}
           <div className="btn-box">
           <ViewMoreProduct/>
 

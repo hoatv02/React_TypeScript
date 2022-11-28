@@ -9,6 +9,7 @@ import MenuProducts from "../../pages/PagesClient/MenuProduct/MenuProduct";
 import ProductDetail from "../../pages/PagesClient/ProductDetail/ProductDetail";
 import MyCart from "../../component/Client/MyCart/MyCart";
 import PaginatedItems from "../../component/Client/MyCart/Pages";
+import ConfirmCart from "../../pages/PagesClient/ConfirmCart/ConfirmCart";
 type Props = {};
 
 const Client = (props: Props) => {
@@ -22,6 +23,7 @@ const Client = (props: Props) => {
           <Route path="/mycart" element={<MyCart />} />
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/page" element={<PaginatedItems itemsPerPage={4} />} />
+          <Route path="/checkout" element={<ConfirmCart />} />
         </Route>
         <Route path="*" element={<h1>Not Found</h1>} />
         <Route path="/login" element={<Login />} />

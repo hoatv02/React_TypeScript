@@ -21,7 +21,7 @@ const NavbarLeft = (props: Props) => {
             </Link>
             <div className="sb-sidenav-menu-heading">Manage</div>
               
-            <Link to="/admin/product"><p
+            <Link to="/admin/product"><span
               className="nav-link collapsed"
               data-bs-toggle="collapse"
               data-bs-target="#collapseLayouts"
@@ -32,7 +32,7 @@ const NavbarLeft = (props: Props) => {
                 <i className="fas fa-columns"></i>
               </div>
               Products
-            </p></Link>
+            </span></Link>
             
              
             <Link  to="/admin/category"> <p

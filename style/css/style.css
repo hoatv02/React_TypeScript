@@ -436,7 +436,38 @@ a{
   background-color: #222831;
   color: #ffffff;
 }
-
+.carousel-item{
+  height: 550px;
+}
+.carousel-item img{
+  height:550px;
+}
+.carousel-caption{
+  color: #ffffff !important;
+}
+.carousel-caption p{
+}
+.carousel-caption a {
+  display: inline-block;
+  padding: 10px 30px;
+  background-color: #ffbe33;
+  color: #ffffff;
+  border-radius: 45px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border: none;
+}
+.beef{
+  top: 100px;
+}
+.pizza{
+  top: 100px;
+  left: 50% !important;
+}
+.pizza2{
+  top: 100px;
+  right:60% !important;
+}
 .offer_section .box .img-box {
   width: 175px;
   min-width: 175px;

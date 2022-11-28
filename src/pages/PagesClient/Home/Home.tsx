@@ -2,110 +2,123 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { IProduct } from "../../../interface/product";
 import { ICategory } from "../../../interface/category";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 import ListCategory from "../../../component/Client/ListCategory/ListCategory";
 import ListProduct from "../../../component/Client/ListProduct/ListProduct";
 import ViewMoreProduct from "../../../component/Client/ViewMoreProduct/ViewMoreProduct";
 type Props = {};
 
 const Home = (props: Props) => {
-  
- 
   return (
     <div>
-          <section className="slider_section ">
-            <div className="bg-box">
-          <img src="../../../style/images/hero-bg.jpg" alt=""/>
-            </div>
-          <div
-            id="customCarousel1"
-            className="carousel slide"
-            data-ride="carousel"
-          >
-            <div className="carousel-inner">
-              <div className="carousel-item active">
-                <div className="container ">
-                  <div className="row">
-                    <div className="col-md-7 col-lg-6 ">
-                      <div className="detail-box">
-                        <h1>Fast Food Restaurant</h1>
-                        <p>
-                          Doloremque, itaque aperiam facilis rerum, commodi,
-                          temporibus sapiente ad mollitia laborum quam quisquam
-                          esse error unde. Tempora ex doloremque, labore, sunt
-                          repellat dolore, iste magni quos nihil ducimus libero
-                          ipsam.
-                        </p>
-                        <div className="btn-box">
-                          <Link to="" className="btn1">
-                            Order Now
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="carousel-item ">
-                <div className="container ">
-                  <div className="row">
-                    <div className="col-md-7 col-lg-6 ">
-                      <div className="detail-box">
-                        <h1>Fast Food Restaurant</h1>
-                        <p>
-                          Doloremque, itaque aperiam facilis rerum, commodi,
-                          temporibus sapiente ad mollitia laborum quam quisquam
-                          esse error unde. Tempora ex doloremque, labore, sunt
-                          repellat dolore, iste magni quos nihil ducimus libero
-                          ipsam.
-                        </p>
-                        <div className="btn-box">
-                          <Link to="" className="btn1">
-                            Order Now
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="carousel-item">
-                <div className="container ">
-                  <div className="row">
-                    <div className="col-md-7 col-lg-6 ">
-                      <div className="detail-box">
-                        <h1>Fast Food Restaurant</h1>
-                        <p>
-                          Doloremque, itaque aperiam facilis rerum, commodi,
-                          temporibus sapiente ad mollitia laborum quam quisquam
-                          esse error unde. Tempora ex doloremque, labore, sunt
-                          repellat dolore, iste magni quos nihil ducimus libero
-                          ipsam.
-                        </p>
-                        <div className="btn-box">
-                          <Link to="" className="btn1">
-                            Order Now
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="container">
-              <ol className="carousel-indicators">
-                <li
-                  data-target="#customCarousel1"
-                  data-slide-to="0"
-                  className="active"
-                ></li>
-                <li data-target="#customCarousel1" data-slide-to="1"></li>
-                <li data-target="#customCarousel1" data-slide-to="2"></li>
-              </ol>
+      <div
+        id="carouselExampleDark"
+        className="carousel carousel-dark slide"
+        data-bs-ride="carousel"
+      >
+        <div className="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleDark"
+            data-bs-slide-to="0"
+            className="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleDark"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleDark"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div className="carousel-inner">
+          <div className="carousel-item active" data-bs-interval="10000">
+            <img
+              src="../../../../style/images/pizza.jpg"
+              className="d-block w-100"
+              alt="..."
+            />
+            <div className="carousel-caption pizza d-none d-md-block">
+              <h3>Fast Food Restaurant</h3>
+              <p>
+                {" "}
+                Doloremque, itaque aperiam facilis rerum, commodi, temporibus
+                sapiente ad mollitia laborum quam quisquam esse error unde.
+                Tempora ex doloremque, labore, sunt repellat dolore, iste magni
+                quos nihil ducimus libero ipsam..
+              </p>
+              <a href="">Order Now</a>
             </div>
           </div>
-        </section>
+          <div className="carousel-item" data-bs-interval="2000">
+            <img
+              src="../../../../style/images/912620.jpg"
+              className="d-block w-100"
+              alt="..."
+            />
+            <div className="carousel-caption pizza2 d-none d-md-block">
+              <h3>Fast Food Restaurant</h3>
+              <p>
+                {" "}
+                Doloremque, itaque aperiam facilis rerum, commodi, temporibus
+                sapiente ad mollitia laborum quam quisquam esse error unde.
+                Tempora ex doloremque, labore, sunt repellat dolore, iste magni
+                quos nihil ducimus libero ipsam..
+              </p>
+              <a href="">Order Now</a>
+            </div>
+          </div>
+          <div className="carousel-item">
+            <img
+              src="../../../../style/images/beef.jpg"
+              className="d-block w-100"
+              alt="..."
+            />
+            <div className="carousel-caption beef d-none d-md-block">
+              <h3>Fast Food Restaurant</h3>
+              <p>
+                {" "}
+                Doloremque, itaque aperiam facilis rerum, commodi, temporibus
+                sapiente ad mollitia laborum quam quisquam esse error unde.
+                Tempora ex doloremque, labore, sunt repellat dolore, iste magni
+                quos nihil ducimus libero ipsam..
+              </p>
+              <a href="">Order Now</a>
+            </div>
+          </div>
+        </div>
+        <button
+          className="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleDark"
+          data-bs-slide="prev"
+        >
+          <span
+            className="carousel-control-prev-icon"
+            aria-hidden="true"
+          ></span>
+          <span className="visually-hidden">Previous</span>
+        </button>
+        <button
+          className="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleDark"
+          data-bs-slide="next"
+        >
+          <span
+            className="carousel-control-next-icon"
+            aria-hidden="true"
+          ></span>
+          <span className="visually-hidden">Next</span>
+        </button>
+      </div>
       <section className="offer_section layout_padding-bottom">
         <div className="offer_container">
           <div className="container ">
@@ -148,13 +161,9 @@ const Home = (props: Props) => {
           <div className="heading_container heading_center">
             <h2>Our Menu</h2>
           </div>
-            {<ListCategory/>}
-          <div className="filters-content listProduct">
-              {<ListProduct/>}
-          </div>
-          <div className="btn-box">
-            {/* <a href="">View More</a> */}
-          </div>
+          {<ListCategory />}
+          <div className="filters-content listProduct">{<ListProduct />}</div>
+          <div className="btn-box">{/* <a href="">View More</a> */}</div>
         </div>
       </section>
       <section className="about_section layout_padding">
@@ -282,6 +291,101 @@ const Home = (props: Props) => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="slider_section ">
+        <div className="bg-box">
+          {/* <img src="../../../style/images/hero-bg.jpg" alt=""/> */}
+        </div>
+        <div
+          id="customCarousel1"
+          className="carousel slide"
+          data-ride="carousel"
+        >
+          <div className="carousel-inner">
+            <div className="carousel-item active">
+              <div className="container ">
+                <div className="row">
+                  <div className="col-md-7 col-lg-6 ">
+                    <div className="detail-box">
+                      <h1>Fast Food Restaurant</h1>
+                      <p>
+                        Doloremque, itaque aperiam facilis rerum, commodi,
+                        temporibus sapiente ad mollitia laborum quam quisquam
+                        esse error unde. Tempora ex doloremque, labore, sunt
+                        repellat dolore, iste magni quos nihil ducimus libero
+                        ipsam.
+                      </p>
+                      <div className="btn-box">
+                        <Link to="" className="btn1">
+                          Order Now
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="carousel-item ">
+              <div className="container ">
+                <div className="row">
+                  <div className="col-md-7 col-lg-6 ">
+                    <div className="detail-box">
+                      <h1>Fast Food Restaurant</h1>
+                      <p>
+                        Doloremque, itaque aperiam facilis rerum, commodi,
+                        temporibus sapiente ad mollitia laborum quam quisquam
+                        esse error unde. Tempora ex doloremque, labore, sunt
+                        repellat dolore, iste magni quos nihil ducimus libero
+                        ipsam.
+                      </p>
+                      <div className="btn-box">
+                        <Link to="" className="btn1">
+                          Order Now
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="carousel-item">
+              <div className="container ">
+                <div className="row">
+                  <div className="col-md-7 col-lg-6 ">
+                    <div className="detail-box">
+                      <h1>Fast Food Restaurant</h1>
+                      <p>
+                        Doloremque, itaque aperiam facilis rerum, commodi,
+                        temporibus sapiente ad mollitia laborum quam quisquam
+                        esse error unde. Tempora ex doloremque, labore, sunt
+                        repellat dolore, iste magni quos nihil ducimus libero
+                        ipsam.
+                      </p>
+                      <div className="btn-box">
+                        <Link to="" className="btn1">
+                          Order Now
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="container">
+            <ol className="carousel-indicators">
+              <li
+                data-target="#customCarousel1"
+                data-slide-to="0"
+                className="active"
+              ></li>
+              <li data-target="#customCarousel1" data-slide-to="1"></li>
+              <li data-target="#customCarousel1" data-slide-to="2"></li>
+            </ol>
           </div>
         </div>
       </section>

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { IProduct } from "../../../interface/product";
 type Props = {};
 
 const MyCart = (props: Props) => {
   const [addToCart, setAddToCart] = useState();
-  const cartStrorage = localStorage.getItem("addToCart")
-    ? JSON.parse(localStorage.getItem("addToCart"))
-    : [];
-  
+  const getItemLocal = localStorage.getItem("addToCart");
+  const cartStrorage = getItemLocal ? JSON.parse(getItemLocal) : [];
+
   const handleDelete = (id: string) => {
     const filterCart = cartStrorage.filter((item: IProduct) => item._id !== id);
     localStorage.setItem("addToCart", JSON.stringify(filterCart));
@@ -22,7 +22,11 @@ const MyCart = (props: Props) => {
             <div className="item" key={index}>
               <div>{index + 1}</div>
               <div className="image">
-                <img src={`http://localhost:3001/image/${item.image}`} style={{ width: "100px",height:"100px" }} alt="" />
+                <img
+                  src={`http://localhost:3001/image/${item.image}`}
+                  style={{ width: "80px", height: "80px" }}
+                  alt=""
+                />
               </div>
               <div className="description">
                 <span>{item.productName}</span>
@@ -36,20 +40,42 @@ const MyCart = (props: Props) => {
                   +
                 </button>
               </div>
-              <div className="total-price">Total Price : {item.price}</div>
+              <div className="total-price">
+                Total Price : {item.price * item.quantity}
+              </div>
               <div className="icon">
-                <button className="" onClick={() => handleDelete(item._id)}>
-                  Delete
-                </button>
+                <button className="btn btn-primary"  onClick={() => handleDelete(item._id)} style={{width:"100px",marginRight:'30px',backgroundColor:"#333"}}>Delete</button>
               </div>
             </div>
           );
-
         })}
+        <div
+          className="title"
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            width: "100%",
+            border: "none",
+            marginTop: "10px",
+          }}
+        >
+          Total Price : {}
+        </div>
+        <div
+          // className="title"
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            width: "100%",
+            border: "none",
+            marginTop: "10px",
+          }}
+        >
+         <Link to="/checkout"><button className="btn btn-primary" style={{width:"100px",marginRight:'30px',backgroundColor:"#333"}}>Continue</button></Link>
+        </div>
       </div>
     </div>
   );
-
 };
 
 export default MyCart;

@@ -8,18 +8,23 @@ type Props = {};
 
 const ListProductManage = (props: Props) => {
   const [product, setProduct] = useState<IProduct[]>([]);
-  
-  const handleSubmit =async (e:any)=>{
+
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     // console.log(e.target[0].value)
     try {
-      const valueInput = e.target[0].value
-      const {data} = await axios.get(`http://localhost:3001/search/` + valueInput)
-      setProduct(data.data)
-      
-    } catch (error) {
-    }
-  }
+      const valueInput = e.target[0].value;
+      if (valueInput === "") {
+        const { data } = await axios.get(`http://localhost:3001/product`);
+        setProduct(data.data);
+        return;
+      }
+      const { data } = await axios.get(
+        `http://localhost:3001/search/` + valueInput
+      );
+      setProduct(data.data);
+    } catch (error) {}
+  };
 
 
   useEffect(() => {
@@ -49,7 +54,10 @@ const ListProductManage = (props: Props) => {
             <h1 className="mt-4">Manage Products</h1>
           </div>
           <div className="addProduct">
-            <form className="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0" onSubmit={handleSubmit}>
+            <form
+              className="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"
+              onSubmit={handleSubmit}
+            >
               <div className="input-group">
                 <input
                   className="form-control"
@@ -59,7 +67,7 @@ const ListProductManage = (props: Props) => {
                   aria-describedby="btnNavbarSearch"
                 />
               </div>
-              <button className="btn btn-success btnAdd">Search</button>
+              {/* <button className="btn btn-success btnAdd">Search</button> */}
             </form>
             <Link
               type="button"
@@ -100,7 +108,6 @@ const ListProductManage = (props: Props) => {
                       <td>{item.price}</td>
                       <td>{item.category}</td>
                       <td>{item.quantity}</td>
-
                       <td>
                         <img
                           src={`http://localhost:3001/image/${item.image}`}

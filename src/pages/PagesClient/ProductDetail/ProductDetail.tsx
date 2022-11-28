@@ -25,7 +25,8 @@ const ProductDetail = (props: Props) => {
           <div className="row" style={{ fontSize: "12px" }}>
             <div className="col-md-6 ">
               <div className="img-box">
-                <img src={product?.image} style={{ width: "70%" }} alt="" />
+              
+                <img src={`http://localhost:3001/image/${product?.image}`} style={{ width: "70%" }} alt="" />
               </div>
             </div>
             <div className="col-md-6">
