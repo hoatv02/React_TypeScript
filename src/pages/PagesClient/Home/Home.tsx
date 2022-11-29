@@ -66,7 +66,6 @@ const Home = (props: Props) => {
             <div className="carousel-caption pizza2 d-none d-md-block">
               <h3>Fast Food Restaurant</h3>
               <p>
-                {" "}
                 Doloremque, itaque aperiam facilis rerum, commodi, temporibus
                 sapiente ad mollitia laborum quam quisquam esse error unde.
                 Tempora ex doloremque, labore, sunt repellat dolore, iste magni

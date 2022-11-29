@@ -1,9 +1,25 @@
-import React from "react";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { IProduct } from "../../../interface/product";
 
 type Props = {};
 
 const ConfirmCart = (props: Props) => {
+  const [cart, setcart] = useState<IProduct[]>([]);
+  const getItemLocal = localStorage.getItem("addToCart");
+  const cartStrorage = getItemLocal ? JSON.parse(getItemLocal) : [];
+  const items = cartStrorage.quantity
+  console.log(items)
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data } = await axios.get(`http://localhost:3001/product`);
+        // console.log(data.data);
+        setcart(data.data)
+      } catch (error) {}
+    })();
+  }, []);
   return (
     <div className="confirmCart">
       <div id="wrapper">
@@ -11,46 +27,21 @@ const ConfirmCart = (props: Props) => {
           <div id="left-col" className="col-md-6">
             <div id="left-col-cont">
               <h2>Summary</h2>
-              <div className="item">
-                <div className="img-col">
-                  <img src="http://emilcarlsson.se/assets/shirt.png" alt="" />
-                </div>
-                <div className="meta-col">
-                  <h3>Blue Ocean Shirt</h3>
-                  <p className="price">$60</p>
-                </div>
-              </div>
-              <div className="item">
-                <div className="img-col">
-                  <img
-                    src="http://emilcarlsson.se/assets/green-shirt.png"
-                    alt=""
-                  />
-                </div>
-                <div className="meta-col">
-                  <h3>Green Pine Shirt</h3>
-                  <p className="price">$55</p>
-                </div>
-              </div>
+              {cart.map((item, index) => {
+                return (
+                  <div className="item" key={index} style={{marginBottom:"10px"}}>
+                    <div className="img-col">
+                    <img src={`http://localhost:3001/image/${item?.image}`} style={{ width: "80%" }} alt="" />
+                    </div>
+                    <div className="meta-col">
+                      <h3>{item.productName}</h3>
+                      <p className="price">{item.quantity}</p>
+                      <p className="price">{item.price}</p>
+                    </div>
+                  </div>
+                );
+              })}
 
-              <div className="item">
-                <div className="img-col">
-                  <img src="http://emilcarlsson.se/assets/belt.png" alt="" />
-                </div>
-                <div className="meta-col">
-                  <h3>Cow Skin Belt</h3>
-                  <p className="price">$32</p>
-                </div>
-              </div>
-              <div className="item">
-                <div className="img-col">
-                  <img src="http://emilcarlsson.se/assets/watch1.png" alt="" />
-                </div>
-                <div className="meta-col">
-                  <h3>Festina Quartz Watch</h3>
-                  <p className="price">$299</p>
-                </div>
-              </div>
               <p id="total">Total : </p>
             </div>
           </div>
@@ -93,9 +84,7 @@ const ConfirmCart = (props: Props) => {
             </form>
           </div>
         </div>
-        
       </div>
-      
     </div>
   );
 };

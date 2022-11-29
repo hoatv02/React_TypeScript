@@ -8,6 +8,7 @@ import ListCategoryManage from '../../pages/PagesAmin/ListCategoryManage/ListCat
 import AddProduct from '../../pages/PagesAmin/ListProductManage/AddProduct/AddProduct'
 import EditProduct from '../../pages/PagesAmin/ListProductManage/EditProduct/EditProduct'
 import ListProductManage from '../../pages/PagesAmin/ListProductManage/ListProductManage'
+import UserManage from '../../pages/PagesAmin/UserManage/UserManage'
 
 type Props = {}
 
@@ -22,6 +23,7 @@ const Admin = (props: Props) => {
         <Route path="/editProduct/:id" element={<EditProduct />} />
         <Route path="/category" element={<ListCategoryManage />} />
         <Route path="/addCategory" element={<AddCategory />} />
+        <Route path="/user" element={<UserManage />} />
         <Route path="/editCategory/:id" element={<EditCategory />} />
       </Route>
         <Route path="*" element={<h1>Not Found</h1>} />

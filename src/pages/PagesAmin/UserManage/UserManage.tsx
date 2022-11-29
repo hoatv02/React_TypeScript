@@ -2,28 +2,29 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ICategory } from "../../../interface/category";
+import { User } from "../../../interface/user";
 
 type Props = {};
 
 const UserManage = (props: Props) => {
-  const [category, setCategory] = useState<ICategory[]>([]);
+  const [user, setUser] = useState<User[]>([]);
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await axios.get(`http://localhost:3001/category`);
-        setCategory(data.data);
+        const { data } = await axios.get(`http://localhost:3001/user`);
+        setUser(data.data);
       } catch (error) {}
     })();
   }, []);
-  const removeItem = async (id?: number) => {
-    try {
-      const { data } = await axios.delete(
-        `http://localhost:3001/category/${id}`
-      );
-      console.log(data);
-      setCategory(category.filter((item) => item._id !== data.category._id));
-    } catch (error) {}
-  };
+  // const removeItem = async (id?: number) => {
+  //   try {
+  //     const { data } = await axios.delete(
+  //       `http://localhost:3001/category/${id}`
+  //     );
+  //     console.log(data);
+  //     setCategory(category.filter((item) => item._id !== data.category._id));
+  //   } catch (error) {}
+  // };
   return (
     <div>
       <main>
@@ -52,18 +53,23 @@ const UserManage = (props: Props) => {
                 <thead>
                   <tr>
                     <th>STT</th>
-                    <th>Product Name</th>
-                    <th>Action</th>
+                    <th>User Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Address</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {category.map((item, index) => {
+                  {user.map((item, index) => {
                     // console.log(item)
                     return (
                       <tr key={index}>
                         <td>{index + 1}</td>
-                        <td>{item.categoryName}</td>
-                        <td>
+                        <td>{item.userName}</td>
+                        <td>{item.email}</td>
+                        <td>{item.phone}</td>
+                        <td>{item.address}</td>
+                        {/* <td>
                           <Link
                             to={`/admin/editCategory/${item._id}`}
                             className="btn btn-primary"
@@ -71,12 +77,12 @@ const UserManage = (props: Props) => {
                             Edit
                           </Link>
                           <button
-                            onClick={() => removeItem(item._id!)}
+                            // onClick={() => removeItem(item._id!)}
                             className="btn btn-danger"
                           >
                             Delete
                           </button>
-                        </td>
+                        </td> */}
                       </tr>
                     );
                   })}
