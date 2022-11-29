@@ -10,34 +10,12 @@ type Props = {};
 
 const Home = (props: Props) => {
   return (
-    <div>
+    <div className="container-body">
       <div
         id="carouselExampleDark"
         className="carousel carousel-dark slide"
         data-bs-ride="carousel"
       >
-        <div className="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#carouselExampleDark"
-            data-bs-slide-to="0"
-            className="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleDark"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleDark"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
-          ></button>
-        </div>
         <div className="carousel-inner">
           <div className="carousel-item active" data-bs-interval="10000">
             <img
@@ -46,15 +24,16 @@ const Home = (props: Props) => {
               alt="..."
             />
             <div className="carousel-caption pizza d-none d-md-block">
-              <h3>Fast Food Restaurant</h3>
+              <h5>Nhà hàng thức ăn ngon !</h5>
               <p>
                 {" "}
-                Doloremque, itaque aperiam facilis rerum, commodi, temporibus
-                sapiente ad mollitia laborum quam quisquam esse error unde.
-                Tempora ex doloremque, labore, sunt repellat dolore, iste magni
-                quos nihil ducimus libero ipsam..
+                Dịch vụ “Giao hàng miễn chạm” an toàn tuyệt đối và nhanh chóng
+                để bạn thưởng thức những chiếc pizza nóng giòn, thơm ngon ngay
+                tại nhà hoặc văn phòng
               </p>
-              <a href="">Order Now</a>
+              <a href="" className="orderNowHome">
+                Order Now
+              </a>
             </div>
           </div>
           <div className="carousel-item" data-bs-interval="2000">
@@ -64,14 +43,15 @@ const Home = (props: Props) => {
               alt="..."
             />
             <div className="carousel-caption pizza2 d-none d-md-block">
-              <h3>Fast Food Restaurant</h3>
+              <h5>Ưu đãi áp dụng từ 22/11/2022 – 30/11/2022</h5>
               <p>
-                Doloremque, itaque aperiam facilis rerum, commodi, temporibus
-                sapiente ad mollitia laborum quam quisquam esse error unde.
-                Tempora ex doloremque, labore, sunt repellat dolore, iste magni
-                quos nihil ducimus libero ipsam..
+                Còn gì đãaaaa bằng đặt #ThePizzaCompany mà được giảm ngay 50%
+                giá! Không cần đi xa, chỉ cần ngồi nhà gọi Pizza, là có Pizza
+                nóng-giòn ăn thả gaaaaaaa!!
               </p>
-              <a href="">Order Now</a>
+              <a href="" className="orderNowHome">
+                Order Now
+              </a>
             </div>
           </div>
           <div className="carousel-item">
@@ -81,15 +61,20 @@ const Home = (props: Props) => {
               alt="..."
             />
             <div className="carousel-caption beef d-none d-md-block">
-              <h3>Fast Food Restaurant</h3>
+              <h5>Game show diễn ra từ hôm nay đến hết ngày 20/12/2022</h5>
               <p>
                 {" "}
-                Doloremque, itaque aperiam facilis rerum, commodi, temporibus
-                sapiente ad mollitia laborum quam quisquam esse error unde.
-                Tempora ex doloremque, labore, sunt repellat dolore, iste magni
-                quos nihil ducimus libero ipsam..
+                Store sẽ cho ra 1 món PIZZA bất kì và bạn sẽ được bịt mắt khi ăn
+                1 miếng đầu tiên ( 1/6 miếng pizza size 21cm). Và sau khi ăn
+                khách hàng sẽ đoán xem là mình đã ăn chiếc PiZZA gì , thuộc loại
+                nào trên menu. Nếu khách đoán đúng thì tất nhiên chiếc PIZZA
+                khách đang ăn đã được FREE rồi ạ. NGƯỢC LẠI nếu không đoán được
+                đúng thì khách sẽ phải hoàn trả đầy đủ số tiền chiếc bánh mà
+                mình đã ăn cho Store .
               </p>
-              <a href="">Order Now</a>
+              <a href="" className="orderNowHome">
+                Order Now
+              </a>
             </div>
           </div>
         </div>
@@ -133,7 +118,9 @@ const Home = (props: Props) => {
                     <h6>
                       <span>20%</span> Off
                     </h6>
-                    <a href="">Order Now</a>
+                    <a href="" className="orderNowHome">
+                      Order Now
+                    </a>
                   </div>
                 </div>
               </div>
@@ -147,7 +134,9 @@ const Home = (props: Props) => {
                     <h6>
                       <span>15%</span> Off
                     </h6>
-                    <a href="">Order Now</a>
+                    <a href="" className="orderNowHome">
+                      Order Now
+                    </a>
                   </div>
                 </div>
               </div>
@@ -161,9 +150,7 @@ const Home = (props: Props) => {
             <h2>Our Menu</h2>
           </div>
           {<ListCategory />}
-          <div className="filters-content listProduct">
-            {<ListProduct />}
-            </div>
+          <div className="filters-content listProduct">{<ListProduct />}</div>
           {/* <div className="btn-box"><a href="">View More</a></div> */}
         </div>
       </section>
@@ -172,7 +159,7 @@ const Home = (props: Props) => {
           <div className="row">
             <div className="col-md-6 ">
               <div className="img-box">
-                <img src="images/about-img.png" alt="" />
+                <img src="../../../../style/images/912620.jpg" alt="" />
               </div>
             </div>
             <div className="col-md-6">
@@ -188,7 +175,9 @@ const Home = (props: Props) => {
                   Lorem Ipsum, you need to be sure there isn't anything
                   embarrassing hidden in the middle of text. All
                 </p>
-                <a href="">Read More</a>
+                <a href="" className="orderNowHome">
+                  Read More
+                </a>
               </div>
             </div>
           </div>
@@ -239,7 +228,7 @@ const Home = (props: Props) => {
                     <input type="date" className="form-control" />
                   </div>
                   <div className="btn_box">
-                    <button>Book Now</button>
+                    <button className="orderNowHome">Book Now</button>
                   </div>
                 </form>
               </div>

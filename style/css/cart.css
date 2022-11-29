@@ -8,8 +8,7 @@
     font-family: 'Roboto', sans-serif;
   }
   .myCart .shopping-cart {
-    width: 1350px;
-    margin: 80px auto;
+    margin: 20px auto;
     background: #FFFFFF;
     border-radius: 6px;
     display: flex;
@@ -25,102 +24,15 @@
   }
    
   .myCart .item {
-    padding: 20px 30px;
-    height: 120px;
     justify-content:space-around;
     display: flex;
+    border-bottom: 1px solid #E1E8EE;
   }
-   
-  .myCart .item:nth-child(3) {
-    border-top:  1px solid #E1E8EE;
-    border-bottom:  1px solid #E1E8EE;
-  }
-  .myCart .buttons {
-    position: relative;
-    padding-top: 30px;
-    margin-right: 60px;
-  }
-  .myCart .delete-btn,
-  .myCart .like-btn {
-    display: inline-block;
-    Cursor: pointer;
-  }
-  .myCart .delete-btn {
-    width: 18px;
-    height: 17px;
-    background: url(&amp;quot;delete-icn.svg&amp;quot;) no-repeat center;
-  }
-   
-  .myCart .like-btn {
-    position: absolute;
-    top: 9px;
-    left: 15px;
-    background: url('twitter-heart.png');
-    width: 60px;
-    height: 60px;
-    background-size: 2900%;
-    background-repeat: no-repeat;
-  }
-  .myCart .is-active {
-    animation-name: animate;
-    animation-duration: .8s;
-    animation-iteration-count: 1;
-    animation-timing-function: steps(28);
-    animation-fill-mode: forwards;
-  }
-   
-  @keyframes animate {
-    0%   { background-position: left;  }
-    50%  { background-position: right; }
-    100% { background-position: right; }
-  }
-
-  .myCart .image {
-    margin-right: 50px;
-  }
-   
-  .myCart .description {
-    padding-top: 10px;
-    margin-right: 60px;
-    width: 300px;
-  }
-   
-  .myCart .description span {
-    font-size: 14px;
-    margin-left: 10px;
-    width:200px;
-    color: #43484D;
-    font-weight: 400;
-  }
-   
-  .myCart .description span:first-child {
-    margin-bottom: 5px;
-  }
-  .myCart .description span:last-child {
-    font-weight: 300;
-    margin-top: 8px;
-    color: #86939E;
-  }
-  
-
 
   .myCart .quantity {
     padding-top: 20px;
     margin-right: 60px;
   }
-  .myCart{
-    min-height:50vh;
-  }
-  .myCart .quantity input {
-    -webkit-appearance: none;
-    border: none;
-    text-align: center;
-    width: 32px;
-    font-size: 16px;
-    color: #43484D;
-    font-weight: 300;
-  }
-   
   .myCart button[class*=btn] {
     width: 30px;
     height: 30px;
@@ -136,10 +48,7 @@
     margin-top: 2px;
   }
    
-  .myCart button:focus,
-  .myCart input:focus {
-    outline:0;
-  }
+  
   .myCart .icon{
     margin-top: 30px;
   }

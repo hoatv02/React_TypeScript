@@ -11,17 +11,15 @@ const ListProduct = (props: Props) => {
   const getItemLocal = localStorage.getItem("addToCart");
   const [addToCart, setAddToCart] = useState(() => {
     const getCart: any = getItemLocal ? JSON.parse(getItemLocal) : [];
-    console.log(getCart);
     return getCart;
   });
-  console.log(addToCart);
   const handlerAddCart = (item: any) => {
     setAddToCart((prev: any) => {
       const isExist = prev.some((cart: any) => item._id === cart._id);
       if (!isExist) {
         const newValue = [
           ...prev,
-          { _id: item._id, image: item.image, price: item.price, quantity: 1 },
+          { _id: item._id, image: item.image,productName:item.productName, price: item.price, quantity: 1 },
         ];
         localStorage.setItem("addToCart", JSON.stringify(newValue));
         return newValue;
@@ -32,16 +30,16 @@ const ListProduct = (props: Props) => {
         return [...prev];
       }
     });
-    toast.success('Thêm sản phẩm thành công !', {
-        position: "bottom-right",
-        autoClose: 1100,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-        });
+    toast.success("Thêm sản phẩm thành công !", {
+      position: "bottom-right",
+      autoClose: 1100,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
     // }
   };
 
@@ -70,16 +68,20 @@ const ListProduct = (props: Props) => {
                   </Link>
                 </div>
                 <div className="detail-box">
-                  <h5>{item.productName}</h5>
+                  <p>{item.productName}</p>
                   <p>{item.category}</p>
-                  <div className="options">
-                    <h6>Price : {item.price}</h6>
-                    <button
-                      className="btn btn-warning"
-                      onClick={() => handlerAddCart(item)}
-                    >
-                      Add to cart
-                    </button>
+                  <div className="options row">
+                    <div className=" col-lg-6">
+                      <p className="productList_price">Price : {item.price}</p>
+                    </div>
+                    <div className="col-lg-6">
+                      <button
+                        className="btn btn-warning addToCart"
+                        onClick={() => handlerAddCart(item)}
+                      >
+                        Thêm vào...
+                      </button>
+                    </div>
 
                     {/* <button onClick={notify}>HHH</button> */}
                     <ToastContainer

@@ -25,11 +25,11 @@ body {
 }
 
 .layout_padding-top {
-  padding-top: 90px;
+  padding-top: 20px !important;
 }
 
 .layout_padding-bottom {
-  padding-bottom: 90px;
+  padding-bottom: 50px;
 }
 
 h1,
@@ -37,7 +37,7 @@ h2 {
   font-family: 'Dancing Script', cursive;
 }
 
-.heading_container {
+/* .heading_container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -48,7 +48,7 @@ h2 {
   -webkit-box-align: start;
   -ms-flex-align: start;
   align-items: flex-start;
-}
+} */
 
 .marignbt{
   margin-bottom:13px;
@@ -75,7 +75,7 @@ h2 {
   align-items: center;
   text-align: center;
 }
-
+/* 
 a,
 a:hover,
 a:focus {
@@ -85,14 +85,14 @@ a:focus {
 a:hover,
 a:focus {
   color: initial;
-}
-
+} */
+/* 
 .btn,
 .btn:focus {
   outline: none !important;
   -webkit-box-shadow: none;
   box-shadow: none;
-}
+} */
 .products{
   display: grid;
 }
@@ -114,8 +114,9 @@ a:focus {
   top: 0;
   left: 0;
   width: 100%;
-  background: #222831;
-  height: 116px;
+  /* background: #222831; */
+  background: #000;
+  height: 90px;
 }
 a{
   text-decoration: none !important;
@@ -133,8 +134,6 @@ a{
   height: 100%;
   -o-object-fit: cover;
   object-fit: cover;
-}
-.img_product{
 }
 .sub_page .hero_area {
   min-height: auto;
@@ -177,7 +176,7 @@ a{
 }
 
 .custom_nav-container {
-  padding: 0;
+  padding: 0 !important;
 }
 
 .custom_nav-container .navbar-nav {
@@ -185,17 +184,16 @@ a{
 }
 
 .custom_nav-container .navbar-nav .nav-item .nav-link {
-  padding: 5px 20px;
+  /* padding: 5px 20px; */
+  margin: 0;
+  font-size: 15px;
   color: #ffffff;
-  text-align: center;
   text-transform: uppercase;
-  border-radius: 5px;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
+  /* -webkit-transition: all 0.3s; */
+  /* transition: all 0.3s; */
 }
 
-.custom_nav-container .navbar-nav .nav-item:hover .nav-link,
-.custom_nav-container .navbar-nav .nav-item.active .nav-link {
+.custom_nav-container .navbar-nav .nav-item:hover .nav-link{
   color: #ffbe33;
 }
 
@@ -213,52 +211,18 @@ a{
 }
 
 .user_option {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
+  font-size: 15px;
 }
 
 .user_option a {
   margin: 0 10px;
 }
-
-.user_option .user_link {
-  color: #ffffff;
-}
-
-.user_option .user_link:hover {
-  color: #ffbe33;
-}
-
-.user_option .cart_link {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.user_option .cart_link svg {
-  width: 17px;
-  height: auto;
-  fill: #ffffff;
-  margin-bottom: 2px;
-}
-
-.user_option .cart_link:hover svg {
-  fill: #ffbe33;
-}
-
 .user_option .order_online {
   display: inline-block;
-  padding: 8px 30px;
+  padding: 6px 8px;
+  font-size: 12px;
   background-color: #ffbe33;
   color: #ffffff;
   border-radius: 45px;
@@ -333,90 +297,7 @@ a{
 
 /*end header section*/
 /* slider section */
-.slider_section {
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  position: relative;
-  padding: 45px 0 75px 0;
-}
 
-.slider_section .row {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.slider_section #customCarousel1 {
-  width: 100%;
-  position: unset;
-}
-
-.slider_section .detail-box {
-  color: #ffffff;
-  margin-bottom: 145px;
-}
-
-.slider_section .detail-box h1 {
-  font-size: 3.5rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.slider_section .detail-box p {
-  font-size: 14px;
-}
-
-.slider_section .detail-box a {
-  display: inline-block;
-  padding: 10px 45px;
-  background-color: #ffbe33;
-  color: #ffffff;
-  border-radius: 45px;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  border: none;
-  margin-top: 10px;
-}
-
-.slider_section .detail-box a:hover {
-  background-color: #e69c00;
-}
-
-.slider_section .img-box img {
-  width: 100%;
-}
-
-.slider_section .carousel-indicators {
-  position: unset;
-  margin: 0;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.slider_section .carousel-indicators li {
-  background-color: #ffffff;
-  width: 12px;
-  height: 12px;
-  border-radius: 100%;
-  opacity: 1;
-}
-
-.slider_section .carousel-indicators li.active {
-  width: 20px;
-  height: 20px;
-  background-color: #ffbe33;
-}
 
 .offer_section {
   position: relative;
@@ -434,18 +315,37 @@ a{
   border-radius: 5px;
   padding: 20px 15px;
   background-color: #222831;
+  background: #000;
   color: #ffffff;
 }
+
+
 .carousel-item{
-  height: 550px;
+  height: 430px;
 }
 .carousel-item img{
-  height:550px;
+  height:430px;
 }
 .carousel-caption{
   color: #ffffff !important;
 }
 .carousel-caption p{
+  font-size: 12px;
+  text-align: center;
+}
+.productList_price{
+  font-size: 12px !important;
+  align-items: center;
+  margin-top: 5px;
+}
+.addToCart{
+  font-size: 12px !important;
+  height:30px;
+  align-items: center;
+  padding: 5px 10px !important;
+}
+.orderNowHome{
+  font-size: 12px;
 }
 .carousel-caption a {
   display: inline-block;
@@ -513,7 +413,9 @@ a{
   transition: all 0.3s;
   border: none;
 }
-
+.container-body{
+  margin-top: -10px;
+}
 .offer_section .box .detail-box a:hover {
   background-color: #e69c00;
 }
@@ -554,6 +456,7 @@ a{
 
 .food_section .filters_menu li.active {
   background-color: #222831;
+  background: #000;
   color: #ffffff;
   margin: 2px;
 }
@@ -566,7 +469,7 @@ a{
   color: #ffffff;
   border-radius: 15px;
   overflow: hidden;
-  background: linear-gradient(to bottom, #f1f2f3 25px, #222831 25px);
+  background: linear-gradient(to bottom, #f1f2f3 25px, #000 25px);
 }
 
 .food_section .box .img-box {
@@ -674,6 +577,7 @@ a{
 
 .about_section {
   background: #222831;
+  background: #000;
   color: #ffffff;
 }
 
@@ -851,6 +755,7 @@ a{
 
 .client_section .box .detail-box {
   background-color: #222831;
+  background: #000;
   color: #ffffff;
   padding: 25px 25px 15px 25px;
   border-radius: 5px;
@@ -966,6 +871,7 @@ a{
 /* footer section*/
 .footer_section {
   background-color: #222831;
+  background: #000;
   color: #ffffff;
   padding: 75px 0 40px 0;
   text-align: center;
@@ -1043,6 +949,7 @@ a{
   -ms-flex-align: center;
   align-items: center;
   color: #222831;
+  background: #000;
   width: 30px;
   height: 30px;
   border-radius: 100%;

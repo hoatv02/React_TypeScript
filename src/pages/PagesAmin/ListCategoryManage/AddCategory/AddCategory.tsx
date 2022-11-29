@@ -7,7 +7,6 @@ import { ICategory } from '../../../../interface/category'
 type Props = {}
 
 const AddCategory = (props: Props) => {
-  // console.log("list",['jaja','âijssj'])
   const navigate = useNavigate()
     const {
         register,

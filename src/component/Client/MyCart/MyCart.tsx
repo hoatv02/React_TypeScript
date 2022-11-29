@@ -59,7 +59,7 @@ const MyCart = (props: Props) => {
             marginTop: "10px",
           }}
         >
-          Total Price : {}
+          Total Price : 112827872
         </div>
         <div
           // className="title"

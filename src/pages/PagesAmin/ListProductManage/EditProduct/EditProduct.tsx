@@ -104,7 +104,6 @@ const EditProduct = (props: Props) => {
                 aria-label="Default select example"
                 {...register("category")}
               >
-                <option selected>Open this select menu</option>
                 <option value="Pizza">Pizza</option>
                 <option value="Bugger">Bugger</option>
                 <option value="Meats">Meats</option>
