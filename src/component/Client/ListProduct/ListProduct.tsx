@@ -15,6 +15,7 @@ const ListProduct = (props: Props) => {
   });
   const handlerAddCart = (item: any) => {
     setAddToCart((prev: any) => {
+      
       const isExist = prev.some((cart: any) => item._id === cart._id);
       if (!isExist) {
         const newValue = [

@@ -1,7 +1,7 @@
 import axios from "axios";
-import React from "react";
+import React ,{useEffect} from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { User } from "../../../../interface/user";
 
 type Props = {};
@@ -11,11 +11,21 @@ const AddUser = (props: Props) => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<User>();
+  const {id} = useParams();
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data } = await axios.get(`http://localhost:3001/user/`+id);
+        reset(data.data);
+      } catch (error) {}
+    })();
+  }, []);
   const onSubmit: SubmitHandler<User> = async (user) => {
     try {
-      const { data } = await axios.post(`http://localhost:3001/addUser`, user);
+      const { data } = await axios.put(`http://localhost:3001/editUser/${id}`, user);
       navigate('/admin/user')
     } catch (error) {
       
@@ -27,7 +37,7 @@ const AddUser = (props: Props) => {
       <div className="row">
         <div className="col-sm-6">
           <div className="">
-            <label className="col-sm-2 col-form-label">User Name</label>
+            <label className="col-sm-2 col-form-label">UserName</label>
             <br />
             <input
               type="text"
@@ -64,7 +74,7 @@ const AddUser = (props: Props) => {
           </div>
         </div>
       </div>
-      <button className="btn btn-success btnAdd">Thêm mới</button>
+      <button className="btn btn-success btnAdd">CChỉnh sửa</button>
     </form>
   );
 };

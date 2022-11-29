@@ -41,7 +41,7 @@ const ConfirmCart = (props: Props) => {
                 >
                   <div className="img-col col-lg-6">
                     <img
-                      src={`http://localhost:3001/image/${item?.image}`}
+                      src={`http://localhost:3001/image/${item?.image}`} 
                       alt=""
                     />
                   </div>

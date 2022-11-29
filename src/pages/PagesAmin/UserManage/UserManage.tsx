@@ -36,10 +36,17 @@ const UserManage = (props: Props) => {
             <div className="addProduct">
               <Link
                 type="button"
-                to="/admin/addCategory"
+                to="/admin/addUser"
                 className="btn btn-success"
               >
                 Thêm mới
+              </Link>
+              <Link
+                type="button"
+                to="/admin/editUser"
+                className="btn btn-success"
+              >
+                Chỉnh sửa
               </Link>
             </div>
           </div>
@@ -57,32 +64,22 @@ const UserManage = (props: Props) => {
                     <th>Email</th>
                     <th>Phone</th>
                     <th>Address</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   {user.map((item, index) => {
-                    // console.log(item)
                     return (
                       <tr key={index}>
-                        <td>{index + 1}</td>
                         <td>{item.userName}</td>
                         <td>{item.email}</td>
                         <td>{item.phone}</td>
                         <td>{item.address}</td>
-                        {/* <td>
-                          <Link
-                            to={`/admin/editCategory/${item._id}`}
-                            className="btn btn-primary"
-                          >
+                        <td>
+                          <Link to={`/admin/editUser/${item._id}`}>
                             Edit
                           </Link>
-                          <button
-                            // onClick={() => removeItem(item._id!)}
-                            className="btn btn-danger"
-                          >
-                            Delete
-                          </button>
-                        </td> */}
+                        </td>
                       </tr>
                     );
                   })}

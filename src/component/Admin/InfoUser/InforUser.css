@@ -1,0 +1,19 @@
+.container_info{
+    margin:20px;
+    height:250px;
+    width:200px;
+    padding:20px;
+    box-shadow: 1px 3px 7px rgb(155, 154, 154);
+    border-radius: 20px;
+}
+.container_info_heading{
+    margin-bottom: 1px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.info_line{
+    border-bottom: 1px solid #000;
+}
+.container_info_content{
+    padding-top: 10px;
+}

@@ -27,9 +27,8 @@ const Home = (props: Props) => {
               <h5>Nhà hàng thức ăn ngon !</h5>
               <p>
                 {" "}
-                Dịch vụ “Giao hàng miễn chạm” an toàn tuyệt đối và nhanh chóng
-                để bạn thưởng thức những chiếc pizza nóng giòn, thơm ngon ngay
-                tại nhà hoặc văn phòng
+                Triệu tập ngay hội yêu Pizza và ghiền shopping, mau mau tới shop gần nhất hoặc gọi liền tới hotline 1900 1822 tiếp nguồn năng lượng để “ săn hàng ” cùng anh cùng chị. Ngồi nhà mà vẫn ăn no, chẳng cần lo tốn kém, vì Pizza Hut khao bạn tận 50 % – tin nổi không, chỉ từ 101.500 VNĐ bạn sẽ có ngay một phần PIZZA ( * ) tuyệt ngon cho một ngày shopping hoành tráng .
+Rủ rê hội “ săn marketing ” cùng nạp nguồn năng lượng với Pizza ngon. Chớp Deal ngay, đừng bỏ lỡ !
               </p>
               <a href="" className="orderNowHome">
                 Order Now

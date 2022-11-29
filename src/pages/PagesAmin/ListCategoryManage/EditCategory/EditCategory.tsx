@@ -21,7 +21,6 @@ const EditCategory = (props: Props) => {
     (async () => {
       try {
         const { data } = await axios.get(`http://localhost:3001/category/`+ id);
-        console.log(data.category);
         reset(data.category);
       } catch (error) {}
     })();
