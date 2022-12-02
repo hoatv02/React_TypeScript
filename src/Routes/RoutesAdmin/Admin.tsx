@@ -31,7 +31,7 @@ const Admin = (props: Props) => {
 
           <Route path="/user" element={<UserManage />} />
           <Route path="/addUser" element={<AddUser />} />
-          <Route path="/userDetail" element={<InfoUser  />} />
+          <Route path="/orders" element={<InfoUser  />} />
           <Route path="/editUser/:id" element={<EditUser />} />
         </Route>
         <Route path="*" element={<h1>Not Found</h1>} />

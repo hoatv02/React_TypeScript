@@ -1,7 +1,7 @@
 .container_info{
-    margin:20px;
-    height:250px;
-    width:200px;
+    margin-left: 20px;
+    height:auto;
+    width:300px;
     padding:20px;
     box-shadow: 1px 3px 7px rgb(155, 154, 154);
     border-radius: 20px;
@@ -15,5 +15,25 @@
     border-bottom: 1px solid #000;
 }
 .container_info_content{
+    color:red;
+    font-size: 12px;
     padding-top: 10px;
+}
+  .container_info_footer{
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+    text-align: center;
+    /* padding:0 20px; */
+    margin-top: 5px !important;
+  }
+.container_info_footer_remove,.container_info_footer_edit{
+    /* width: 2px !important; */
+    padding: 0px !important;
+}
+.h2infoUser{
+    padding: 20px !important;
+}
+.container_info_user{
+    padding: 5px;
 }

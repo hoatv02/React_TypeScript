@@ -17,6 +17,7 @@ const Register = (props: Props) => {
     const onSubmit : SubmitHandler<User> =async (user) => {
         try {
           const {data} =  await axios.post(`http://localhost:3001/signup`,user)
+          // const {user} = await axios.post(`http://localhost:3001/user`,user)
           alert("Bạn đã đăng kí thành công !!!")
           navigate('/login')
         } catch (error) {

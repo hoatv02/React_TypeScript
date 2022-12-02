@@ -1,7 +1,7 @@
 import axios from "axios";
-import React ,{useEffect} from "react";
+import React, { useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { User } from "../../../../interface/user";
 
 type Props = {};
@@ -14,26 +14,31 @@ const AddUser = (props: Props) => {
     reset,
     formState: { errors },
   } = useForm<User>();
-  const {id} = useParams();
+  const { id } = useParams();
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await axios.get(`http://localhost:3001/user/`+id);
+        const { data } = await axios.get(`http://localhost:3001/user/` + id);
+        console.log(data)
         reset(data.data);
       } catch (error) {}
     })();
   }, []);
   const onSubmit: SubmitHandler<User> = async (user) => {
     try {
-      const { data } = await axios.put(`http://localhost:3001/editUser/${id}`, user);
-      navigate('/admin/user')
-    } catch (error) {
-      
-    }
+      const { data } = await axios.put(
+        `http://localhost:3001/editUser/${id}`,
+        user
+      );
+      navigate("/admin/user");
+    } catch (error) {}
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} style={{ padding: "30px" }}>
+
+    <div>
+      <Link to="/admin/userDetail"><p style={{ padding: "10px  30px 0 30px" }}>Quay lai</p></Link>
+      <form onSubmit={handleSubmit(onSubmit)} style={{ padding: "0 30px" }}>
       <div className="row">
         <div className="col-sm-6">
           <div className="">
@@ -74,8 +79,9 @@ const AddUser = (props: Props) => {
           </div>
         </div>
       </div>
-      <button className="btn btn-success btnAdd">CChỉnh sửa</button>
+            <button className="btn btn-success btnedits">Chỉnh sửa</button>
     </form>
+    </div>
   );
 };
 

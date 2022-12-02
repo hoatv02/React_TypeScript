@@ -64,18 +64,20 @@ const NavbarLeft = (props: Props) => {
                 User
               </p>
             </Link>
-            <Link
-              className="nav-link collapsed"
-              to="#"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapsePages"
-              aria-expanded="false"
-              aria-controls="collapsePages"
-            >
-              <div className="sb-nav-link-icon">
-                <i className="fas fa-book-open"></i>
-              </div>
-              Category
+            <Link to="/admin/orders">
+              {" "}
+              <p
+                className="nav-link collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapsePages"
+                aria-expanded="false"
+                aria-controls="collapsePages"
+              >
+                <div className="sb-nav-link-icon">
+                  <i className="fas fa-book-open"></i>
+                </div>
+                Orders
+              </p>
             </Link>
             <div className="sb-sidenav-menu-heading">Addons</div>
             <Link className="nav-link" to="index.html">

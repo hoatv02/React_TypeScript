@@ -17,7 +17,7 @@ const Home = (props: Props) => {
         data-bs-ride="carousel"
       >
         <div className="carousel-inner">
-          <div className="carousel-item active" data-bs-interval="10000">
+          <div className="carousel-item active" data-bs-interval="8000">
             <img
               src="../../../../style/images/pizza.jpg"
               className="d-block w-100"
@@ -26,16 +26,21 @@ const Home = (props: Props) => {
             <div className="carousel-caption pizza d-none d-md-block">
               <h5>Nhà hàng thức ăn ngon !</h5>
               <p>
-                {" "}
-                Triệu tập ngay hội yêu Pizza và ghiền shopping, mau mau tới shop gần nhất hoặc gọi liền tới hotline 1900 1822 tiếp nguồn năng lượng để “ săn hàng ” cùng anh cùng chị. Ngồi nhà mà vẫn ăn no, chẳng cần lo tốn kém, vì Pizza Hut khao bạn tận 50 % – tin nổi không, chỉ từ 101.500 VNĐ bạn sẽ có ngay một phần PIZZA ( * ) tuyệt ngon cho một ngày shopping hoành tráng .
-Rủ rê hội “ săn marketing ” cùng nạp nguồn năng lượng với Pizza ngon. Chớp Deal ngay, đừng bỏ lỡ !
+                Triệu tập ngay hội yêu Pizza và ghiền shopping, mau mau tới shop
+                gần nhất hoặc gọi liền tới hotline 1900 1822 tiếp nguồn năng
+                lượng để “ săn hàng ” cùng anh cùng chị. Ngồi nhà mà vẫn ăn no,
+                chẳng cần lo tốn kém, vì Pizza Hut khao bạn tận 50 % – tin nổi
+                không, chỉ từ 101.500 VNĐ bạn sẽ có ngay một phần PIZZA ( * )
+                tuyệt ngon cho một ngày shopping hoành tráng . Rủ rê hội “ săn
+                marketing ” cùng nạp nguồn năng lượng với Pizza ngon. Chớp Deal
+                ngay, đừng bỏ lỡ !
               </p>
               <a href="" className="orderNowHome">
                 Order Now
               </a>
             </div>
           </div>
-          <div className="carousel-item" data-bs-interval="2000">
+          <div className="carousel-item" data-bs-interval="8000">
             <img
               src="../../../../style/images/912620.jpg"
               className="d-block w-100"
@@ -62,7 +67,6 @@ Rủ rê hội “ săn marketing ” cùng nạp nguồn năng lượng với P
             <div className="carousel-caption beef d-none d-md-block">
               <h5>Game show diễn ra từ hôm nay đến hết ngày 20/12/2022</h5>
               <p>
-                {" "}
                 Store sẽ cho ra 1 món PIZZA bất kì và bạn sẽ được bịt mắt khi ăn
                 1 miếng đầu tiên ( 1/6 miếng pizza size 21cm). Và sau khi ăn
                 khách hàng sẽ đoán xem là mình đã ăn chiếc PiZZA gì , thuộc loại

@@ -4,10 +4,13 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import SearchNavbar from "../../../component/Admin/SearchNavbar/SearchNavbar";
 import { IProduct } from "../../../interface/product";
+import { RingLoader, BeatLoader} from "react-spinners";
+
 type Props = {};
 
 const ListProductManage = (props: Props) => {
   const [product, setProduct] = useState<IProduct[]>([]);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -17,6 +20,7 @@ const ListProductManage = (props: Props) => {
       if (valueInput === "") {
         const { data } = await axios.get(`http://localhost:3001/product`);
         setProduct(data.data);
+
         return;
       }
       const { data } = await axios.get(
@@ -25,17 +29,29 @@ const ListProductManage = (props: Props) => {
       setProduct(data.data);
     } catch (error) {}
   };
-
-
   useEffect(() => {
     (async () => {
       try {
         const { data } = await axios.get(`http://localhost:3001/product`);
         // console.log(data.data);
         setProduct(data.data);
+        setLoading(true);
+        setTimeout(() => {
+          setLoading(false);
+        }, 2000);
       } catch (error) {}
     })();
   }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     try {
+
+  //       const { data } = await axios.get(`http://localhost:3001/product`);
+  //       // console.log(data.data);
+  //       setProduct(data.data);
+  //     } catch (error) {}
+  //   })();
+  // }, []);
 
   const removeItem = async (id?: number) => {
     try {
@@ -99,42 +115,46 @@ const ListProductManage = (props: Props) => {
                   <th>Action</th>
                 </tr>
               </thead>
-              <tbody>
-                {product.map((item, index) => {
-                  return (
-                    <tr key={index}>
-                      <td>{index + 1}</td>
-                      <td>{item.productName}</td>
-                      <td>{item.price}</td>
-                      <td>{item.category}</td>
-                      <td>{item.quantity}</td>
-                      <td>
-                        <img
-                          src={`http://localhost:3001/image/${item.image}`}
-                          style={{ width: "80px", height: "80px" }}
-                        />
-                      </td>
-                      <td>{item.description}</td>
-                      <td>
-                        <Link
-                          type="button"
-                          to={`/admin/editProduct/${item._id}`}
-                          className="btn btn-primary"
-                        >
-                          Edit
-                        </Link>
+              {loading ? (
+                <BeatLoader color="#36d7b7" />
+              ) : (
+                <tbody>
+                  {product.map((item, index) => {
+                    return (
+                      <tr key={index}>
+                        <td>{index + 1}</td>
+                        <td>{item.productName}</td>
+                        <td>{item.price}</td>
+                        <td>{item.category}</td>
+                        <td>{item.quantity}</td>
+                        <td>
+                          <img
+                            src={`http://localhost:3001/image/${item.image}`}
+                            style={{ width: "80px", height: "80px" }}
+                          />
+                        </td>
+                        <td>{item.description}</td>
+                        <td>
+                          <Link
+                            type="button"
+                            to={`/admin/editProduct/${item._id}`}
+                            className="btn btn-primary"
+                          >
+                            Edit
+                          </Link>
 
-                        <button
-                          onClick={() => removeItem(item._id!)}
-                          className="btn btn-danger"
-                        >
-                          Delete
-                        </button>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
+                          <button
+                            onClick={() => removeItem(item._id!)}
+                            className="btn btn-danger"
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              )}
             </table>
           </div>
         </div>

@@ -2,16 +2,21 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ICategory } from "../../../interface/category";
-
+import {BeatLoader} from 'react-spinners'
 type Props = {};
 
 const ListCategoryManage = (props: Props) => {
   const [category, setCategory] = useState<ICategory[]>([]);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     (async () => {
       try {
         const { data } = await axios.get(`http://localhost:3001/category`);
         setCategory(data.data);
+        setLoading(true);
+        setTimeout(() => {
+          setLoading(false);
+        }, 2000);
       } catch (error) {}
     })();
   }, []);
@@ -56,7 +61,8 @@ const ListCategoryManage = (props: Props) => {
                     <th>Action</th>
                   </tr>
                 </thead>
-                <tbody>
+                
+               {loading ? <BeatLoader color="#36d7b7" />:  <tbody>
                   {category.map((item, index) => {
                     // console.log(item)
                     return (
@@ -80,7 +86,7 @@ const ListCategoryManage = (props: Props) => {
                       </tr>
                     );
                   })}
-                </tbody>
+                </tbody>}
               </table>
             </div>
           </div>

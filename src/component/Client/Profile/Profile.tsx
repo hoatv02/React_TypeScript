@@ -13,6 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 // import Logout from '@mui/icons-material/Logout';
 
 export default function Profile() {
+  
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -21,6 +22,10 @@ export default function Profile() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const removeAccessToken = ()=>{
+    localStorage.removeItem('user')
+  }
   return (
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
@@ -87,7 +92,7 @@ export default function Profile() {
           
           Settings
         </MenuItem>
-        <MenuItem>
+        <MenuItem onClick={removeAccessToken}>
          
           Logout
         </MenuItem>

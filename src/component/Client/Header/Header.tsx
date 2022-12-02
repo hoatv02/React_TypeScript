@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { IProduct } from "../../../interface/product";
+import { ThemesContext } from "../../../utils/ThemeContext";
 import Profile from "../Profile/Profile";
 type Props = {};
 
-const Header = (props: Props) => {
- 
+const Header = () => {
+  // const access = localStorage.getItem("user");
+  // const acces = access ? JSON.parse(access) : [];
+  //  console.log(access)
+
   return (
     <div className="marignbt">
       <div className="hero_area">
@@ -44,7 +48,7 @@ const Header = (props: Props) => {
                   </li>
                   <li className="nav-item">
                     <Link className="nav-link" to="/about">
-                      Thông tin
+                      Giới Thiệu
                     </Link>
                   </li>
                   <li className="nav-item">
@@ -54,13 +58,10 @@ const Header = (props: Props) => {
                   </li>
                 </ul>
                 <div className="user_option">
-                 
-                  <Link to="/mycart" className="headerCart"
-                  >
+                  <Link to="/mycart" className="headerCart">
                     Cart
                   </Link>
 
-                  
                   <form className="form-inline">
                     <button
                       className="btn  my-2 my-sm-0 nav_search-btn"
@@ -69,6 +70,7 @@ const Header = (props: Props) => {
                       <i className="fa fa-search" aria-hidden="true"></i>
                     </button>
                   </form>
+                  
                   <Link to="/login" className="order_online">
                     Đăng Nhập
                   </Link>
@@ -77,13 +79,12 @@ const Header = (props: Props) => {
                       Đăng Kí
                     </Link>
                   </div>
-                  {/* <Profile /> */}
+                  <Profile />
                 </div>
               </div>
             </nav>
           </div>
         </header>
-      
       </div>
     </div>
   );

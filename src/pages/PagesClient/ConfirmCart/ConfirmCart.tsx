@@ -21,9 +21,8 @@ const ConfirmCart = (props: Props) => {
 
   const onSubmit: SubmitHandler<User> = async (item) => {
     try {
-      const { data } = await axios.post(`http://localhost:3001/addUser`, item);
-      // console.log("data",data)
-      navigate("/");
+      const { data } = await axios.post(`http://localhost:3001/addOrder`, item);
+      // navigate("/");
     } catch (error) {}
   };
   return (

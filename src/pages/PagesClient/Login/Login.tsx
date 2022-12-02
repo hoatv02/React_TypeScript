@@ -9,23 +9,21 @@ const Login = (props: Props) => {
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState("")
     const navigate = useNavigate()
-    // console.log(localStorage.getItem('inforUser'))
+    const login =async ()=>{
+      try {
+        const {data} = await axios.post(`http://localhost:3001/signin`,{email,password})
+        localStorage.setItem('user',JSON.stringify(data));
+        // console.log(localStorage.setItem('inforUser',data))
+        navigate('/')
+      } catch (error) {
+      }
+    }
+    
     useEffect(() => {
       if(localStorage.getItem("inforUser")){
         // navigate('/')
       }
     },[])
-    const login =async ()=>{
-      // console.log(email,password)
-      const item = {email,password} 
-      try {
-          const {data} = await axios.post(`http://localhost:3001/signin`,item)
-          localStorage.setItem('inforUser',(email))
-          navigate('/')
-      } catch (error) {
-      }
-    }
-
   return (
     <div className='bodyLogin'>
       <div className="container" id="container">

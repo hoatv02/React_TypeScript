@@ -13,10 +13,17 @@ const MenuProducts = (props: Props) => {
           <div className="heading_container heading_center">
             <h2>Our Menu</h2>
           </div>
-          {<ListCategory />}
-          {/* <div className="filters-content"> */}
+          <div className="row">
+            <div className="col-lg-6">{<ListCategory />}</div>
+            <div className="col-lg-6 selectCategory">
+              <select name="" id="">
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+              </select>
+            </div>
+          </div>
             {<ListProduct/>}
-          {/* </div> */}
           <div className="btn-box">
           <ViewMoreProduct/>
 

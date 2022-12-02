@@ -19,7 +19,13 @@ body {
 .layout_padding2-top {
   padding-top: 75px;
 }
-
+.title_blog{
+  text-align: center;
+  margin-bottom: 20px;
+}
+.MuiTabs-flexContainer{
+  justify-content:center;
+}
 .layout_padding2-bottom {
   padding-bottom: 75px;
 }
@@ -302,9 +308,12 @@ a{
 .offer_section {
   position: relative;
   padding-top: 45px;
+
 }
 
 .offer_section .box {
+  box-shadow:1px 6px 9px rgba(29, 29, 29, 0.8);
+
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -312,13 +321,15 @@ a{
   -ms-flex-align: center;
   align-items: center;
   margin-top: 45px;
-  border-radius: 5px;
+  /* border-radius: 20px; */
   padding: 20px 15px;
   background-color: #222831;
   background: #000;
   color: #ffffff;
 }
-
+.carousel-item-next, .carousel-item-prev{
+  /* margin-right: none !important; */
+}
 
 .carousel-item{
   height: 430px;
@@ -363,6 +374,20 @@ a{
 .carousel-caption.pizza{
   top: 120px;
   left: 50% !important;
+}
+
+.selectCategory{
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin: 45px 0 20px !important;
+}
+.selectCategory option{
+  width: 200px !important;
+
+}
+.btnedits{
+  margin-top: 10px;
 }
 .pizza2{
   top: 100px;

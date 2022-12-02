@@ -5,4 +5,5 @@ export interface User {
     phone:String,
     address:String,
     note: string;
+    _id?:Number;
 }
