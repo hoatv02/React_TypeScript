@@ -7,12 +7,18 @@ const MyCart = (props: Props) => {
   const [addToCart, setAddToCart] = useState();
   const getItemLocal = localStorage.getItem("addToCart");
   const cartStrorage = getItemLocal ? JSON.parse(getItemLocal) : [];
-
   const handleDelete = (id: string) => {
     const filterCart = cartStrorage.filter((item: IProduct) => item._id !== id);
     localStorage.setItem("addToCart", JSON.stringify(filterCart));
     setAddToCart(filterCart);
   };
+
+  let totalPrice = 0;
+  for (let i = 0; i < cartStrorage.length; i++) {
+    totalPrice += Number(cartStrorage[i].price) * Number(cartStrorage[i].quantity);
+    // console.log(totalPrice)
+  }
+
   return (
     <div className="myCart">
       <div className="shopping-cart">
@@ -44,7 +50,17 @@ const MyCart = (props: Props) => {
                 Total Price : {item.price * item.quantity}
               </div>
               <div className="icon">
-                <button className="btn btn-primary"  onClick={() => handleDelete(item._id)} style={{width:"100px",marginRight:'30px',backgroundColor:"#333"}}>Delete</button>
+                <button
+                  className="btn btn-primary"
+                  onClick={() => handleDelete(item._id)}
+                  style={{
+                    width: "100px",
+                    marginRight: "30px",
+                    backgroundColor: "#333",
+                  }}
+                >
+                  Delete
+                </button>
               </div>
             </div>
           );
@@ -59,7 +75,7 @@ const MyCart = (props: Props) => {
             marginTop: "10px",
           }}
         >
-          Total Price : 112827872
+          Total Price :{totalPrice} VND
         </div>
         <div
           // className="title"
@@ -71,7 +87,18 @@ const MyCart = (props: Props) => {
             marginTop: "10px",
           }}
         >
-         <Link to="/checkout"><button className="btn btn-primary" style={{width:"100px",marginRight:'30px',backgroundColor:"#333"}}>Continue</button></Link>
+          <Link to="/checkout">
+            <button
+              className="btn btn-primary"
+              style={{
+                width: "100px",
+                marginRight: "30px",
+                backgroundColor: "#333",
+              }}
+            >
+              Continue
+            </button>
+          </Link>
         </div>
       </div>
     </div>

@@ -15,16 +15,15 @@ const MenuProducts = (props: Props) => {
           <div className="row">
             <div className="col-lg-6">{<ListCategory />}</div>
             <div className="col-lg-6 selectCategory">
-              <select name="" id="">
-                <option value="">1</option>
-                <option value="">2</option>
-                <option value="">3</option>
+              <select className="form-select" aria-label="Default select example">
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
               </select>
             </div>
           </div>
-            {<ListProduct/>}
-          <div className="btn-box">
-          </div>
+          {<ListProduct />}
+          <div className="btn-box"></div>
         </div>
       </section>
     </div>

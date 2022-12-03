@@ -16,6 +16,11 @@ const ConfirmCart = (props: Props) => {
   const navigate = useNavigate();
   const getItemLocal = localStorage.getItem("addToCart");
   const getCart: any = getItemLocal ? JSON.parse(getItemLocal) : [];
+  let totalPrice = 0;
+  for (let i = 0; i < getCart.length; i++) {
+    totalPrice += Number(getCart[i].price) * Number(getCart[i].quantity);
+    // console.log(totalPrice)
+  }
 
   const {
     register,
@@ -40,6 +45,7 @@ const ConfirmCart = (props: Props) => {
           theme: "dark",
         });
         navigate("/aboutOrder");
+        localStorage.removeItem('addToCart')
       }, 3000);
     } catch (error) {}
   };
@@ -52,7 +58,7 @@ const ConfirmCart = (props: Props) => {
             {getCart.map((item: any, index: any) => {
               return (
                 <div
-                  className="item row"
+                  className="item row box_listOrder"
                   key={index}
                   style={{ marginBottom: "10px" }}
                 >
@@ -63,7 +69,7 @@ const ConfirmCart = (props: Props) => {
                     />
                   </div>
                   <div className="meta-col col-lg-6">
-                    <p className="meta-text">
+                    <p className="meta-text " >
                       Tên :{item.productName}
                       <br />
                       Số lượng : {item.quantity}
@@ -75,7 +81,7 @@ const ConfirmCart = (props: Props) => {
             })}
 
             <p id="total" style={{ float: "left", margin: "10px 0" }}>
-              Total :{" "}
+              Total :{totalPrice} VND
             </p>
           </div>
           <div id="right-col " className="col-lg-9">
