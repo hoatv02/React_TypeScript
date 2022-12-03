@@ -9,6 +9,7 @@ const Header = () => {
   // const access = localStorage.getItem("user");
   // const acces = access ? JSON.parse(access) : [];
   //  console.log(access)
+  const [isLogin] = useState(localStorage.getItem('accessToken') != null)
 
   return (
     <div className="marignbt">
@@ -70,16 +71,17 @@ const Header = () => {
                       <i className="fa fa-search" aria-hidden="true"></i>
                     </button>
                   </form>
-                  
-                  <Link to="/login" className="order_online">
+                  {
+                    isLogin ?<Profile /> : <div className={` d-flex align-items-center`}>
+                    <Link to="/login" className="order_online">
                     Đăng Nhập
                   </Link>
-                  <div className={` d-flex align-items-center`}>
+                  
                     <Link to="/register" className="order_online">
                       Đăng Kí
                     </Link>
                   </div>
-                  <Profile />
+                  }
                 </div>
               </div>
             </nav>

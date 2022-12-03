@@ -38,7 +38,7 @@ const ListProductManage = (props: Props) => {
         setLoading(true);
         setTimeout(() => {
           setLoading(false);
-        }, 2000);
+        }, 1000);
       } catch (error) {}
     })();
   }, []);
@@ -59,7 +59,12 @@ const ListProductManage = (props: Props) => {
         `http://localhost:3001/product/${id}`
       );
       // console.log("data", data);
-      setProduct(product.filter((item) => item._id !== id));
+      var confirmDelete = confirm('Bạn chắc chắn muốn xóa ?')
+      if(confirmDelete == true){
+       setProduct(product.filter((item) => item._id !== id));
+      }else{
+        return
+      }
     } catch (error) {}
   };
   return (

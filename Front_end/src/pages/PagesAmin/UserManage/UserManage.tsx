@@ -13,12 +13,12 @@ const UserManage = (props: Props) => {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await axios.get(`http://localhost:3001/user`);
-        setUser(data.data);
+        const { data } = await axios.get(`http://localhost:3001/getSignup`);
+        setUser(data.user);
         setLoading(true);
         setTimeout(() => {
           setLoading(false);
-        }, 2000);
+        }, 1000);
       } catch (error) {}
     })();
   }, []);

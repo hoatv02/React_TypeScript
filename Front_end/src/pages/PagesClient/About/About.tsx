@@ -219,7 +219,7 @@ export default function About() {
             </div>
           </div>
         </TabPanel>
-        <TabPanel value="3" style={{ height: "50vh" }}>
+        <TabPanel value="3" style={{ height: "100vh" }}>
           <div className="title_blog">
             <h4>CÁC TIN TỨC KHÁC</h4>
           </div>

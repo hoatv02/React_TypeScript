@@ -16,7 +16,7 @@ const ListCategoryManage = (props: Props) => {
         setLoading(true);
         setTimeout(() => {
           setLoading(false);
-        }, 2000);
+        }, 1000);
       } catch (error) {}
     })();
   }, []);
@@ -26,7 +26,12 @@ const ListCategoryManage = (props: Props) => {
         `http://localhost:3001/category/${id}`
       );
       console.log(data);
-      setCategory(category.filter((item) => item._id !== data.category._id));
+      var confirmDelete = confirm('Bạn chắc chắn muốn xóa ?')
+      if(confirmDelete == true){
+      }else{
+        setCategory(category.filter((item) => item._id !== data.category._id));
+        return
+      }
     } catch (error) {}
   };
   return (

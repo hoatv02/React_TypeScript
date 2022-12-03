@@ -46,6 +46,10 @@ const Register = (props: Props) => {
             <input type="text" placeholder="Name" {...register('userName',{required:true,minLength:6})}/>
             {errors.userName && errors.userName.type === "required" && <span style={{color: 'red'}}>Vui lòng nhập userName</span>}
             {errors.userName && errors.userName.type === "minLength" && <span  style={{color: 'red'}}>Vui lòng nhập tối thiểu 6 kí tự</span>}
+            <input type="text" placeholder="Phone"  {...register('phone',{required:true})} />
+            {errors.userName && errors.userName.type === "required" && <span style={{color: 'red'}}>Vui lòng nhập số điện thoại</span>}
+            <input type="" placeholder="Address"  {...register('address',{required:true})} />
+            {errors.userName && errors.userName.type === "required" && <span style={{color: 'red'}}>Vui lòng nhập địa chỉ</span>}
             <input type="email" placeholder="Email"  {...register('email',{required:true})} />
             {errors.userName && errors.userName.type === "required" && <span style={{color: 'red'}}>Vui lòng nhập email</span>}
 

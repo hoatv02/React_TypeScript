@@ -33,6 +33,8 @@ const EditCategory = (props: Props) => {
         category
       );
       // console.log("data",data)
+      alert("chỉnh sửa danh mục thành công")
+
       navigate("/admin/category");
     } catch (error) {}
   };

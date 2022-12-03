@@ -5,14 +5,11 @@ import { ICategory } from "../../../interface/category";
 import { Link } from "react-router-dom";
 import ListCategory from "../../../component/Client/ListCategory/ListCategory";
 import ListProduct from "../../../component/Client/ListProduct/ListProduct";
-import ViewMoreProduct from "../../../component/Client/ViewMoreProduct/ViewMoreProduct";
-import Loading from "../../../component/Client/Loading/Loading";
 type Props = {};
 
 const Home = (props: Props) => {
   return (
     <div className="container-body">
-      <Loading />
       <div
         id="carouselExampleDark"
         className="carousel carousel-dark slide"

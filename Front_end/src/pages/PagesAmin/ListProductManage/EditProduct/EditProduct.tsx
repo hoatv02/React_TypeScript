@@ -1,38 +1,48 @@
 import axios from "axios";
-import React, { useEffect } from "react";
+import React, { useState,useEffect } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { IProduct } from "../../../../interface/product";
 
 type Props = {};
-
 const EditProduct = (props: Props) => {
+  const [files, setFiles] = useState<IProduct[]>([]);
+  const [image, setImage] = useState("");
+  const [product, setProduct] = useState<IProduct[]>([]);
   const navigate = useNavigate();
   const {
     register,
-    handleSubmit,
-    reset,
+    handleSubmit,reset,
     formState: { errors },
   } = useForm<IProduct>();
-
   const {id} = useParams();
-
+  const handleImageChange = function (e: React.ChangeEvent<HTMLInputElement>) {
+    setImage(URL.createObjectURL(e.target.files[0]));
+  };
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await axios.get(`http://localhost:3001/product/`+ id);
-        // console.log(data)
+        const { data } = await axios.get(`http://localhost:3001/product/${id}`);
+        // console.log(data.data);
         reset(data.data);
       } catch (error) {}
     })();
   }, []);
-  
+
   const onSubmit: SubmitHandler<IProduct> = async (product) => {
-    // console.log(product.FileList);
     try {
+      const formData = new FormData()
+      const fileName = product.image[0].name
+      formData.append('name',fileName)
+      formData.append('image',product.image[0])
+      await axios.post(`http://localhost:3001/uploadFile`,formData)
+      product.image = product.image[0].name
+
       const { data } = await axios.put(
-        `http://localhost:3001/product/${id}`,product
+        `http://localhost:3001/product/${id}`,
+        product
       );
+      alert("chỉnh sửa sản phẩm thành công")
       navigate("/admin/product");
     } catch (error) {}
   };
@@ -40,16 +50,16 @@ const EditProduct = (props: Props) => {
     <div className="container-fluid px-4 addProductInfo">
       <div className="title_product">
         <div className="">
-          <h1 className="mt-4">Chỉnh sửa sản phẩm</h1>
+          <h1 className="mt-4">Thêm mới sản phẩm</h1>
         </div>
         <div className="addProduct">
-          {/* <Link
+          <Link
             type="button"
             to="/admin/addProduct"
             className="btn btn-success"
           >
             Thêm mới
-          </Link> */}
+          </Link>
         </div>
       </div>
 
@@ -89,10 +99,12 @@ const EditProduct = (props: Props) => {
               <label className="col-sm-2 col-form-label">Image</label>
               <br />
               <input
-                type="text"
-                className="form-control"
-                {...register('image')}
+                type="file"
+                multiple={false}
+                {...register("image")}
+                onChange={handleImageChange}
               />
+              {image && <img src={image} width='100' height='100' />}
             </div>
           </div>
           <div className="col-sm-6">
@@ -104,6 +116,7 @@ const EditProduct = (props: Props) => {
                 aria-label="Default select example"
                 {...register("category")}
               >
+                <option selected></option>
                 <option value="Pizza">Pizza</option>
                 <option value="Bugger">Bugger</option>
                 <option value="Meats">Meats</option>

@@ -8,6 +8,7 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
+import { useNavigate } from 'react-router-dom';
 // import PersonAdd from '@mui/icons-material/PersonAdd';
 // import Settings from '@mui/icons-material/Settings';
 // import Logout from '@mui/icons-material/Logout';
@@ -15,6 +16,7 @@ import Tooltip from '@mui/material/Tooltip';
 export default function Profile() {
   
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const navigate = useNavigate();
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -24,7 +26,8 @@ export default function Profile() {
   };
 
   const removeAccessToken = ()=>{
-    localStorage.removeItem('user')
+    localStorage.removeItem('accessToken')
+    navigate('/login')
   }
   return (
     <React.Fragment>

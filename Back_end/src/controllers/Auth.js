@@ -17,11 +17,37 @@ export const signup = async (req, res) => {
         })
     }
 }
+export const getSignup = async (req, res) => {
+    try {
+        const user = await Auth.find()
+        res.status(200).json({
+            user,
+            message:"get user ok"
+        })
+    } catch (error) {
+        res.status(400).json({
+             message:error
+        })
+    }
+}
+export const getSignupDetail = async (req, res) => {
+    try {
+        const user = await Auth.findOne({accessToken: body.accessToken})
+        res.status(200).json({
+            user,
+            message:"get user ok"
+        })
+    } catch (error) {
+        res.status(400).json({
+             message:error
+        })
+    }
+}
 
 export const signin = async (req, res) => {
     try {
         const body = req.body;
-        const user = await Auth.findOne({email:body.email})
+        const user = await Auth.findOne({email : body.email})
         if(!user){
             return res.status(404).json({
                 message:"Email khong ton tai"})

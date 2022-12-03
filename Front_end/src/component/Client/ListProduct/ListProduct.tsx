@@ -50,10 +50,11 @@ const ListProduct = (props: Props) => {
     })();
   }, []);
 
+  
+
   return (
     <div className="row grid listProduct">
       {data.map((item, index) => {
-        if (index < 7) {
           return (
             <div className="col-sm-6 col-lg-3 all pizza" key={index}>
               <div className="box">
@@ -101,8 +102,7 @@ const ListProduct = (props: Props) => {
               </div>
             </div>
           );
-        }
-      })}
+        })}
     </div>
   );
 };
