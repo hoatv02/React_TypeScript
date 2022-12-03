@@ -20,13 +20,13 @@ const ProductDetail = (props: Props) => {
 
   return (
     <div>
-      <section className="about_section layout_padding">
+      <section className="about_section layout_padding about_section_detail ">
         <div className="container  ">
           <div className="row" style={{ fontSize: "12px" }}>
             <div className="col-md-6 ">
               <div className="img-box">
               
-                <img src={`http://localhost:3001/image/${product?.image}`} style={{ width: "70%" }} alt="" />
+                <img src={`http://localhost:3001/image/${product?.image}`} style={{borderRadius:"15px",boxShadow:"1px 2px 5px #000"}}  alt="" />
               </div>
             </div>
             <div className="col-md-6">

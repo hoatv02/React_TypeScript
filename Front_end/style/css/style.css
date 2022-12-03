@@ -599,11 +599,15 @@ a{
 .food_section .btn-box a:hover {
   background-color: #e69c00;
 }
-
+.about_section_detail{
+  color: #000;
+  /* background: #f6cb6e !important; */
+}
 .about_section {
-  background: #222831;
   background: #000;
-  color: #ffffff;
+  color: #fff;
+
+  margin-top: -10px;
 }
 
 .about_section .row {
@@ -624,7 +628,6 @@ a{
 
 .about_section .img-box img {
   width: 100%;
-  max-width: 445px;
   position: relative;
   z-index: 2;
 }
@@ -660,6 +663,7 @@ a{
 
 .book_section .heading_container {
   margin-bottom: 25px;
+
 }
 
 .book_section .form_container .form-control {
@@ -888,7 +892,9 @@ a{
   transition: all 0.3s;
   border: none;
 }
-
+.about_section .container{
+  margin: 0;
+}
 .contact_section .form_container button:hover {
   background-color: #e69c00;
 }

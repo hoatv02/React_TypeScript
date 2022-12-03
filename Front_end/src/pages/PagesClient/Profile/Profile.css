@@ -1,0 +1,29 @@
+.profile_avt img{
+    width:300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 10px solid rgb(226, 225, 225);
+}
+.profile_container{
+    padding: 50px;
+}
+.profile_avt{
+    text-align: center;
+
+}
+.profile_heading{
+    margin-bottom: 30px;
+    text-align:center !important;
+}
+.profile_content{
+    margin-bottom: 50px;
+}
+.profile_heading h3{
+    font-size: 5rem;
+}
+.profile_heading p{
+    padding: 20px;
+}
+.profile_about p{
+    padding: 20px 0;
+}
