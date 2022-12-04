@@ -1,10 +1,27 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import React ,{useEffect,useState} from "react";
+import { Link, useParams } from "react-router-dom";
+import { User } from "../../../interface/user";
 
 type Props = {};
 const Profile = () => {
+  const [user,setUser] = useState<User>()
+  const {id} = useParams();
+  useEffect(() => {
+    (
+      async () => {
+        try {
+          const {data} = await axios.get(`http://localhost:3001/user/${id}`)
+          setUser(data.data)
+        } catch (error) {
+          
+        }
+      }
+    )()
+  },[])
   return (
-    <div className="profile_container">
+    <div>
+      <div className="profile_container">
       <div className="profile_heading">
         <h3>HELLO !</h3>
         <p>MY PERSONAL INFORMATION</p>
@@ -38,6 +55,7 @@ const Profile = () => {
           <p>Addres</p>
         </div>
       </div>
+    </div>
     </div>
   );
 };
