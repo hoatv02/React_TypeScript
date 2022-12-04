@@ -8,58 +8,25 @@ type Props = {};
 const Login = (props: Props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [ accessToken,setAccessToken] = useState("");
   const navigate = useNavigate();
   const login = async () => {
     try {
       const {data} = await axios.post(`http://localhost:3001/signin`,{email,password})
-      localStorage.setItem('accessToken',JSON.stringify(data.accessToken));
+      console.log(data)
       // console.log(localStorage.setItem('accessToken',data.accessToken))
-      navigate('/')
+      setAccessToken(data.accessToken)
+      // navigate('/')
     } catch (error) {
     }
   }
-  //   var myHeaders = new Headers();
-  //   myHeaders.append(
-  //     "Authorization",
-  //     "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzhhZDg4YTdiM2JiNWEzNTdiZTJlNzgiLCJpYXQiOjE2NzAwNDUxNTJ9.yL3452N0wTeKlGTM0RBs13L2C0xrEWrEBV2vT7yEIQg"
-  //   );
-  //   myHeaders.append("Content-Type", "application/json");
-
-  //   var raw = JSON.stringify({
-  //     email: email,
-  //     password: password,
-  //   });
-
-  //   var requestOptions = {
-  //     method: "POST",
-  //     headers: myHeaders,
-  //     body: raw,
-  //     redirect: "follow",
-  //   };
-
-  //   fetch("http://localhost:3001/signin", requestOptions)
-  //     .then((response) => {
-  //       if (response.ok) {
-  //         return response.json();
-  //       }
-  //     })
-  //     .then((result) => {
-  //       console.log(result);
-  //       localStorage.setItem('accessToken',result.accessToken);
-  //       alert('Thành công')
-  //       navigate('/')
-  //     })
-  //     .catch((error) => {
-  //       console.log("error", error);
-  //       alert("wrong");
-  //     });
-  // };
 
   useEffect(() => {
-    if (localStorage.getItem("inforUser")) {
-      // navigate('/')
+    if (accessToken) {
+      localStorage.setItem('accessToken',JSON.stringify(accessToken));
+      navigate('/')
     }
-  }, []);
+  }, [accessToken]);
   return (
     <div className="bodyLogin">
       <div className="container" id="container">

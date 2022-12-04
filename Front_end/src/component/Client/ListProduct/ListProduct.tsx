@@ -4,15 +4,22 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useCategoryStore } from "../../../Store/category.store";
 type Props = {};
 
 const ListProduct = (props: Props) => {
   const [data, setData] = useState<IProduct[]>([]);
   const getItemLocal = localStorage.getItem("addToCart");
+  const [category,setCategory] = useState<string>('')
   const [addToCart, setAddToCart] = useState(() => {
     const getCart: any = getItemLocal ? JSON.parse(getItemLocal) : [];
     return getCart;
   });
+  
+  const categoryItem = useCategoryStore((state:any)=> state.categoryName)
+
+
+
   const handlerAddCart = (item: any) => {
     setAddToCart((prev: any) => {
       const isExist = prev.some((cart: any) => item._id === cart._id);
@@ -45,16 +52,16 @@ const ListProduct = (props: Props) => {
 
   useEffect(() => {
     (async () => {
-      const { data } = await axios.get(`http://localhost:3001/product`);
+      const { data } = await axios.get(`http://localhost:3001/product?category=${categoryItem}`);
       setData(data.data);
     })();
-  }, []);
+  }, [categoryItem]);
 
-  
 
   return (
     <div className="row grid listProduct">
       {data.map((item, index) => {
+        
           return (
             <div className="col-sm-6 col-lg-3 all pizza" key={index}>
               <div className="box">

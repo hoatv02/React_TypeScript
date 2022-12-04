@@ -3,7 +3,13 @@
 import Product from '../Models/product'
 export const getProducts = async (req, res) => {
     try {
-        const products = await Product.find();
+        let filter = {}
+        // console.log(req.query)
+        const { query } = req
+        if (query.category) {
+            filter.category = query.category
+        }
+        const products = await Product.find(filter);
         res.status(200).json({
             data: products,
         });
@@ -13,6 +19,8 @@ export const getProducts = async (req, res) => {
         });
     }
 };
+
+
 
 
 
