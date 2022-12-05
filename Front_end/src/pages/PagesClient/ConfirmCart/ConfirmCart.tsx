@@ -31,23 +31,23 @@ const ConfirmCart = (props: Props) => {
   const onSubmit: SubmitHandler<User> = async (item) => {
     try {
       const { data } = await axios.post(`http://localhost:3001/addOrder`, item);
-
-      navigate("/aboutOrder");
-      setLoading(true);
-      setTimeout(() => {
-        setLoading(false);
-        toast.success("Bạn đã đặt hàng thành công !", {
-          position: "top-center",
-          autoClose: 1100,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
-        localStorage.removeItem("addToCart");
-      }, 500);
+      localStorage.setItem("infoUserOrder", JSON.stringify(data));
+      navigate("/pay");
+      // setLoading(true);
+      // setTimeout(() => {
+      //   setLoading(false);
+      //   toast.success("Bạn đã đặt hàng thành công !", {
+      //     position: "top-center",
+      //     autoClose: 1100,
+      //     hideProgressBar: false,
+      //     closeOnClick: true,
+      //     pauseOnHover: true,
+      //     draggable: true,
+      //     progress: undefined,
+      //     theme: "dark",
+      //   });
+      // }, 500);
+      // localStorage.removeItem("addToCart");
     } catch (error) {}
   };
   return (
@@ -174,7 +174,7 @@ const ConfirmCart = (props: Props) => {
                     <button id="purchase">Confirm</button>
                   </div>
                   <div className="col-lg-6">
-                    <button id="purchase">Confirm</button>
+                    <button id="purchase">Payment by card</button>
                   </div>
                 </div>
 

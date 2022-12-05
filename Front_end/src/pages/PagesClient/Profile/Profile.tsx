@@ -5,20 +5,10 @@ import { User } from "../../../interface/user";
 
 type Props = {};
 const Profile = () => {
-  const [user,setUser] = useState<User>()
-  const {id} = useParams();
-  useEffect(() => {
-    (
-      async () => {
-        try {
-          const {data} = await axios.get(`http://localhost:3001/user/${id}`)
-          setUser(data.data)
-        } catch (error) {
-          
-        }
-      }
-    )()
-  },[])
+  // const [user,setUser] = useState<User>()
+  const getInfo: any = localStorage.getItem("accessToken");
+  const getInfoUser = JSON.parse(getInfo);
+  console.log(getInfoUser.data)
   return (
     <div>
       <div className="profile_container">
@@ -45,14 +35,10 @@ const Profile = () => {
         </div>
         <div className="col-lg-4">
           <h5>DETAIL</h5>
-          <h6>Name</h6>
-          <p>Name</p>
-          <h6>Phone </h6>
-          <p>Phone</p>
-          <h6>Email </h6>
-          <p>Email</p>
-          <h6>Address </h6>
-          <p>Addres</p>
+          <h6>Name : {getInfoUser.data.userName}</h6>
+          <h6>Phone : {getInfoUser.data.phone} </h6>
+          <h6>Email : {getInfoUser.data.email}</h6>
+          <h6>Address : {getInfoUser.data.address}</h6>
         </div>
       </div>
     </div>

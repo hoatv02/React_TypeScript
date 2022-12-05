@@ -18,8 +18,8 @@ const Login = (props: Props) => {
       });
       console.log(data);
       if (data) {
-        localStorage.setItem("accessToken", JSON.stringify(data.accessToken));
-        setAccessToken(data.accessToken);
+        localStorage.setItem("accessToken", JSON.stringify(data));
+        setAccessToken(data);
         navigate("/");
       }
     } catch (error) {}

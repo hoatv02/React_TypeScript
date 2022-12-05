@@ -1,0 +1,120 @@
+.boxx {
+    /* text-align: center; */
+    padding: 50px 200px;
+}
+
+.boxHeader {
+    margin: 0 auto;
+    width: 550px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 1px 2px 6px 2px;
+
+    padding: 20px 30px;
+}
+
+.previous {
+    float: left;
+    font-size: 30px;
+}
+
+.previous:hover {
+    color: rgb(37, 157, 0);
+}
+
+.logo {
+    text-align: center;
+}
+
+.logo img {
+    margin-left: -2px !important;
+    color: #04782b !important;
+    margin: 30px;
+    width: 50px;
+    height: 50px;
+}
+
+th {
+    padding: 3px !important;
+}
+
+td {
+    padding: 3px !important;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px !important;
+}
+
+.logo p {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 550;
+
+}
+
+.icon {
+    width: 200px;
+    height: 200px;
+    color: rgb(37, 157, 0);
+}
+
+.button {
+    margin: 20px 0;
+}
+
+.button button {
+
+    background-color: rgb(37, 157, 0);
+    border-radius: 20px;
+    padding: 6px 12px;
+
+}
+
+.button button:hover {
+    background-color: rgb(31, 116, 6);
+
+}
+
+.content {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 550;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.home {
+    margin: 0 auto;
+    text-align: center;
+    width: 550px;
+    padding: 50px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    box-shadow: 1px 2px 6px 2px;
+    background: #ffbe33;
+    background: linear-gradient(to right, #fbb41b, #a7760c, #785302);
+}
+
+.home button {
+    color: rgb(245, 244, 244);
+    background-color: rgb(16, 16, 16);
+    border: 1px solid #000;
+    padding: 6px 15px;
+    border-radius: 9px;
+    box-shadow: 1px 4px 5px rgba(0, 0, 0, 1)
+}
+.home button:hover {
+    background: #22bd0b;
+    transform: 4s;
+}
+.content_product_pay {
+    background-color: #8add7e;
+    width: 500px;
+    height: auto !important;
+}
+
+.content_pay {
+    /* text-align:start; */
+    display: flex !important;
+    display: grid;
+    grid: 1fr 1fr;
+    /* grid-gap: 10px; */
+}

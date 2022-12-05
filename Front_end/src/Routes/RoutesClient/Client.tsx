@@ -11,20 +11,20 @@ import MyCart from "../../component/Client/MyCart/MyCart";
 import PaginatedItems from "../../component/Client/MyCart/Pages";
 import ConfirmCart from "../../pages/PagesClient/ConfirmCart/ConfirmCart";
 import Profile from "../../pages/PagesClient/Profile/Profile";
-import AboutOrder from "../../pages/PagesClient/AboutOrder/AboutOrder";
+import Pay from "../../pages/PagesClient/Pay/Pay";
 type Props = {};
 
 const Client = (props: Props) => {
   return (
     <>
       <Routes>
-        <Route path="/"  element={<LayoutClient />}>
+        <Route path="/" element={<LayoutClient />}>
           <Route index element={<Home />} />
           <Route path="/product" element={<MenuProducts />} />
           <Route path="/about" element={<About />} />
+          <Route path="/pay" element={<Pay />} />
           <Route path="/mycart" element={<MyCart />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/aboutOrder" element={<AboutOrder />} />
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/page" element={<PaginatedItems itemsPerPage={4} />} />
           <Route path="/checkout" element={<ConfirmCart />} />
