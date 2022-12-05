@@ -14,18 +14,21 @@
 
 .confirmCart {
     height: auto;
-    padding: 50px;
+    padding: 10px;
+    width: 100%;
+    border-radius: 20px;
 }
-
+.confirmCart #wrapper #container{
+    border-radius: 20px;
+}
 
 
 .confirmCart #wrapper #container {
     background: white;
     min-width: 800px;
-    width: 1200px;
+    width: 1400px;
     margin:0 auto;
     z-index: 1;
-    padding: 20px;
     -webkit-box-shadow: 0px 3px 15px -1px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0px 3px 15px -1px rgba(0, 0, 0, 0.2);
     box-shadow: 0px 3px 15px -1px rgba(0, 0, 0, 0.2);
@@ -36,7 +39,9 @@
     color:rgb(7, 7, 7);
 }
 .itemConfirm{
+    border-radius: 20px;
     background-color: #aaacad;
+    box-shadow:1px 3px 5px rgba(0, 0, 0, 0.2);
 }
 .itemConfirm img{
     width: 80px;
@@ -145,7 +150,7 @@
     border: 1px solid lightgrey;
     border-radius: 2px;
     font-size: 0.9em;
-    width: 300px !important;
+    width: 400px !important;
 }
 .phoneNumber{
     width: 200px !important;
@@ -169,7 +174,7 @@
 }
 .confirmCart #wrapper #container form button {
     display: block;
-    width: 300px;
+    width: 400px;
     border: none;
     border-radius: 2px;
     padding: 8px 0;

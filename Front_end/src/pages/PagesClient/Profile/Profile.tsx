@@ -33,11 +33,13 @@ const Profile = () => {
           </p>
           <Link to="">LEARN MORE</Link>
         </div>
+
         <div className="col-lg-4">
           <h5>DETAIL</h5>
-          <h6>Name : {getInfoUser.data.userName}</h6>
-          <h6>Phone : {getInfoUser.data.phone} </h6>
-          <h6>Email : {getInfoUser.data.email}</h6>
+          <br></br>
+          <h6>Name : {getInfoUser.data.userName}</h6><br></br>
+          <h6>Phone : {getInfoUser.data.phone} </h6><br></br>
+          <h6>Email : {getInfoUser.data.email}</h6><br></br>
           <h6>Address : {getInfoUser.data.address}</h6>
         </div>
       </div>

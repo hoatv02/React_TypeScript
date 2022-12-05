@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import SearchNavbar from "../../../component/Admin/SearchNavbar/SearchNavbar";
 import { IProduct } from "../../../interface/product";
-import { RingLoader, BeatLoader} from "react-spinners";
+import { RingLoader, BeatLoader } from "react-spinners";
 
 type Props = {};
 
@@ -55,15 +55,16 @@ const ListProductManage = (props: Props) => {
 
   const removeItem = async (id?: number) => {
     try {
-      const { data } = await axios.delete(
-        `http://localhost:3001/product/${id}`
-      );
+      var confirmDelete = confirm("Bạn chắc chắn muốn xóa ?");
+
       // console.log("data", data);
-      var confirmDelete = confirm('Bạn chắc chắn muốn xóa ?')
-      if(confirmDelete == true){
-       setProduct(product.filter((item) => item._id !== id));
-      }else{
-        return
+      if (confirmDelete == true) {
+        const { data } = await axios.delete(
+          `http://localhost:3001/product/${id}`
+        );
+        setProduct(product.filter((item) => item._id !== id));
+      } else {
+        return;
       }
     } catch (error) {}
   };

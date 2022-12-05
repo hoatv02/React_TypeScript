@@ -125,6 +125,7 @@ const AddProduct = (props: Props) => {
                 <option value="Pizza">Pizza</option>
                 <option value="Bugger">Bugger</option>
                 <option value="Meats">Meats</option>
+                <option value="Vegetable">Vegetable</option>
               </select>
               {errors.category && errors.category.type == "required" && <p style={{color:"red"}}>Vui lòng chọn danh mục sản phẩm </p>}
             </div>

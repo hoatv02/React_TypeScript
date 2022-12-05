@@ -10,15 +10,13 @@ type Props = {};
 const ListProduct = (props: Props) => {
   const [data, setData] = useState<IProduct[]>([]);
   const getItemLocal = localStorage.getItem("addToCart");
-  const [category,setCategory] = useState<string>('')
+  const [category, setCategory] = useState<string>("");
   const [addToCart, setAddToCart] = useState(() => {
     const getCart: any = getItemLocal ? JSON.parse(getItemLocal) : [];
     return getCart;
   });
-  
-  const categoryItem = useCategoryStore((state:any)=> state.categoryName)
 
-
+  const categoryItem = useCategoryStore((state: any) => state.categoryName);
 
   const handlerAddCart = (item: any) => {
     setAddToCart((prev: any) => {
@@ -26,7 +24,13 @@ const ListProduct = (props: Props) => {
       if (!isExist) {
         const newValue = [
           ...prev,
-          { _id: item._id, image: item.image,productName:item.productName, price: item.price, quantity: 1 },
+          {
+            _id: item._id,
+            image: item.image,
+            productName: item.productName,
+            price: item.price,
+            quantity: 1,
+          },
         ];
         localStorage.setItem("addToCart", JSON.stringify(newValue));
         return newValue;
@@ -52,16 +56,17 @@ const ListProduct = (props: Props) => {
 
   useEffect(() => {
     (async () => {
-      const { data } = await axios.get(`http://localhost:3001/product?category=${categoryItem}`);
+      const { data } = await axios.get(
+        `http://localhost:3001/product?category=${categoryItem}`
+      );
       setData(data.data);
     })();
   }, [categoryItem]);
 
-
   return (
     <div className="row grid listProduct">
       {data.map((item, index) => {
-        
+        if (index < 8) {
           return (
             <div className="col-sm-6 col-lg-3 all pizza" key={index}>
               <div className="box">
@@ -109,7 +114,8 @@ const ListProduct = (props: Props) => {
               </div>
             </div>
           );
-        })}
+        }
+      })}
     </div>
   );
 };

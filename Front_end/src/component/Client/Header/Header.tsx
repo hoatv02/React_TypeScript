@@ -17,7 +17,7 @@ const Header = () => {
         <header className="header_section">
           <div className="container">
             <nav className="navbar navbar-expand-lg custom_nav-container">
-              <Link className="navbar-brand" to="/">
+              <Link className="navbar-brand" to="/menuProduct">
                 <span>Pizza</span>
               </Link>
               <button

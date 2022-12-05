@@ -171,7 +171,7 @@ const ConfirmCart = (props: Props) => {
                 </div>
                 <div className="row">
                   <div className="col-lg-6">
-                    <button id="purchase">Confirm</button>
+                    <button id="purchase">Cash payment</button>
                   </div>
                   <div className="col-lg-6">
                     <button id="purchase">Payment by card</button>

@@ -13,7 +13,7 @@ const MenuProducts = (props: Props) => {
             <h2>Our Menu</h2>
           </div>
           <div className="row">
-            <div className="col-lg-6">{<ListCategory />}</div>
+            {<ListCategory />}
            
           </div>
           {<ListProduct />}

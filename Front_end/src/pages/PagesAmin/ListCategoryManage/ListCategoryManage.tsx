@@ -22,14 +22,15 @@ const ListCategoryManage = (props: Props) => {
   }, []);
   const removeItem = async (id?: number) => {
     try {
+      var confirmDelete = confirm('Bạn chắc chắn muốn xóa ?')
+      if(confirmDelete == true){
       const { data } = await axios.delete(
         `http://localhost:3001/category/${id}`
       );
       console.log(data);
-      var confirmDelete = confirm('Bạn chắc chắn muốn xóa ?')
-      if(confirmDelete == true){
-      }else{
+      
         setCategory(category.filter((item) => item._id !== data.category._id));
+      }else{
         return
       }
     } catch (error) {}
