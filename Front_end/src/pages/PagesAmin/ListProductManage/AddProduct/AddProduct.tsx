@@ -22,18 +22,18 @@ const AddProduct = (props: Props) => {
 
   const onSubmit: SubmitHandler<IProduct> = async (product) => {
     try {
-      const formData = new FormData()
-      const fileName = product.image[0].name
-      formData.append('name',fileName)
-      formData.append('image',product.image[0])
-      await axios.post(`http://localhost:3001/uploadFile`,formData)
-      product.image = product.image[0].name
+      const formData = new FormData();
+      const fileName = product.image[0].name;
+      formData.append("name", fileName);
+      formData.append("image", product.image[0]);
+      await axios.post(`http://localhost:3001/uploadFile`, formData);
+      product.image = product.image[0].name;
 
       const { data } = await axios.post(
         `http://localhost:3001/product`,
         product
       );
-      
+
       // console.log("data", data);
       navigate("/admin/product");
     } catch (error) {}
@@ -47,10 +47,10 @@ const AddProduct = (props: Props) => {
         <div className="addProduct">
           <Link
             type="button"
-            to="/admin/addProduct"
+            to="/admin/product"
             className="btn btn-success"
           >
-            Thêm mới
+            Quay lại 
           </Link>
         </div>
       </div>
@@ -64,8 +64,14 @@ const AddProduct = (props: Props) => {
               <input
                 type="text"
                 className="form-control"
-                {...register("productName")}
+                {...register("productName", { required: true,minLength:6 })}
               />
+              {errors.productName && errors.productName.type == "required" && (
+                <p style={{color:"red"}}>Vui lòng nhập tên sản phẩm !</p>
+              )}
+              {errors.productName && errors.productName.type == "minLength" && (
+                <p style={{color:"red"}}>Tên sản phẩm tối thiểu 6 kí tự !</p>
+              )}
             </div>
             <div className="">
               <label className="col-sm-2 col-form-label">Price</label>
@@ -74,8 +80,11 @@ const AddProduct = (props: Props) => {
                 type="text"
                 className="form-control"
                 id=""
-                {...register("price")}
+                {...register("price", { required: true })}
               />
+              {errors.price && errors.price.type == "required" && (
+                <p style={{color:"red"}}>Vui lòng nhập giá sản phẩm !</p>
+              )}
             </div>
             <div className="">
               <label className="col-sm-2 col-form-label">Quantity</label>
@@ -84,8 +93,11 @@ const AddProduct = (props: Props) => {
                 type="text"
                 className="form-control"
                 id=""
-                {...register("quantity")}
+                {...register("quantity", { required: true })}
               />
+              {errors.price && errors.price.type == "required" && (
+                <p style={{color:"red"}}>Vui lòng nhập giá sản phẩm !</p>
+              )}
             </div>
             <div className="">
               <label className="col-sm-2 col-form-label">Image</label>
@@ -93,10 +105,11 @@ const AddProduct = (props: Props) => {
               <input
                 type="file"
                 multiple={false}
-                {...register("image")}
+                {...register("image",{ required: true })}
                 onChange={handleImageChange}
               />
-              {image && <img src={image} width='100' height='100' />}
+              {image && <img src={image} width="100" height="100" />}
+              {errors.image && errors.image.type == "required" && <p style={{color:"red"}}>Vui lòng chọn ảnh </p>}
             </div>
           </div>
           <div className="col-sm-6">
@@ -106,13 +119,14 @@ const AddProduct = (props: Props) => {
               <select
                 className="form-select"
                 aria-label="Default select example"
-                {...register("category")}
+                {...register("category", { required: true })}
               >
                 <option selected></option>
                 <option value="Pizza">Pizza</option>
                 <option value="Bugger">Bugger</option>
                 <option value="Meats">Meats</option>
               </select>
+              {errors.category && errors.category.type == "required" && <p style={{color:"red"}}>Vui lòng chọn danh mục sản phẩm </p>}
             </div>
 
             <div className="">
@@ -121,10 +135,11 @@ const AddProduct = (props: Props) => {
               <textarea
                 className="form-control"
                 id="inputProductName"
-                {...register("description")}
+                {...register("description", { required: true })}
                 cols={10}
                 rows={4}
               />
+              {errors.description && errors.description.type == "required" && <p style={{color:"red"}}>Vui lòng nhập mô tả</p>}
             </div>
           </div>
         </div>

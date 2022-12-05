@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { ICategory } from "../../../../interface/category";
 
 type Props = {};
@@ -40,6 +40,13 @@ const EditCategory = (props: Props) => {
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <Link
+            type="button"
+            to="/admin/category"
+            className="btn btn-success"
+          >
+            Quay lại 
+          </Link>
       <div className="row">
         <div className="col-sm-6">
           <div className="">

@@ -31,10 +31,12 @@ const ConfirmCart = (props: Props) => {
   const onSubmit: SubmitHandler<User> = async (item) => {
     try {
       const { data } = await axios.post(`http://localhost:3001/addOrder`, item);
+
+      navigate("/aboutOrder");
       setLoading(true);
       setTimeout(() => {
         setLoading(false);
-        toast.success("Thanh toán sản phẩm !", {
+        toast.success("Bạn đã đặt hàng thành công !", {
           position: "top-center",
           autoClose: 1100,
           hideProgressBar: false,
@@ -44,9 +46,8 @@ const ConfirmCart = (props: Props) => {
           progress: undefined,
           theme: "dark",
         });
-        navigate("/aboutOrder");
-        localStorage.removeItem('addToCart')
-      }, 3000);
+        localStorage.removeItem("addToCart");
+      }, 500);
     } catch (error) {}
   };
   return (
@@ -69,7 +70,7 @@ const ConfirmCart = (props: Props) => {
                     />
                   </div>
                   <div className="meta-col col-lg-6">
-                    <p className="meta-text " >
+                    <p className="meta-text ">
                       Tên :{item.productName}
                       <br />
                       Số lượng : {item.quantity}

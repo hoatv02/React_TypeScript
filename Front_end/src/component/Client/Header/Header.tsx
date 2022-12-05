@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { IProduct } from "../../../interface/product";
-import { ThemesContext } from "../../../utils/ThemeContext";
 import Profile from "../Profile/Profile";
 type Props = {};
 

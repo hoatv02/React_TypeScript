@@ -15,7 +15,6 @@ const router = express.Router();
 router.get("/product", getProducts);
 router.get("/product/:id", productDetail);
 router.get("/search/:key", FindProduct);
-
 router.post("/product", add)
 router.post("/uploadFile",upload.single("image"),uploadFile)
 router.put("/product/:id",update)

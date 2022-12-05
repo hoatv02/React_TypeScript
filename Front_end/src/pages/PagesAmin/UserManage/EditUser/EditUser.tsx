@@ -47,8 +47,11 @@ const AddUser = (props: Props) => {
             <input
               type="text"
               className="form-control"
-              {...register("userName")}
+              {...register("userName", { required: true })}
             />
+            {errors.userName && errors.userName.type == "required" && (
+              <p style={{ color: "red" }}>Vui lòng nhập tên .</p>
+            )}
           </div>
           <div className="">
             <label className="col-sm-2 col-form-label">Email</label>
@@ -56,8 +59,11 @@ const AddUser = (props: Props) => {
             <input
               type="text"
               className="form-control"
-              {...register("email")}
+              {...register("email", { required: true })}
             />
+            {errors.email && errors.email.type == "required" && (
+              <p style={{ color: "red" }}>Vui lòng nhập email .</p>
+            )}
           </div>
           <div className="">
             <label className="col-sm-2 col-form-label">Phone</label>
@@ -65,8 +71,11 @@ const AddUser = (props: Props) => {
             <input
               type="text"
               className="form-control"
-              {...register("phone")}
+              {...register("phone", { required: true })}
             />
+            {errors.phone && errors.phone.type == "required" && (
+              <p style={{ color: "red" }}>Vui lòng nhập phone .</p>
+            )}
           </div>
           <div className="">
             <label className="col-sm-2 col-form-label">Address</label>
@@ -74,8 +83,11 @@ const AddUser = (props: Props) => {
             <input
               type="text"
               className="form-control"
-              {...register("address")}
+              {...register("address", { required: true })}
             />
+            {errors.address && errors.address.type == "required" && (
+              <p style={{ color: "red" }}>Vui lòng nhập địa chỉ .</p>
+            )}
           </div>
         </div>
       </div>

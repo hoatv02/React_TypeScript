@@ -8,25 +8,22 @@ type Props = {};
 const Login = (props: Props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [ accessToken,setAccessToken] = useState("");
+  const [accessToken, setAccessToken] = useState("");
   const navigate = useNavigate();
   const login = async () => {
     try {
-      const {data} = await axios.post(`http://localhost:3001/signin`,{email,password})
-      console.log(data)
-      // console.log(localStorage.setItem('accessToken',data.accessToken))
-      setAccessToken(data.accessToken)
-      // navigate('/')
-    } catch (error) {
-    }
-  }
-
-  useEffect(() => {
-    if (accessToken) {
-      localStorage.setItem('accessToken',JSON.stringify(accessToken));
-      navigate('/')
-    }
-  }, [accessToken]);
+      const { data } = await axios.post(`http://localhost:3001/signin`, {
+        email,
+        password,
+      });
+      console.log(data);
+      if (data) {
+        localStorage.setItem("accessToken", JSON.stringify(data.accessToken));
+        setAccessToken(data.accessToken);
+        navigate("/");
+      }
+    } catch (error) {}
+  };
   return (
     <div className="bodyLogin">
       <div className="container" id="container">
