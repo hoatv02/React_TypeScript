@@ -34,9 +34,9 @@ const Home = (props: Props) => {
                 marketing ” cùng nạp nguồn năng lượng với Pizza ngon. Chớp Deal
                 ngay, đừng bỏ lỡ !
               </p>
-              <a href="" className="orderNowHome">
+              <Link to="/product" className="orderNowHome">
                 Order Now
-              </a>
+              </Link>
             </div>
           </div>
           <div className="carousel-item" data-bs-interval="8000">
@@ -52,9 +52,9 @@ const Home = (props: Props) => {
                 giá! Không cần đi xa, chỉ cần ngồi nhà gọi Pizza, là có Pizza
                 nóng-giòn ăn thả gaaaaaaa!!
               </p>
-              <a href="" className="orderNowHome">
+              <Link to="/product" className="orderNowHome">
                 Order Now
-              </a>
+              </Link>
             </div>
           </div>
           <div className="carousel-item">
@@ -74,9 +74,9 @@ const Home = (props: Props) => {
                 đúng thì khách sẽ phải hoàn trả đầy đủ số tiền chiếc bánh mà
                 mình đã ăn cho Store .
               </p>
-              <a href="" className="orderNowHome">
+              <Link to="/product" className="orderNowHome">
                 Order Now
-              </a>
+              </Link>
             </div>
           </div>
         </div>

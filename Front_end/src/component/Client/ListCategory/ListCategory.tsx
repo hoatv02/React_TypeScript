@@ -9,14 +9,19 @@ const ListCategory = (props: Props) => {
   const setCategoryName = useCategoryStore(
     (state: any) => state.setCategoryName
   );
+
   useEffect(() => {
     (async () => {
       const { data } = await axios.get(`http://localhost:3001/category`);
       setCategory(data.data);
     })();
   }, []);
+ 
   return (
     <ul className="filters_menu">
+      <li className="active"  onClick={() => setCategoryName('')}>
+        ALL
+      </li>
       {category.map((item, index) => {
         return (
           <li

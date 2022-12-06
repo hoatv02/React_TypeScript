@@ -20,11 +20,11 @@ const InfoUser = (props: Props) => {
         setLoading(true);
         setTimeout(() => {
           setLoading(false);
-        }, 1000);
+        }, 500);
       } catch (error) {}
     })();
   }, []);
-  const removeItem = async (id?: number) => {
+  const removeItem = async (id: string) => {
     try {
       const { data } = await axios.delete(
         `http://localhost:3001/deleteOrder/${id}`

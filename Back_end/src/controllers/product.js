@@ -111,7 +111,8 @@ export const FindProduct = async (req, res) => {
         const data = await Product.find({
             "$or": [
                 {
-                    productName: { $regex: key },
+                    productName: { $regex: key ,$options : "i"},
+                    
                 }
             ]
         })
