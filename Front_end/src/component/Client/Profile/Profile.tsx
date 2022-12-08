@@ -93,7 +93,9 @@ export default function Profile() {
         </Link>
         <Divider />
         <MenuItem>Add another account</MenuItem>
-        <MenuItem>Settings</MenuItem>
+        <Link to="/admin/">
+          <MenuItem>Admin</MenuItem>
+        </Link>
         <MenuItem onClick={removeAccessToken}>Logout</MenuItem>
       </Menu>
     </React.Fragment>

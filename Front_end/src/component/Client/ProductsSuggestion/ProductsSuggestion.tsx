@@ -15,7 +15,7 @@ const ProductsSuggestion = (props: Props) => {
             <div className="row">
               <div className="col-6">
                 <div className="comment_detail">
-                  <h5>Hãy nêu ý kiến của bạn về sản phẩm ? </h5>
+                  <h5>Hãy nêu ý kiến của bạn về sản phẩm? </h5>
                 </div>
               </div>
             </div>
@@ -43,27 +43,27 @@ const ProductsSuggestion = (props: Props) => {
         <div className="row">
           <div className="col-lg-4 listProductDetail_comment">
           <img
-            src="https://scontent.fhan5-1.fna.fbcdn.net/v/t39.30808-6/318218750_6855264907852704_7346251176104172439_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=730e14&_nc_ohc=0xRdJoXQL5MAX_WQEzm&_nc_ht=scontent.fhan5-1.fna&oh=00_AfDO5E0SHrX5I_NnnOlBzlB_zGP_ub2TOqZjfWxs8Pnt-Q&oe=638F701C"
+            src="http://www.cuisineetsentiments.com/images/hamburger_3.jpg"
             alt=""
           />
-          <h5>Title</h5>
-          <p>Hãy nêu ý kiến của bạn về sản phẩm ?</p>
+          <h5>Pizza Express</h5>
+          <p>We know where the hamburger menu gets its name from but not all menu icons have to be the same. </p>
           </div>
           <div className="col-lg-4 listProductDetail_comment">
           <img
-            src="https://scontent.fhan5-1.fna.fbcdn.net/v/t39.30808-6/318218750_6855264907852704_7346251176104172439_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=730e14&_nc_ohc=0xRdJoXQL5MAX_WQEzm&_nc_ht=scontent.fhan5-1.fna&oh=00_AfDO5E0SHrX5I_NnnOlBzlB_zGP_ub2TOqZjfWxs8Pnt-Q&oe=638F701C"
+            src="https://ilfattoalimentare.it/wp-content/uploads/2015/06/Fotolia_56254409_Subscription_Monthly_M.jpg"
             alt=""
           />
-          <h5>Title</h5>
-          <p>Hãy nêu ý kiến của bạn về sản phẩm ?</p>
+          <h5>Humberguer</h5>
+          <p>We know where the hamburger menu gets its name from but not all menu icons have to be the same. </p>
           </div>
           <div className="col-lg-4 listProductDetail_comment">
           <img
-            src="https://scontent.fhan5-1.fna.fbcdn.net/v/t39.30808-6/318218750_6855264907852704_7346251176104172439_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=730e14&_nc_ohc=0xRdJoXQL5MAX_WQEzm&_nc_ht=scontent.fhan5-1.fna&oh=00_AfDO5E0SHrX5I_NnnOlBzlB_zGP_ub2TOqZjfWxs8Pnt-Q&oe=638F701C"
+            src="http://upload.wikimedia.org/wikipedia/commons/6/62/NCI_Visuals_Food_Hamburger.jpg"
             alt=""
           />
-          <h5>Title</h5>
-          <p>Hãy nêu ý kiến của bạn về sản phẩm ?</p>
+          <h5>Humberguer Mui</h5>
+          <p>We know where the hamburger menu gets its name from but not all menu icons have to be the same. </p>
           </div>  
         </div>
       </div>

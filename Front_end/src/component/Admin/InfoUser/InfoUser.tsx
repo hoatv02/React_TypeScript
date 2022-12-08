@@ -51,9 +51,9 @@ const InfoUser = (props: Props) => {
                 <div className="info_line"></div>
                 <div className="container_info_content">
                   <p>Name : {item.userName} </p>
-                  <p>Email : {item.email} </p>
                   <p>Phone : {item.phone}</p>
                   <p>Address : {item.address}</p>
+                  <p>Note : {item.note} </p>
                 </div>
                 <div className="info_line"></div>
 

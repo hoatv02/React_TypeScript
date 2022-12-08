@@ -10,11 +10,15 @@
 	/* 150px; */
 }
 .listProductDetail_comment{
+	/* border: 1px solid #000; */
+	/* margin:10px; */
 }
 .listProductDetail_comment img{
     margin: 30px 0;
     width: 200px;
-    height: 200px
+	border-radius: 10px;
+    height: 180px;
+	box-shadow:1px 3px 6px;
 }
 .comment_detail {
 	display: block;

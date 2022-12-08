@@ -16,7 +16,7 @@ const NavbarTop = (props: Props) => {
                 <a className="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false"><i className="fas fa-user fa-fw"></i></a>
                 <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a className="dropdown-item" href="#!">Settings</a></li>
+                    <li><Link className="dropdown-item" to="/">Client</Link></li>
                     <li><a className="dropdown-item" href="#!">Activity Log</a></li>
                     <li>
                         <hr className="dropdown-divider" />

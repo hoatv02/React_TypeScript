@@ -65,7 +65,7 @@ const UserManage = (props: Props) => {
                       <tr key={index}>
                         <td>{index + 1}</td>
                         <td>{item.userName}</td>
-                        <td>{item.email}</td>
+                        {/* <td>{item.email}</td> */}
                         <td>{item.phone}</td>
                         <td>{item.address}</td>
                       </tr>

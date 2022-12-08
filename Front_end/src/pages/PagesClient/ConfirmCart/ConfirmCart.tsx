@@ -33,21 +33,6 @@ const ConfirmCart = (props: Props) => {
       const { data } = await axios.post(`http://localhost:3001/addOrder`, item);
       localStorage.setItem("infoUserOrder", JSON.stringify(data));
       navigate("/pay");
-      // setLoading(true);
-      // setTimeout(() => {
-      //   setLoading(false);
-      //   toast.success("Bạn đã đặt hàng thành công !", {
-      //     position: "top-center",
-      //     autoClose: 1100,
-      //     hideProgressBar: false,
-      //     closeOnClick: true,
-      //     pauseOnHover: true,
-      //     draggable: true,
-      //     progress: undefined,
-      //     theme: "dark",
-      //   });
-      // }, 500);
-      // localStorage.removeItem("addToCart");
     } catch (error) {}
   };
   return (
