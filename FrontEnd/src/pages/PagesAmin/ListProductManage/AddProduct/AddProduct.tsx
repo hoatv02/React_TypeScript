@@ -16,7 +16,7 @@ const AddProduct = (props: Props) => {
     formState: { errors },
   } = useForm<IProduct>();
 
-  const handleImageChange = function (e: React.ChangeEvent<HTMLInputElement>) {
+  const handleImageChange = function (e: any) {
     setImage(URL.createObjectURL(e.target.files[0]));
   };
 

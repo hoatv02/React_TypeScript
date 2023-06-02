@@ -2,7 +2,6 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import InfoUser from "../../component/Admin/InfoUser/InfoUser";
 import LayoutAdmin from "../../layout/LayoutAdmin/LayoutAdmin";
-import Dashboard from "../../pages/PagesAmin/ListCategoryManage/Dashboard/Dashboard";
 import AddCategory from "../../pages/PagesAmin/ListCategoryManage/AddCategory/AddCategory";
 import EditCategory from "../../pages/PagesAmin/ListCategoryManage/EditCategory/EditCategory";
 import ListCategoryManage from "../../pages/PagesAmin/ListCategoryManage/ListCategoryManage";

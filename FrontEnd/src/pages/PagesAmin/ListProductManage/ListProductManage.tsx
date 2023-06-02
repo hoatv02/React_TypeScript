@@ -53,7 +53,7 @@ const ListProductManage = (props: Props) => {
   //   })();
   // }, []);
 
-  const removeItem = async (id?: number) => {
+  const removeItem = async (id?: any) => {
     try {
       var confirmDelete = confirm("Bạn chắc chắn muốn xóa ?");
 
@@ -125,7 +125,7 @@ const ListProductManage = (props: Props) => {
                 <BeatLoader color="#36d7b7" />
               ) : (
                 <tbody>
-                  {product.map((item, index) => {
+                  {product.map((item:any, index) => {
                     return (
                       <tr key={index}>
                         <td>{index + 1}</td>

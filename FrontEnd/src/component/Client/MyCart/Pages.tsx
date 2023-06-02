@@ -3,10 +3,10 @@ import {useEffect,useState} from 'react'
 import axios from "axios";
 const items = [...Array(33).keys()];
 
-function Items({ currentItems }) {
+function Items({ currentItems }:any) {
   return (
     <div className="items">
-    {currentItems && currentItems.map((item) => (
+    {currentItems && currentItems.map((item:any) => (
       <div>
         <h3>Item #{item}</h3>
       </div>
@@ -15,19 +15,18 @@ function Items({ currentItems }) {
   );
 }
 
-function PaginatedItems({ itemsPerPage }) {
-  const [currentItems, setCurrentItems] = useState(null);
+function PaginatedItems({ itemsPerPage }:any) {
+  const [currentItems, setCurrentItems] = useState<any>();
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
-    console.log(`Loading items from ${itemOffset} to ${endOffset}`);
     setCurrentItems(items.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(items.length / itemsPerPage));
   }, [itemOffset, itemsPerPage]);
 
   // Invoke when user click to request another page.
-  const handlePageClick = (event) => {
+  const handlePageClick = (event:any) => {
     const newOffset = event.selected * itemsPerPage % items.length;
     console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`);
     setItemOffset(newOffset);
@@ -54,7 +53,7 @@ function PaginatedItems({ itemsPerPage }) {
         breakLinkClassName="page-link"
         containerClassName="pagination"
         activeClassName="active"
-        renderOnZeroPageCount={null}
+        // renderOnZeroPageCount={null}
       />
     </>
   );
